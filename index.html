@@ -234,36 +234,51 @@
       <h2 class="product-title" data-reveal>Fawn — instant transfers, built for campus life.</h2>
       <p class="product-tagline" data-reveal>Send money instantly by username, save automatically, and unlock student and merchant perks.</p>
 
+      <div class="race-demo" data-reveal>
+        <button class="race-send-btn" id="race-send-btn" type="button">Send $50 — race a bank transfer ↻</button>
+        <div class="race-lane">
+          <span class="race-lane-label">Fawn</span>
+          <div class="race-track"><div class="race-fill fawn" id="race-fill-fawn"></div></div>
+          <span class="race-status" id="race-status-fawn">ready</span>
+        </div>
+        <div class="race-lane">
+          <span class="race-lane-label">Bank ACH</span>
+          <div class="race-track"><div class="race-fill bank" id="race-fill-bank"></div></div>
+          <span class="race-status" id="race-status-bank">ready</span>
+        </div>
+        <p class="race-note">Fawn moves the $50 the moment you hit send. The bank lane plays out a standard 3-business-day ACH hold in real time — watch the clock, not a promise.</p>
+      </div>
+
       <div class="feature-grid" data-reveal>
         <button class="feature-card" type="button" aria-expanded="false">
           <h4>Instant transfers <span class="feature-plus">+</span></h4>
           <p>Send to any Fawn username in seconds, fee shown up front.</p>
-          <p class="feature-detail">No routing numbers, no waiting three business days — money moves the moment you hit send.</p>
+          <p class="feature-detail">No routing numbers. No three-day wait.</p>
         </button>
         <button class="feature-card" type="button" aria-expanded="false">
           <h4>Campus Savings <span class="feature-plus">+</span></h4>
           <p>Automated savings tuned to student spending patterns.</p>
-          <p class="feature-detail">Round-ups and rule-based transfers that fit a semester budget, not a 9-to-5 paycheck.</p>
+          <p class="feature-detail">Round-ups and rules built for a semester budget.</p>
         </button>
         <button class="feature-card" type="button" aria-expanded="false">
           <h4>Student Perks <span class="feature-plus">+</span></h4>
           <p>Discounts tied to your school and verified student status.</p>
-          <p class="feature-detail">Verification runs once — after that, perks apply automatically at checkout.</p>
+          <p class="feature-detail">Verify once. Perks apply automatically after that.</p>
         </button>
         <button class="feature-card" type="button" aria-expanded="false">
           <h4>Military &amp; Veterans <span class="feature-plus">+</span></h4>
           <p>Terms built around military pay schedules and deployment.</p>
-          <p class="feature-detail">Deployment-aware holds and pay-cycle timing instead of standard civilian billing assumptions.</p>
+          <p class="feature-detail">Deployment-aware holds, not civilian billing assumptions.</p>
         </button>
         <button class="feature-card" type="button" aria-expanded="false">
           <h4>Merchant tools <span class="feature-plus">+</span></h4>
           <p>Accept payments with a phone as the terminal.</p>
-          <p class="feature-detail">No extra hardware — a phone camera and the Fawn app are the whole point-of-sale setup.</p>
+          <p class="feature-detail">No extra hardware — the phone is the terminal.</p>
         </button>
         <button class="feature-card" type="button" aria-expanded="false">
           <h4>Investing <span class="feature-plus">+</span></h4>
           <p>Fractional-share investing, same balance you spend from.</p>
-          <p class="feature-detail">No separate brokerage transfer — invest straight out of the balance you already have.</p>
+          <p class="feature-detail">No brokerage transfer. Invest from the balance you already have.</p>
         </button>
       </div>
 
@@ -294,41 +309,56 @@
       <h2 class="product-title" data-reveal>Functioning Faith — scripture in motion.</h2>
       <p class="product-tagline" data-reveal>Real GPS runs, real heart-rate pairing, and scripture chosen for the moment you're actually in.</p>
 
+      <div class="zone-demo" data-reveal>
+        <div class="zone-buttons" id="zone-buttons">
+          <button class="zone-btn active" type="button" data-zone="easy">Easy<span class="zone-bpm">110–130 bpm</span></button>
+          <button class="zone-btn" type="button" data-zone="steady">Steady<span class="zone-bpm">130–150 bpm</span></button>
+          <button class="zone-btn" type="button" data-zone="threshold">Threshold<span class="zone-bpm">150–170 bpm</span></button>
+          <button class="zone-btn" type="button" data-zone="max">Max<span class="zone-bpm">170+ bpm</span></button>
+        </div>
+        <div class="zone-readout">
+          <span class="zone-readout-zone" id="zone-readout-zone">Easy zone</span>
+          <p class="zone-readout-verse" id="zone-readout-verse">"Be still, and know that I am God."</p>
+          <span class="zone-readout-ref" id="zone-readout-ref">Psalm 46:10</span>
+          <p class="zone-readout-why" id="zone-readout-why">Low heart rate, warm-up pace — scripture leans toward stillness and presence.</p>
+        </div>
+      </div>
+
       <div class="feature-grid" data-reveal>
         <button class="feature-card" type="button" aria-expanded="false">
           <h4>Real activity tracking <span class="feature-plus">+</span></h4>
           <p>GPS tracking, Bluetooth heart-rate pairing, 15 activity types, a full analytics dashboard.</p>
-          <p class="feature-detail">Heart-rate zones feed directly into which scripture gets surfaced mid-workout — the tracking isn't cosmetic.</p>
+          <p class="feature-detail">Heart-rate zone drives which verse shows up mid-run.</p>
         </button>
         <button class="feature-card" type="button" aria-expanded="false">
           <h4>Themed challenges <span class="feature-plus">+</span></h4>
           <p>Frodo's Sprint, The Emmaus Road, Jericho Seven, Gideon's 300 — auto-tracked distance goals.</p>
-          <p class="feature-detail">Each challenge maps a real distance or interval pattern onto a story, tracked automatically as you move.</p>
+          <p class="feature-detail">Real distance, mapped onto a story, tracked as you move.</p>
         </button>
         <button class="feature-card" type="button" aria-expanded="false">
           <h4>8,900+ verses, verified <span class="feature-plus">+</span></h4>
           <p>Public-domain, word-for-word verified, full-text search.</p>
-          <p class="feature-detail">Every verse is checked against source text before it's eligible to be surfaced — nothing paraphrased.</p>
+          <p class="feature-detail">Checked against source text. Nothing paraphrased.</p>
         </button>
         <button class="feature-card" type="button" aria-expanded="false">
           <h4>Church discovery <span class="feature-plus">+</span></h4>
           <p>Location-based search, plus devotionals from your church's own channel.</p>
-          <p class="feature-detail">Churches can publish their own devotional content directly into the feed their members already use.</p>
+          <p class="feature-detail">Churches publish devotionals straight into the feed.</p>
         </button>
         <button class="feature-card" type="button" aria-expanded="false">
           <h4>Community <span class="feature-plus">+</span></h4>
           <p>Feed, workout partners, group runs, weekly leaderboards.</p>
-          <p class="feature-detail">Leaderboards reset weekly so it stays about showing up, not a permanent ranking.</p>
+          <p class="feature-detail">Resets weekly — about showing up, not ranking forever.</p>
         </button>
         <button class="feature-card" type="button" aria-expanded="false">
           <h4>Strava sync <span class="feature-plus">+</span></h4>
           <p>Garmin, Apple Watch, COROS and Wahoo sync through it too.</p>
-          <p class="feature-detail">Existing workout history imports on connect — no need to start your training log over.</p>
+          <p class="feature-detail">History imports on connect. No fresh start needed.</p>
         </button>
         <button class="feature-card" type="button" aria-expanded="false">
           <h4>Native iOS &amp; Android <span class="feature-plus">+</span></h4>
           <p>A real Capacitor app shell, with Apple Health and Google Health Connect integration built in.</p>
-          <p class="feature-detail">Workouts, heart rate, distance, and calories sync straight from your phone's own health store — no separate wearable required. Currently in pre-submission testing, not yet on the App Store or Play Store.</p>
+          <p class="feature-detail">Syncs from your phone's own health store — no wearable required. Pre-submission testing now.</p>
         </button>
       </div>
 
