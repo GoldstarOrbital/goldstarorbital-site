@@ -14,13 +14,12 @@
 </head>
 <body>
 
-<div id="starfield" aria-hidden="true"></div>
-
 <header class="nav">
   <div class="nav-inner">
     <a href="#top" class="brand"><img src="assets/nav-mark.png" alt="" class="brand-mark">Goldstar Orbital</a>
     <nav>
       <ul class="navlinks">
+        <li><a href="#overview">Overview</a></li>
         <li><a href="#architecture">Architecture</a></li>
         <li><a href="#compression">Compression</a></li>
         <li><a href="#fawn">Fawn</a></li>
@@ -38,14 +37,45 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero" style="border-bottom:1px solid var(--border); padding-bottom: 88px;">
+    <div id="starfield" aria-hidden="true"></div>
     <img src="assets/logo-full-800.png" alt="" class="hero-watermark" aria-hidden="true">
     <div class="wrap">
       <span class="eyebrow">Patent Pending · Priority Date May 22, 2026 · Open Architecture Release, June 2026</span>
-      <h1 class="headline">A Mars-first orbital<br><span class="accent">photonic data system.</span></h1>
-      <p class="subhead">A Mars-first orbital data and terraforming system: satellites that store data as circulating light instead of on drives, powered by radioisotope generators instead of solar.</p>
+      <h1 class="headline">Three products.<br><span class="accent">One team.</span></h1>
+      <p class="subhead">Goldstar Orbital builds orbital data infrastructure — and the team behind it ships real, working products today: a campus payments app and a faith-based fitness app, alongside the orbital architecture itself.</p>
       <div class="hero-ctas">
-        <a href="#architecture" class="btn btn-primary">See the architecture</a>
-        <a href="#fawn" class="btn btn-ghost">See what we've shipped</a>
+        <a href="#overview" class="btn btn-primary">See what we've built</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OVERVIEW ============ -->
+  <section id="overview" style="padding: 72px 0;">
+    <div class="wrap">
+      <p class="section-tag">What we've built</p>
+      <h2 class="section-title">Three projects, equally real.</h2>
+      <p class="section-lede">Click any card to jump straight to it.</p>
+
+      <div class="overview-grid" data-reveal>
+        <a href="#architecture" class="overview-card overview-goldstar">
+          <span class="overview-mark"><img src="assets/nav-mark.png" alt=""></span>
+          <h3>Goldstar Orbital</h3>
+          <p>Orbital photonic data architecture, patent pending. In development.</p>
+          <span class="overview-link">See the architecture →</span>
+        </a>
+        <a href="#fawn" class="overview-card overview-fawn">
+          <span class="overview-mark"><img src="assets/fawn-quarter.svg" alt=""></span>
+          <h3>Fawn</h3>
+          <p>Instant transfers and banking, built for campus life. Live today.</p>
+          <span class="overview-link">See Fawn →</span>
+        </a>
+        <a href="#faith" class="overview-card overview-faith">
+          <span class="overview-mark"><img src="assets/faith-icon.svg" alt=""></span>
+          <h3>Functioning Faith</h3>
+          <p>Real activity tracking with scripture chosen for the moment. Live today.</p>
+          <span class="overview-link">See Functioning Faith →</span>
+        </a>
       </div>
     </div>
   </section>
@@ -107,27 +137,34 @@
         <p>~10,000,000 kg of O₂/day — atmospheric oxygen on a 10–50 year timescale instead of a geological one. One constellation, two functions, running on RTG power.</p>
       </div>
 
-      <div class="nvidia-note" data-reveal style="margin-top:40px;">
-        <p><strong style="color:var(--gold);">Why this is a compute story, not just storage:</strong> the controller satellites carry a photonic GPU — light-speed matrix operations at 1–10 femtojoules per operation, versus ~200,000 for an NVIDIA H100. H100-class silicon is still the peak of electronic compute; orbital vacuum is what lets photonic hardware finally use its physics advantage.</p>
-      </div>
+      <button class="deepdive-toggle" id="deepdive-toggle" aria-expanded="false" aria-controls="deepdive-content">
+        <span>Technical deep-dive — compute comparison &amp; patent family</span>
+        <span class="chev">▾</span>
+      </button>
+      <div class="deepdive-content" id="deepdive-content" hidden>
 
-      <table class="compare-table" data-reveal>
-        <thead><tr><th>Metric</th><th>Photonic GPU (orbital)</th><th>Electronic GPU (H100)</th></tr></thead>
-        <tbody>
-          <tr><td class="metric">Energy per MAC operation</td><td class="win">1–10 femtojoules</td><td class="dim">~200,000 femtojoules</td></tr>
-          <tr><td class="metric">Thermal constraints</td><td class="win">Near zero (orbital vacuum)</td><td class="dim">Severe — requires active cooling</td></tr>
-          <tr><td class="metric">Node / card lifetime</td><td class="win">50–100 years (Pu-238 RTG)</td><td class="dim">3–5 year refresh cycle</td></tr>
-          <tr><td class="metric">Phase stability</td><td class="win">Millikelvin variation</td><td class="dim">Requires active thermal management</td></tr>
-        </tbody>
-      </table>
+        <div class="nvidia-note" data-reveal>
+          <p><strong style="color:var(--gold);">Why this is a compute story, not just storage:</strong> the controller satellites carry a photonic GPU — light-speed matrix operations at 1–10 femtojoules per operation, versus ~200,000 for an NVIDIA H100. H100-class silicon is still the peak of electronic compute; orbital vacuum is what lets photonic hardware finally use its physics advantage.</p>
+        </div>
 
-      <h3 style="font-size:19px; margin-bottom:16px;">Patent family</h3>
-      <div class="patent-list" data-reveal>
-        <div class="patent-row"><span class="pnum">Patent 1</span><span class="ptitle">Photonic Orbital Data Storage, Non-Binary Encoding, and Multi-Symbol Energy-State Communication System</span><span class="pstatus">FILED · MAY 22, 2026</span></div>
-        <div class="patent-row"><span class="pnum">Patent 2</span><span class="ptitle">Orbital Photonic Compute-Memory System with Vacuum-Enabled Interferometric Performance &amp; Radioisotope-Sustained Storage</span><span class="pstatus">FILED</span></div>
-        <div class="patent-row"><span class="pnum">Patent 3A</span><span class="ptitle">Photon-Driven Artificial Photosynthetic Process for Planetary Atmosphere Generation</span><span class="pstatus">PLANNED</span></div>
-        <div class="patent-row"><span class="pnum">Patent 3B</span><span class="ptitle">Orbital Photonic GPU Real-Time Wavelength Optimization System for Photosynthetic Reaction Control</span><span class="pstatus">PLANNED — KEYSTONE</span></div>
-        <div class="patent-row"><span class="pnum">Patent 3C</span><span class="ptitle">Integrated Orbital Photonic Data and Planetary Atmosphere Generation System</span><span class="pstatus">PLANNED</span></div>
+        <table class="compare-table" data-reveal>
+          <thead><tr><th>Metric</th><th>Photonic GPU (orbital)</th><th>Electronic GPU (H100)</th></tr></thead>
+          <tbody>
+            <tr><td class="metric">Energy per MAC operation</td><td class="win">1–10 femtojoules</td><td class="dim">~200,000 femtojoules</td></tr>
+            <tr><td class="metric">Thermal constraints</td><td class="win">Near zero (orbital vacuum)</td><td class="dim">Severe — requires active cooling</td></tr>
+            <tr><td class="metric">Node / card lifetime</td><td class="win">50–100 years (Pu-238 RTG)</td><td class="dim">3–5 year refresh cycle</td></tr>
+            <tr><td class="metric">Phase stability</td><td class="win">Millikelvin variation</td><td class="dim">Requires active thermal management</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:19px; margin-bottom:16px;">Patent family</h3>
+        <div class="patent-list" data-reveal>
+          <div class="patent-row"><span class="pnum">Patent 1</span><span class="ptitle">Photonic Orbital Data Storage, Non-Binary Encoding, and Multi-Symbol Energy-State Communication System</span><span class="pstatus">FILED · MAY 22, 2026</span></div>
+          <div class="patent-row"><span class="pnum">Patent 2</span><span class="ptitle">Orbital Photonic Compute-Memory System with Vacuum-Enabled Interferometric Performance &amp; Radioisotope-Sustained Storage</span><span class="pstatus">FILED</span></div>
+          <div class="patent-row"><span class="pnum">Patent 3A</span><span class="ptitle">Photon-Driven Artificial Photosynthetic Process for Planetary Atmosphere Generation</span><span class="pstatus">PLANNED</span></div>
+          <div class="patent-row"><span class="pnum">Patent 3B</span><span class="ptitle">Orbital Photonic GPU Real-Time Wavelength Optimization System for Photosynthetic Reaction Control</span><span class="pstatus">PLANNED — KEYSTONE</span></div>
+          <div class="patent-row"><span class="pnum">Patent 3C</span><span class="ptitle">Integrated Orbital Photonic Data and Planetary Atmosphere Generation System</span><span class="pstatus">PLANNED</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -198,30 +235,36 @@
       <p class="product-tagline" data-reveal>Send money instantly by username, save automatically, and unlock student and merchant perks.</p>
 
       <div class="feature-grid" data-reveal>
-        <div class="feature-card">
-          <h4>Instant transfers</h4>
+        <button class="feature-card" type="button" aria-expanded="false">
+          <h4>Instant transfers <span class="feature-plus">+</span></h4>
           <p>Send to any Fawn username in seconds, fee shown up front.</p>
-        </div>
-        <div class="feature-card">
-          <h4>Campus Savings</h4>
+          <p class="feature-detail">No routing numbers, no waiting three business days — money moves the moment you hit send.</p>
+        </button>
+        <button class="feature-card" type="button" aria-expanded="false">
+          <h4>Campus Savings <span class="feature-plus">+</span></h4>
           <p>Automated savings tuned to student spending patterns.</p>
-        </div>
-        <div class="feature-card">
-          <h4>Student Perks</h4>
+          <p class="feature-detail">Round-ups and rule-based transfers that fit a semester budget, not a 9-to-5 paycheck.</p>
+        </button>
+        <button class="feature-card" type="button" aria-expanded="false">
+          <h4>Student Perks <span class="feature-plus">+</span></h4>
           <p>Discounts tied to your school and verified student status.</p>
-        </div>
-        <div class="feature-card">
-          <h4>Military &amp; Veterans</h4>
+          <p class="feature-detail">Verification runs once — after that, perks apply automatically at checkout.</p>
+        </button>
+        <button class="feature-card" type="button" aria-expanded="false">
+          <h4>Military &amp; Veterans <span class="feature-plus">+</span></h4>
           <p>Terms built around military pay schedules and deployment.</p>
-        </div>
-        <div class="feature-card">
-          <h4>Merchant tools</h4>
+          <p class="feature-detail">Deployment-aware holds and pay-cycle timing instead of standard civilian billing assumptions.</p>
+        </button>
+        <button class="feature-card" type="button" aria-expanded="false">
+          <h4>Merchant tools <span class="feature-plus">+</span></h4>
           <p>Accept payments with a phone as the terminal.</p>
-        </div>
-        <div class="feature-card">
-          <h4>Investing</h4>
+          <p class="feature-detail">No extra hardware — a phone camera and the Fawn app are the whole point-of-sale setup.</p>
+        </button>
+        <button class="feature-card" type="button" aria-expanded="false">
+          <h4>Investing <span class="feature-plus">+</span></h4>
           <p>Fractional-share investing, same balance you spend from.</p>
-        </div>
+          <p class="feature-detail">No separate brokerage transfer — invest straight out of the balance you already have.</p>
+        </button>
       </div>
 
       <div class="stack-row" data-reveal>
@@ -252,30 +295,36 @@
       <p class="product-tagline" data-reveal>Real GPS runs, real heart-rate pairing, and scripture chosen for the moment you're actually in.</p>
 
       <div class="feature-grid" data-reveal>
-        <div class="feature-card">
-          <h4>Real activity tracking</h4>
+        <button class="feature-card" type="button" aria-expanded="false">
+          <h4>Real activity tracking <span class="feature-plus">+</span></h4>
           <p>GPS tracking, Bluetooth heart-rate pairing, 15 activity types, a full analytics dashboard.</p>
-        </div>
-        <div class="feature-card">
-          <h4>Themed challenges</h4>
+          <p class="feature-detail">Heart-rate zones feed directly into which scripture gets surfaced mid-workout — the tracking isn't cosmetic.</p>
+        </button>
+        <button class="feature-card" type="button" aria-expanded="false">
+          <h4>Themed challenges <span class="feature-plus">+</span></h4>
           <p>Frodo's Sprint, The Emmaus Road, Jericho Seven, Gideon's 300 — auto-tracked distance goals.</p>
-        </div>
-        <div class="feature-card">
-          <h4>8,900+ verses, verified</h4>
+          <p class="feature-detail">Each challenge maps a real distance or interval pattern onto a story, tracked automatically as you move.</p>
+        </button>
+        <button class="feature-card" type="button" aria-expanded="false">
+          <h4>8,900+ verses, verified <span class="feature-plus">+</span></h4>
           <p>Public-domain, word-for-word verified, full-text search.</p>
-        </div>
-        <div class="feature-card">
-          <h4>Church discovery</h4>
+          <p class="feature-detail">Every verse is checked against source text before it's eligible to be surfaced — nothing paraphrased.</p>
+        </button>
+        <button class="feature-card" type="button" aria-expanded="false">
+          <h4>Church discovery <span class="feature-plus">+</span></h4>
           <p>Location-based search, plus devotionals from your church's own channel.</p>
-        </div>
-        <div class="feature-card">
-          <h4>Community</h4>
+          <p class="feature-detail">Churches can publish their own devotional content directly into the feed their members already use.</p>
+        </button>
+        <button class="feature-card" type="button" aria-expanded="false">
+          <h4>Community <span class="feature-plus">+</span></h4>
           <p>Feed, workout partners, group runs, weekly leaderboards.</p>
-        </div>
-        <div class="feature-card">
-          <h4>Strava sync</h4>
+          <p class="feature-detail">Leaderboards reset weekly so it stays about showing up, not a permanent ranking.</p>
+        </button>
+        <button class="feature-card" type="button" aria-expanded="false">
+          <h4>Strava sync <span class="feature-plus">+</span></h4>
           <p>Garmin, Apple Watch, COROS and Wahoo sync through it too.</p>
-        </div>
+          <p class="feature-detail">Existing workout history imports on connect — no need to start your training log over.</p>
+        </button>
       </div>
 
       <div class="ai-highlight" data-reveal>
@@ -361,6 +410,7 @@
   <div class="wrap">
     <span class="brand" style="color:var(--gold); font-family:'JetBrains Mono',monospace; letter-spacing:0.1em;">GOLDSTAR ORBITAL</span>
     <div class="footlinks">
+      <a href="#overview">Overview</a>
       <a href="#architecture">Architecture</a>
       <a href="#compression">Compression</a>
       <a href="#fawn">Fawn</a>

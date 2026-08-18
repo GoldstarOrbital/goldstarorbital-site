@@ -3,20 +3,20 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ---------- Starfield background ---------- */
+  /* ---------- Starfield background (subtle, hero-only) ---------- */
   (function starfield() {
     const root = document.getElementById('starfield');
     if (!root) return;
     function makeLayer(count, sizeRange, className) {
       const layer = document.createElement('div');
       layer.className = 'layer ' + className;
-      const w = window.innerWidth + 100, h = window.innerHeight + 100;
+      const w = root.parentElement.offsetWidth + 100, h = root.parentElement.offsetHeight + 100;
       let shadows = [];
       for (let i = 0; i < count; i++) {
         const x = Math.floor(Math.random() * w);
         const y = Math.floor(Math.random() * h);
         const s = (Math.random() * (sizeRange[1] - sizeRange[0]) + sizeRange[0]).toFixed(1);
-        shadows.push(`${x}px ${y}px 0 ${s}px rgba(232,230,223,${(Math.random()*0.5+0.3).toFixed(2)})`);
+        shadows.push(`${x}px ${y}px 0 ${s}px rgba(232,230,223,${(Math.random()*0.4+0.2).toFixed(2)})`);
       }
       layer.style.width = '2px';
       layer.style.height = '2px';
@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
       layer.style.background = 'transparent';
       root.appendChild(layer);
     }
-    makeLayer(90, [0, 0.6], 'layer-1');
-    makeLayer(50, [0, 0.4], 'layer-2');
+    makeLayer(36, [0, 0.5], 'layer-1');
+    makeLayer(20, [0, 0.35], 'layer-2');
   })();
 
   /* ---------- Mobile nav toggle ---------- */
@@ -87,6 +87,28 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = btn.dataset.phase;
       phaseButtons.forEach(b => b.classList.toggle('active', b === btn));
       phasePanels.forEach(p => p.classList.toggle('active', p.dataset.phase === target));
+    });
+  });
+
+  /* ---------- Technical deep-dive toggle ---------- */
+  const deepdiveToggle = document.getElementById('deepdive-toggle');
+  const deepdiveContent = document.getElementById('deepdive-content');
+  if (deepdiveToggle && deepdiveContent) {
+    deepdiveToggle.addEventListener('click', () => {
+      const open = deepdiveToggle.getAttribute('aria-expanded') === 'true';
+      deepdiveToggle.setAttribute('aria-expanded', String(!open));
+      deepdiveContent.hidden = open;
+      if (!open) {
+        deepdiveContent.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('is-visible'));
+      }
+    });
+  }
+
+  /* ---------- Expandable feature cards (Fawn / Functioning Faith) ---------- */
+  document.querySelectorAll('.feature-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const open = card.getAttribute('aria-expanded') === 'true';
+      card.setAttribute('aria-expanded', String(!open));
     });
   });
 
