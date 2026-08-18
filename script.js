@@ -1,5 +1,5 @@
 // Goldstar Orbital — site interactivity
-// Mobile nav, scroll-reveal, phase tabs, compression demo, video filter, active-link tracking.
+// Mobile nav, scroll-reveal, phase tabs, video filter, active-link tracking.
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -156,40 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     renderGallery();
   }
-
-  /* ---------- Compression ratio demo ---------- */
-  const ratioData = {
-    zip:  { standard: 1.00, goldstar: 9.90, label: 'ZIP archive' },
-    pdf:  { standard: 1.41, goldstar: 10.65, label: 'PDF document' },
-    jpeg: { standard: 1.20, goldstar: 6.15, label: 'JPEG image' },
-    docx: { standard: 3.35, goldstar: 6.19, label: 'Word document' }
-  };
-  const demoButtons = document.querySelectorAll('.ratio-btn');
-  const barGoldstar = document.getElementById('bar-goldstar');
-  const barStandard = document.getElementById('bar-standard');
-  const readoutGoldstar = document.getElementById('readout-goldstar');
-  const readoutStandard = document.getElementById('readout-standard');
-  const readoutLabel = document.getElementById('readout-label');
-  const readoutAdvantage = document.getElementById('readout-advantage');
-
-  function animateRatio(key) {
-    const d = ratioData[key];
-    if (!d || !barGoldstar) return;
-    const maxScale = 11; // chart ceiling
-    barGoldstar.style.width = (d.goldstar / maxScale * 100) + '%';
-    barStandard.style.width = (d.standard / maxScale * 100) + '%';
-    readoutGoldstar.textContent = d.goldstar.toFixed(2) + 'x';
-    readoutStandard.textContent = d.standard.toFixed(2) + 'x';
-    readoutLabel.textContent = d.label;
-    readoutAdvantage.textContent = (d.goldstar / d.standard).toFixed(2) + 'x better than standard tools';
-  }
-  demoButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      demoButtons.forEach(b => b.classList.toggle('active', b === btn));
-      animateRatio(btn.dataset.filetype);
-    });
-  });
-  if (demoButtons.length) animateRatio(demoButtons[0].dataset.filetype);
 
   /* ---------- Fawn: transfer race demo ---------- */
   const raceBtn = document.getElementById('race-send-btn');
