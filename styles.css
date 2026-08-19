@@ -161,6 +161,7 @@ h1.headline .accent { color: var(--gold); font-style: italic; }
   padding: 0 32px;
   text-align: left;
   border-left: 1px solid var(--border);
+  max-width: 240px;
 }
 .hero-stat:first-child { border-left: none; }
 .hero-stat-value {
@@ -170,6 +171,9 @@ h1.headline .accent { color: var(--gold); font-style: italic; }
   color: var(--text);
   margin-bottom: 4px;
 }
+.hero-stat-fawn .hero-stat-value { color: var(--fawn-teal); }
+.hero-stat-faith .hero-stat-value { color: var(--faith-bronze); }
+.hero-stat-goldstar .hero-stat-value { color: var(--gold); }
 .hero-stat-label {
   display: block;
   font-family: var(--font-mono);
