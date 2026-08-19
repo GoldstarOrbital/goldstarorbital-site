@@ -104,14 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---------- Expandable feature cards (Fawn / Functioning Faith) ---------- */
-  document.querySelectorAll('.feature-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const open = card.getAttribute('aria-expanded') === 'true';
-      card.setAttribute('aria-expanded', String(!open));
-    });
-  });
-
   /* ---------- Mission architecture figure gallery ---------- */
   const FIGURES = [
     { file: 'fig1-controller-passive-node.png', title: 'FIG. 1 — Controller Satellite & Passive Node', desc: 'RTG power, photonic GPU core, quantum memory, and the 4-beam interface between them.' },
@@ -156,73 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     renderGallery();
   }
-
-  /* ---------- Fawn: transfer race demo ---------- */
-  const raceBtn = document.getElementById('race-send-btn');
-  const raceFillFawn = document.getElementById('race-fill-fawn');
-  const raceFillBank = document.getElementById('race-fill-bank');
-  const raceStatusFawn = document.getElementById('race-status-fawn');
-  const raceStatusBank = document.getElementById('race-status-bank');
-  if (raceBtn) {
-    let raceTimer = null;
-    raceBtn.addEventListener('click', () => {
-      if (raceTimer) clearInterval(raceTimer);
-      raceBtn.disabled = true;
-      raceFillFawn.style.width = '0%';
-      raceFillBank.style.width = '0%';
-      raceStatusFawn.classList.remove('done');
-      raceStatusBank.classList.remove('done');
-      raceStatusFawn.textContent = 'sending…';
-      raceStatusBank.textContent = 'day 0 of 3';
-
-      setTimeout(() => {
-        raceFillFawn.style.width = '100%';
-        raceStatusFawn.textContent = 'delivered — 0.4s';
-        raceStatusFawn.classList.add('done');
-      }, 120);
-
-      const bankDurationMs = 3600; // ~3.6s = a "business day" per 1.2s
-      const bankStart = Date.now();
-      raceTimer = setInterval(() => {
-        const elapsed = Date.now() - bankStart;
-        const pct = Math.min(100, (elapsed / bankDurationMs) * 100);
-        raceFillBank.style.width = pct + '%';
-        const day = Math.min(3, Math.ceil(elapsed / 1200));
-        if (pct < 100) {
-          raceStatusBank.textContent = 'day ' + day + ' of 3';
-        } else {
-          raceStatusBank.textContent = 'cleared — 3 days';
-          raceStatusBank.classList.add('done');
-          raceBtn.disabled = false;
-          clearInterval(raceTimer);
-        }
-      }, 80);
-    });
-  }
-
-  /* ---------- Functioning Faith: zone → verse picker ---------- */
-  const zoneData = {
-    easy: { label: 'Easy zone', verse: '"Be still, and know that I am God."', ref: 'Psalm 46:10', why: 'Low heart rate, warm-up pace — scripture leans toward stillness and presence.' },
-    steady: { label: 'Steady zone', verse: '"Let us run with endurance the race set before us."', ref: 'Hebrews 12:1', why: 'Sustained aerobic effort — verses about pace and perseverance surface here.' },
-    threshold: { label: 'Threshold zone', verse: '"I press on toward the goal for the prize."', ref: 'Philippians 3:14', why: 'Hard, sustainable effort near your limit — scripture shifts toward pressing forward.' },
-    max: { label: 'Max zone', verse: '"I can do all things through him who strengthens me."', ref: 'Philippians 4:13', why: 'Peak heart rate, all-out effort — short, strength-focused verses replace longer ones.' }
-  };
-  const zoneButtons = document.querySelectorAll('.zone-btn');
-  const zoneReadoutZone = document.getElementById('zone-readout-zone');
-  const zoneReadoutVerse = document.getElementById('zone-readout-verse');
-  const zoneReadoutRef = document.getElementById('zone-readout-ref');
-  const zoneReadoutWhy = document.getElementById('zone-readout-why');
-  zoneButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      zoneButtons.forEach(b => b.classList.toggle('active', b === btn));
-      const d = zoneData[btn.dataset.zone];
-      if (!d || !zoneReadoutZone) return;
-      zoneReadoutZone.textContent = d.label;
-      zoneReadoutVerse.textContent = d.verse;
-      zoneReadoutRef.textContent = d.ref;
-      zoneReadoutWhy.textContent = d.why;
-    });
-  });
 
   /* ---------- Video portfolio filter ---------- */
   const filterButtons = document.querySelectorAll('.filter-btn');

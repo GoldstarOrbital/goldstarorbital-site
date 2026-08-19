@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mission Architecture — Goldstar Orbital</title>
+<meta name="description" content="Goldstar Orbital's patent-pending orbital photonic data infrastructure for Mars: system architecture, build-out phases, and the patent family.">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html#top" class="brand"><img src="assets/nav-mark.png" alt="" class="brand-mark">Goldstar Orbital</a>
+    <nav>
+      <ul class="navlinks">
+        <li><a href="index.html#overview">Overview</a></li>
+        <li><a href="architecture.html" style="color:#f4b731;">Architecture</a></li>
+        <li><a href="index.html#portfolio">Field Notes</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="index.html#contact">Get in touch</a>
+    <button class="navtoggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ ARCHITECTURE / SCHEMATICS ============ -->
+  <section id="architecture" style="border-top:none; padding-top: 64px;">
+    <div class="wrap">
+      <p class="section-tag">Mission Architecture</p>
+      <h2 class="section-title">Designed for Mars, not adapted for it.</h2>
+      <p class="section-lede">Mars gets less than half of Earth's sunlight, with dust storms that can cut it further for weeks. So the system runs on Pu-238 radioisotope power instead of solar — the same technology behind Cassini and Voyager — giving each node 50–100 years of operation regardless of eclipse or dust.</p>
+
+      <div class="gallery" data-reveal>
+        <div class="gallery-stage">
+          <img id="gallery-image" src="assets/schematics/fig1-controller-passive-node.png" alt="">
+        </div>
+        <div class="gallery-caption">
+          <h4 id="gallery-title"></h4>
+          <p id="gallery-desc"></p>
+        </div>
+        <div class="gallery-nav">
+          <button id="gallery-prev" aria-label="Previous figure">←</button>
+          <span class="gallery-counter" id="gallery-counter"></span>
+          <button id="gallery-next" aria-label="Next figure">→</button>
+        </div>
+        <div class="gallery-thumbs" id="gallery-thumbs"></div>
+      </div>
+
+      <div class="phase-tabs" role="tablist" aria-label="Constellation build-out phases">
+        <button class="phase-btn active" data-phase="1">Phase 1</button>
+        <button class="phase-btn" data-phase="2">Phase 2</button>
+        <button class="phase-btn" data-phase="3">Phase 3</button>
+        <button class="phase-btn" data-phase="4">Phase 4</button>
+      </div>
+
+      <div class="phase-panel active" data-phase="1">
+        <span class="phase-status dev">FIRST LAUNCH</span>
+        <h3>1,000 nodes — Mars comm relay + data</h3>
+        <p>~10 petabytes of live storage. A standard Falcon 9 or Starship trans-Mars injection is sufficient — passive nodes need no crew, no life support.</p>
+      </div>
+      <div class="phase-panel" data-phase="2">
+        <span class="phase-status dev">EXPANSION</span>
+        <h3>100,000 nodes — full Mars data infrastructure</h3>
+        <p>~100 exabytes of live storage — a real alternative to a ground-based data center, for a planet with no ground-based alternative.</p>
+      </div>
+      <div class="phase-panel" data-phase="3">
+        <span class="phase-status future">TERRAFORMING ONSET</span>
+        <h3>1,000,000 nodes — data + O₂ generation</h3>
+        <p>The same hardware storing Mars's data starts driving CO₂ + H₂O → O₂ through tuned photonic delivery to surface reactors. No separate mission, no separate hardware.</p>
+      </div>
+      <div class="phase-panel" data-phase="4">
+        <span class="phase-status future">CIVILIZATION SCALE</span>
+        <h3>10,000,000+ nodes — full dual function</h3>
+        <p>~10,000,000 kg of O₂/day — atmospheric oxygen on a 10–50 year timescale instead of a geological one. One constellation, two functions, running on RTG power.</p>
+      </div>
+
+      <button class="deepdive-toggle" id="deepdive-toggle" aria-expanded="false" aria-controls="deepdive-content">
+        <span>Technical deep-dive — compute comparison &amp; patent family</span>
+        <span class="chev">▾</span>
+      </button>
+      <div class="deepdive-content" id="deepdive-content" hidden>
+
+        <div class="nvidia-note" data-reveal>
+          <p><strong style="color:var(--gold);">Why this is a compute story, not just storage:</strong> the controller satellites carry a photonic GPU — light-speed matrix operations at 1–10 femtojoules per operation, versus ~200,000 for an NVIDIA H100. H100-class silicon is still the peak of electronic compute; orbital vacuum is what lets photonic hardware finally use its physics advantage.</p>
+        </div>
+
+        <table class="compare-table" data-reveal>
+          <thead><tr><th>Metric</th><th>Photonic GPU (orbital)</th><th>Electronic GPU (H100)</th></tr></thead>
+          <tbody>
+            <tr><td class="metric">Energy per MAC operation</td><td class="win">1–10 femtojoules</td><td class="dim">~200,000 femtojoules</td></tr>
+            <tr><td class="metric">Thermal constraints</td><td class="win">Near zero (orbital vacuum)</td><td class="dim">Severe — requires active cooling</td></tr>
+            <tr><td class="metric">Node / card lifetime</td><td class="win">50–100 years (Pu-238 RTG)</td><td class="dim">3–5 year refresh cycle</td></tr>
+            <tr><td class="metric">Phase stability</td><td class="win">Millikelvin variation</td><td class="dim">Requires active thermal management</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:19px; margin-bottom:16px;">Patent family</h3>
+        <div class="patent-list" data-reveal>
+          <div class="patent-row"><span class="pnum">Patent 1</span><span class="ptitle">Photonic Orbital Data Storage, Non-Binary Encoding, and Multi-Symbol Energy-State Communication System</span><span class="pstatus">FILED · MAY 22, 2026</span></div>
+          <div class="patent-row"><span class="pnum">Patent 2</span><span class="ptitle">Orbital Photonic Compute-Memory System with Vacuum-Enabled Interferometric Performance &amp; Radioisotope-Sustained Storage</span><span class="pstatus">FILED</span></div>
+          <div class="patent-row"><span class="pnum">Patent 3A</span><span class="ptitle">Photon-Driven Artificial Photosynthetic Process for Planetary Atmosphere Generation</span><span class="pstatus">PLANNED</span></div>
+          <div class="patent-row"><span class="pnum">Patent 3B</span><span class="ptitle">Orbital Photonic GPU Real-Time Wavelength Optimization System for Photosynthetic Reaction Control</span><span class="pstatus">PLANNED — KEYSTONE</span></div>
+          <div class="patent-row"><span class="pnum">Patent 3C</span><span class="ptitle">Integrated Orbital Photonic Data and Planetary Atmosphere Generation System</span><span class="pstatus">PLANNED</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" style="border-bottom:none;">
+    <div class="wrap">
+      <p class="section-tag">Get in touch</p>
+      <h2 class="section-title">Building the compute layer for what comes after warehouses.</h2>
+      <p class="section-lede">The fastest way to reach us.</p>
+
+      <div class="contact-strip" data-reveal>
+        <div class="who">
+          <strong>Alexander Marcus Goldsmith</strong>
+          Founder &amp; CEO, Goldstar Orbital, Inc.
+        </div>
+        <div class="links">
+          <a href="mailto:alexgoldsmith@goldstarorbital.com">✉ alexgoldsmith@goldstarorbital.com</a>
+          <a href="https://www.linkedin.com/in/alex-goldsmith-46a911302" target="_blank" rel="noopener">in LinkedIn</a>
+          <a href="https://x.com/SrGoldy56" target="_blank" rel="noopener">𝕏 @SrGoldy56</a>
+          <a href="https://github.com/goldstarorbital" target="_blank" rel="noopener">⌥ GitHub</a>
+          <a href="https://www.youtube.com/@Alexgoldsmith21" target="_blank" rel="noopener">▶ YouTube</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="brand" style="color:var(--gold); font-family:'JetBrains Mono',monospace; letter-spacing:0.1em;">GOLDSTAR ORBITAL</span>
+    <div class="footlinks">
+      <a href="index.html#overview">Overview</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="index.html#portfolio">Field Notes</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <div>Goldstar Orbital, Inc. · Patent Pending · Priority Date May 22, 2026 · <span id="utc-clock"></span></div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
