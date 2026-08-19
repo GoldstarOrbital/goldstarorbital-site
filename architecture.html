@@ -1,158 +1,235 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mission Architecture — Goldstar Orbital</title>
-<meta name="description" content="Goldstar Orbital's patent-pending orbital photonic data infrastructure for Mars: system architecture, build-out phases, and the patent family.">
-<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
 </head>
 <body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; }
+    @keyframes twinkle { 0%, 100% { opacity: 0.15; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.2); } }
+    @keyframes drift { from { transform: translateY(0); } to { transform: translateY(-40px); } }
+  </style>
+</helmet>
 
-<header class="nav">
-  <div class="nav-inner">
-    <a href="index.html#top" class="brand"><img src="assets/nav-mark.png" alt="" class="brand-mark">Goldstar Orbital</a>
-    <nav>
-      <ul class="navlinks">
-        <li><a href="index.html#overview">Overview</a></li>
-        <li><a href="architecture.html" style="color:#c76b3c;">Architecture</a></li>
-        <li><a href="index.html#portfolio">Field Notes</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <a class="nav-cta" href="index.html#contact">Get in touch</a>
-    <button class="navtoggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+<div style="font-family: 'Familjen Grotesk', sans-serif; background: #05090c; color: #e4f4fb; min-height: 100vh; position: relative; overflow: hidden;">
+
+  <div style="position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;">
+    <sc-for list="{{ stars }}" as="s" hint-placeholder-count="40">
+      <div style="position: absolute; top: {{ s.top }}; left: {{ s.left }}; width: {{ s.size }}; height: {{ s.size }}; border-radius: 50%; background: #e4f4fb; opacity: 0.5; animation: twinkle {{ s.dur }} ease-in-out infinite; animation-delay: {{ s.delay }};"></div>
+    </sc-for>
+    <div style="position: absolute; width: 520px; height: 520px; border-radius: 50%; filter: blur(100px); top: -160px; left: 10%; background: #5ec9e0; opacity: 0.16; animation: drift 18s ease-in-out infinite alternate;"></div>
   </div>
-</header>
 
-<main id="top">
-
-  <!-- ============ ARCHITECTURE / SCHEMATICS ============ -->
-  <section id="architecture" style="border-top:none; padding-top: 64px;">
-    <div class="wrap">
-      <p class="section-tag">Mission Architecture</p>
-      <h2 class="section-title">Designed for Mars, not adapted for it.</h2>
-      <p class="section-lede">Mars gets less than half of Earth's sunlight, with dust storms that can cut it further for weeks. So the system runs on Pu-238 radioisotope power instead of solar — the same technology behind Cassini and Voyager — giving each node 50–100 years of operation regardless of eclipse or dust.</p>
-
-      <div class="gallery" data-reveal>
-        <div class="gallery-stage">
-          <img id="gallery-image" src="assets/schematics/fig1-controller-passive-node.png" alt="">
-        </div>
-        <div class="gallery-caption">
-          <h4 id="gallery-title"></h4>
-          <p id="gallery-desc"></p>
-        </div>
-        <div class="gallery-nav">
-          <button id="gallery-prev" aria-label="Previous figure">←</button>
-          <span class="gallery-counter" id="gallery-counter"></span>
-          <button id="gallery-next" aria-label="Next figure">→</button>
-        </div>
-        <div class="gallery-thumbs" id="gallery-thumbs"></div>
-      </div>
-
-      <div class="phase-tabs" role="tablist" aria-label="Constellation build-out phases">
-        <button class="phase-btn active" data-phase="1">Phase 1</button>
-        <button class="phase-btn" data-phase="2">Phase 2</button>
-        <button class="phase-btn" data-phase="3">Phase 3</button>
-        <button class="phase-btn" data-phase="4">Phase 4</button>
-      </div>
-
-      <div class="phase-panel active" data-phase="1">
-        <span class="phase-status dev">FIRST LAUNCH</span>
-        <h3>1,000 nodes — Mars comm relay + data</h3>
-        <p>~10 petabytes of live storage. A standard Falcon 9 or Starship trans-Mars injection is sufficient — passive nodes need no crew, no life support.</p>
-      </div>
-      <div class="phase-panel" data-phase="2">
-        <span class="phase-status dev">EXPANSION</span>
-        <h3>100,000 nodes — full Mars data infrastructure</h3>
-        <p>~100 exabytes of live storage — a real alternative to a ground-based data center, for a planet with no ground-based alternative.</p>
-      </div>
-      <div class="phase-panel" data-phase="3">
-        <span class="phase-status future">TERRAFORMING ONSET</span>
-        <h3>1,000,000 nodes — data + O₂ generation</h3>
-        <p>The same hardware storing Mars's data starts driving CO₂ + H₂O → O₂ through tuned photonic delivery to surface reactors. No separate mission, no separate hardware.</p>
-      </div>
-      <div class="phase-panel" data-phase="4">
-        <span class="phase-status future">CIVILIZATION SCALE</span>
-        <h3>10,000,000+ nodes — full dual function</h3>
-        <p>~10,000,000 kg of O₂/day — atmospheric oxygen on a 10–50 year timescale instead of a geological one. One constellation, two functions, running on RTG power.</p>
-      </div>
-
-      <button class="deepdive-toggle" id="deepdive-toggle" aria-expanded="false" aria-controls="deepdive-content">
-        <span>Technical deep-dive — compute comparison &amp; patent family</span>
-        <span class="chev">▾</span>
-      </button>
-      <div class="deepdive-content" id="deepdive-content" hidden>
-
-        <div class="nvidia-note" data-reveal>
-          <p><strong style="color:var(--gold);">Why this is a compute story, not just storage:</strong> the controller satellites carry a photonic GPU — light-speed matrix operations at 1–10 femtojoules per operation, versus ~200,000 for an NVIDIA H100. H100-class silicon is still the peak of electronic compute; orbital vacuum is what lets photonic hardware finally use its physics advantage.</p>
-        </div>
-
-        <table class="compare-table" data-reveal>
-          <thead><tr><th>Metric</th><th>Photonic GPU (orbital)</th><th>Electronic GPU (H100)</th></tr></thead>
-          <tbody>
-            <tr><td class="metric">Energy per MAC operation</td><td class="win">1–10 femtojoules</td><td class="dim">~200,000 femtojoules</td></tr>
-            <tr><td class="metric">Thermal constraints</td><td class="win">Near zero (orbital vacuum)</td><td class="dim">Severe — requires active cooling</td></tr>
-            <tr><td class="metric">Node / card lifetime</td><td class="win">50–100 years (Pu-238 RTG)</td><td class="dim">3–5 year refresh cycle</td></tr>
-            <tr><td class="metric">Phase stability</td><td class="win">Millikelvin variation</td><td class="dim">Requires active thermal management</td></tr>
-          </tbody>
-        </table>
-
-        <h3 style="font-size:19px; margin-bottom:16px;">Patent family</h3>
-        <div class="patent-list" data-reveal>
-          <div class="patent-row"><span class="pnum">Patent 1</span><span class="ptitle">Photonic Orbital Data Storage, Non-Binary Encoding, and Multi-Symbol Energy-State Communication System</span><span class="pstatus">FILED · MAY 22, 2026</span></div>
-          <div class="patent-row"><span class="pnum">Patent 2</span><span class="ptitle">Orbital Photonic Compute-Memory System with Vacuum-Enabled Interferometric Performance &amp; Radioisotope-Sustained Storage</span><span class="pstatus">FILED</span></div>
-          <div class="patent-row"><span class="pnum">Patent 3A</span><span class="ptitle">Photon-Driven Artificial Photosynthetic Process for Planetary Atmosphere Generation</span><span class="pstatus">PLANNED</span></div>
-          <div class="patent-row"><span class="pnum">Patent 3B</span><span class="ptitle">Orbital Photonic GPU Real-Time Wavelength Optimization System for Photosynthetic Reaction Control</span><span class="pstatus">PLANNED — KEYSTONE</span></div>
-          <div class="patent-row"><span class="pnum">Patent 3C</span><span class="ptitle">Integrated Orbital Photonic Data and Planetary Atmosphere Generation System</span><span class="pstatus">PLANNED</span></div>
-        </div>
-      </div>
+  <header style="position: sticky; top: 0; z-index: 50; background: linear-gradient(135deg, #f4f5f8 0%, #c9cdd6 30%, #eef0f4 50%, #aeb2bd 70%, #f0f1f4 100%); backdrop-filter: blur(10px); border-bottom: 1px solid #8a8e99;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+      <a href="index.html#top" style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px; flex-shrink: 0; text-decoration: none;">
+        <img src="assets/logo-full-800.png" alt="Goldstar Orbital" style="height: 46px; width: auto; object-fit: contain; display: block;">
+        <span style="font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #4a4c53;">Goldstar Orbital</span>
+      </a>
+      <nav style="display: flex; gap: 28px; font-size: 14px; flex-wrap: wrap;">
+        <a href="index.html#about" style="text-decoration: none; color: #35373e; font-weight: 500;">About</a>
+        <a href="index.html#products" style="text-decoration: none; color: #35373e; font-weight: 500;">Products</a>
+        <a href="index.html#case-studies" style="text-decoration: none; color: #35373e; font-weight: 500;">Case Studies</a>
+        <a href="architecture.html" style="text-decoration: none; color: #0a0a0c; font-weight: 700;">Architecture</a>
+        <a href="index.html#contact" style="text-decoration: none; color: #35373e; font-weight: 500;">Contact</a>
+      </nav>
+      <a href="index.html#contact" style="text-decoration: none; background: #17181c; color: #eef0f4; padding: 9px 20px; font-weight: 600; font-size: 13px; border-radius: 3px; flex-shrink: 0;">Get in touch</a>
     </div>
-  </section>
+    <div style="height: 2px; background: linear-gradient(90deg, transparent, #fff, transparent);"></div>
+  </header>
 
-  <!-- ============ CONTACT ============ -->
-  <section id="contact" style="border-bottom:none;">
-    <div class="wrap">
-      <p class="section-tag">Get in touch</p>
-      <h2 class="section-title">Building the compute layer for what comes after warehouses.</h2>
-      <p class="section-lede">The fastest way to reach us.</p>
+  <main style="position: relative; z-index: 1;">
+    <div style="display: flex; justify-content: center; flex-wrap: wrap; background: #05090c; border-bottom: 1px solid #163242;">
+      <a href="index.html#products" style="text-decoration: none; color: #39ff88; padding: 13px 28px; border-right: 1px solid #163242; font-weight: 600; font-size: 13px; letter-spacing: 0.04em;">Fawn</a>
+      <a href="index.html#products" style="text-decoration: none; color: #e8b345; padding: 13px 28px; border-right: 1px solid #163242; font-weight: 600; font-size: 13px; letter-spacing: 0.04em;">Functioning Faith</a>
+      <a href="architecture.html" style="text-decoration: none; color: #5ec9e0; padding: 13px 28px; font-weight: 600; font-size: 13px; letter-spacing: 0.04em;">Photonic GPU Schematics</a>
+    </div>
+    <section style="padding: 96px 32px 90px; border-bottom: 1px solid #8a8e99;">
+      <div style="max-width: 1180px; margin: 0 auto;">
+        <p style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #5ec9e0; margin: 0 0 18px;">Mission Architecture</p>
+        <h2 style="font-size: clamp(28px, 4vw, 44px); font-weight: 700; margin: 0 0 22px; max-width: 800px;">Designed for Mars, not adapted for it.</h2>
+        <p style="font-size: 17px; color: #75a3b8; max-width: 720px; margin: 0 0 48px;">Mars gets less than half of Earth's sunlight, with dust storms that can cut it further for weeks. So the system runs on Pu-238 radioisotope power instead of solar, the same technology behind Cassini and Voyager — giving each node 50–100 years of operation regardless of eclipse or dust.</p>
 
-      <div class="contact-strip" data-reveal>
-        <div class="who">
-          <strong>Alexander Marcus Goldsmith</strong>
-          Founder &amp; CEO, Goldstar Orbital, Inc.
+        <div style="background: #0a1620; border: 1px solid #163242; border-radius: 8px; padding: 20px; margin-bottom: 40px;">
+          <div style="background: #f4f1e8; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 200px;">
+            <img src="{{ activeFigure.src }}" alt="" style="width: 100%; height: auto; display: block;">
+          </div>
+          <div style="padding: 18px 4px 6px;">
+            <h4 style="margin: 0 0 6px; font-size: 15px; color: #5ec9e0;">{{ activeFigure.title }}</h4>
+            <p style="margin: 0; font-size: 13.5px; color: #75a3b8;">{{ activeFigure.desc }}</p>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <button onclick="{{ prevFigure }}" aria-label="Previous figure" style="background: #05090c; border: 1px solid #163242; color: #e4f4fb; width: 34px; height: 34px; border-radius: 50%; cursor: pointer;">←</button>
+            <span style="font-family: 'Space Mono', monospace; font-size: 12px; color: #75a3b8;">{{ figureCounter }}</span>
+            <button onclick="{{ nextFigure }}" aria-label="Next figure" style="background: #05090c; border: 1px solid #163242; color: #e4f4fb; width: 34px; height: 34px; border-radius: 50%; cursor: pointer;">→</button>
+          </div>
+          <div style="display: flex; gap: 10px; margin-top: 16px; overflow-x: auto; padding-bottom: 4px;">
+            <sc-for list="{{ figures }}" as="fig" hint-placeholder-count="5">
+              <button onclick="{{ fig.select }}" style="flex-shrink: 0; width: 74px; height: 56px; overflow: hidden; border-radius: 6px; border: 2px solid {{ fig.borderColor }}; background: #f4f1e8; cursor: pointer; padding: 0;">
+                <img src="{{ fig.src }}" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+              </button>
+            </sc-for>
+          </div>
         </div>
-        <div class="links">
-          <a href="mailto:alexgoldsmith@goldstarorbital.com">✉ alexgoldsmith@goldstarorbital.com</a>
-          <a href="https://www.linkedin.com/in/alex-goldsmith-46a911302" target="_blank" rel="noopener">in LinkedIn</a>
-          <a href="https://x.com/SrGoldy56" target="_blank" rel="noopener">𝕏 @SrGoldy56</a>
-          <a href="https://github.com/goldstarorbital" target="_blank" rel="noopener">⌥ GitHub</a>
-          <a href="https://www.youtube.com/@Alexgoldsmith21" target="_blank" rel="noopener">▶ YouTube</a>
+
+        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px;">
+          <sc-for list="{{ phases }}" as="p" hint-placeholder-count="4">
+            <button onclick="{{ p.select }}" style="{{ p.btnStyle }}">{{ p.label }}</button>
+          </sc-for>
+        </div>
+        <div style="background: #0a1620; border: 1px solid #163242; border-radius: 8px; padding: 28px 32px; margin-bottom: 40px;">
+          <span style="{{ activePhase.tagStyle }}">{{ activePhase.status }}</span>
+          <h3 style="margin: 14px 0 10px; font-size: 19px;">{{ activePhase.headline }}</h3>
+          <p style="color: #75a3b8; font-size: 15px; margin: 0; max-width: 640px;">{{ activePhase.body }}</p>
+        </div>
+
+        <button onclick="{{ toggleDeepdive }}" style="display: inline-flex; align-items: center; gap: 10px; background: #0a1620; border: 1px solid #163242; color: #75a3b8; font-family: 'Space Mono', monospace; font-size: 13px; padding: 12px 20px; border-radius: 4px; cursor: pointer; margin-bottom: 32px;">{{ deepdiveLabel }}</button>
+
+        <sc-if value="{{ deepdiveOpen }}" hint-placeholder-val="{{ false }}">
+          <div>
+            <div style="background: #0a1620; border: 1px solid #163242; border-left: 3px solid #5ec9e0; border-radius: 0 8px 8px 0; padding: 24px 28px; margin-bottom: 40px;">
+              <p style="margin: 0; font-size: 14.5px; color: #75a3b8;"><strong style="color: #5ec9e0;">Why this is a compute story, not just storage:</strong> the controller satellites carry a photonic GPU — light-speed matrix operations at 1–10 femtojoules per operation, versus roughly 200,000 for an NVIDIA H100. H100-class silicon is still the peak of electronic compute; orbital vacuum is what lets photonic hardware finally use its physics advantage.</p>
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse; background: #0a1620; border: 1px solid #163242; border-radius: 8px; overflow: hidden; margin-bottom: 40px;">
+              <thead><tr>
+                <th style="padding: 14px 20px; text-align: left; font-size: 11.5px; font-family: 'Space Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; color: #75a3b8; background: #0a1620; border-bottom: 1px solid #163242;">Metric</th>
+                <th style="padding: 14px 20px; text-align: left; font-size: 11.5px; font-family: 'Space Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; color: #75a3b8; background: #0a1620; border-bottom: 1px solid #163242;">Photonic GPU (orbital)</th>
+                <th style="padding: 14px 20px; text-align: left; font-size: 11.5px; font-family: 'Space Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; color: #75a3b8; background: #0a1620; border-bottom: 1px solid #163242;">Electronic GPU (H100)</th>
+              </tr></thead>
+              <tbody>
+                <tr><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #163242; font-weight: 600;">Energy per MAC operation</td><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #163242; color: #2fcf8e; font-weight: 700;">1–10 femtojoules</td><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #163242; color: #75a3b8;">~200,000 femtojoules</td></tr>
+                <tr><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #163242; font-weight: 600;">Thermal constraints</td><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #163242; color: #2fcf8e; font-weight: 700;">Near zero (orbital vacuum)</td><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #163242; color: #75a3b8;">Severe — requires active cooling</td></tr>
+                <tr><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #163242; font-weight: 600;">Node / card lifetime</td><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #163242; color: #2fcf8e; font-weight: 700;">50–100 years (Pu-238 RTG)</td><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #163242; color: #75a3b8;">3–5 year refresh cycle</td></tr>
+                <tr><td style="padding: 14px 20px; font-size: 14px; font-weight: 600;">Phase stability</td><td style="padding: 14px 20px; font-size: 14px; color: #2fcf8e; font-weight: 700;">Millikelvin variation</td><td style="padding: 14px 20px; font-size: 14px; color: #75a3b8;">Requires active thermal management</td></tr>
+              </tbody>
+            </table>
+
+            <h3 style="font-size: 19px; margin-bottom: 16px;">Patent family</h3>
+            <div style="display: grid; gap: 12px; margin-bottom: 40px;">
+              <div style="display: grid; grid-template-columns: 90px 1fr auto; gap: 16px; align-items: baseline; padding: 14px 18px; background: #0a1620; border: 1px solid #163242; border-radius: 10px;">
+                <span style="font-family: 'Space Mono', monospace; color: #5ec9e0; font-size: 13px;">Patent 1</span>
+                <span style="font-size: 14px;">Photonic Orbital Data Storage, Non-Binary Encoding, and Multi-Symbol Energy-State Communication System</span>
+                <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #75a3b8; white-space: nowrap;">FILED · MAY 22, 2026</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 90px 1fr auto; gap: 16px; align-items: baseline; padding: 14px 18px; background: #0a1620; border: 1px solid #163242; border-radius: 10px;">
+                <span style="font-family: 'Space Mono', monospace; color: #5ec9e0; font-size: 13px;">Patent 2</span>
+                <span style="font-size: 14px;">Orbital Photonic Compute-Memory System with Vacuum-Enabled Interferometric Performance &amp; Radioisotope-Sustained Storage</span>
+                <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #75a3b8; white-space: nowrap;">FILED</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 90px 1fr auto; gap: 16px; align-items: baseline; padding: 14px 18px; background: #0a1620; border: 1px solid #163242; border-radius: 10px;">
+                <span style="font-family: 'Space Mono', monospace; color: #5ec9e0; font-size: 13px;">Patent 3A</span>
+                <span style="font-size: 14px;">Photon-Driven Artificial Photosynthetic Process for Planetary Atmosphere Generation</span>
+                <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #75a3b8; white-space: nowrap;">PLANNED</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 90px 1fr auto; gap: 16px; align-items: baseline; padding: 14px 18px; background: #0a1620; border: 1px solid #163242; border-radius: 10px;">
+                <span style="font-family: 'Space Mono', monospace; color: #5ec9e0; font-size: 13px;">Patent 3B</span>
+                <span style="font-size: 14px;">Orbital Photonic GPU Real-Time Wavelength Optimization System for Photosynthetic Reaction Control</span>
+                <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #75a3b8; white-space: nowrap;">PLANNED, KEYSTONE</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 90px 1fr auto; gap: 16px; align-items: baseline; padding: 14px 18px; background: #0a1620; border: 1px solid #163242; border-radius: 10px;">
+                <span style="font-family: 'Space Mono', monospace; color: #5ec9e0; font-size: 13px;">Patent 3C</span>
+                <span style="font-size: 14px;">Integrated Orbital Photonic Data and Planetary Atmosphere Generation System</span>
+                <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #75a3b8; white-space: nowrap;">PLANNED</span>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+    </section>
+
+    <section style="padding: 90px 32px;">
+      <div style="max-width: 1180px; margin: 0 auto;">
+        <p style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #5ec9e0; margin: 0 0 18px;">Get in touch</p>
+        <h2 style="font-size: clamp(28px, 3.5vw, 38px); font-weight: 700; margin: 0 0 42px; max-width: 720px;">Building the compute layer for what comes after warehouses.</h2>
+        <div style="background: #0a1620; border: 1px solid #163242; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; padding: 28px 32px;">
+          <div style="font-size: 14px; color: #75a3b8;">
+            <strong style="display: block; color: #e4f4fb; font-size: 16px; margin-bottom: 2px;">Alexander Marcus Goldsmith</strong>
+            Founder &amp; CEO, Goldstar Orbital, Inc.
+          </div>
+          <div style="display: flex; gap: 20px; flex-wrap: wrap; font-size: 14px;">
+            <a href="mailto:alexgoldsmith@goldstarorbital.com" style="text-decoration: none; color: #75a3b8;">alexgoldsmith@goldstarorbital.com</a>
+            <a href="https://www.linkedin.com/in/alex-goldsmith-46a911302" target="_blank" rel="noopener" style="text-decoration: none; color: #75a3b8;">LinkedIn</a>
+            <a href="https://x.com/SrGoldy56" target="_blank" rel="noopener" style="text-decoration: none; color: #75a3b8;">X</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-</main>
+  <footer style="position: relative; z-index: 1; border-top: 1px solid #163242; padding: 40px 32px; text-align: center; color: #75a3b8; font-size: 13px;">
+    <div style="font-family: 'Space Mono', monospace; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; font-weight: 600; color: #5ec9e0;">Goldstar Orbital</div>
+    <div>Goldstar Orbital, Inc. · Patent Pending · Priority Date May 22, 2026</div>
+  </footer>
 
-<footer>
-  <div class="wrap">
-    <span class="brand" style="color:var(--gold); font-family:'JetBrains Mono',monospace; letter-spacing:0.1em;">GOLDSTAR ORBITAL</span>
-    <div class="footlinks">
-      <a href="index.html#overview">Overview</a>
-      <a href="architecture.html">Architecture</a>
-      <a href="index.html#portfolio">Field Notes</a>
-      <a href="index.html#contact">Contact</a>
-    </div>
-    <div>Goldstar Orbital, Inc. · Patent Pending · Priority Date May 22, 2026 · <span id="utc-clock"></span></div>
-  </div>
-</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const FIGURES = [
+  { id: 0, src: 'assets/schematics/fig0-satellite-lab.png', title: 'Satellite lab', desc: 'Controller satellite hardware in development.' },
+  { id: 1, src: 'assets/schematics/fig1-controller-passive-node.png', title: 'Controller & passive node', desc: 'The two hardware classes that make up the constellation.' },
+  { id: 2, src: 'assets/schematics/fig2-node-datasheet.png', title: 'Node datasheet', desc: 'Specifications for the passive storage node.' },
+  { id: 3, src: 'assets/schematics/fig3-orbital-constellation.png', title: 'Orbital constellation', desc: 'Constellation layout around Mars.' },
+  { id: 4, src: 'assets/schematics/fig4-dataflow.png', title: 'Data flow', desc: 'How data moves through the controller-node network.' },
+];
 
-<script src="script.js"></script>
+const PHASES = [
+  { id: 1, label: 'Phase 1', status: 'FIRST LAUNCH', tag: 'dev', headline: '1,000 nodes: Mars comm relay and data', body: '~10 petabytes of live storage. A standard Falcon 9 or Starship trans-Mars injection is sufficient — passive nodes need no crew, no life support.' },
+  { id: 2, label: 'Phase 2', status: 'EXPANSION', tag: 'dev', headline: '100,000 nodes: full Mars data infrastructure', body: '~100 exabytes of live storage, a real alternative to a ground-based data center, for a planet with no ground-based alternative.' },
+  { id: 3, label: 'Phase 3', status: 'TERRAFORMING ONSET', tag: 'future', headline: '1,000,000 nodes: data and O₂ generation', body: 'The same hardware storing Mars\'s data starts driving CO₂ + H₂O → O₂ through tuned photonic delivery to surface reactors. No separate mission, no separate hardware.' },
+  { id: 4, label: 'Phase 4', status: 'CIVILIZATION SCALE', tag: 'future', headline: '10,000,000+ nodes: full dual function', body: '~10,000,000 kg of O₂/day, atmospheric oxygen on a 10-50 year timescale instead of a geological one. One constellation, two functions, running on RTG power.' },
+];
+
+function seededStars(n) {
+  const arr = [];
+  let seed = 7;
+  const rand = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
+  for (let i = 0; i < n; i++) {
+    arr.push({ top: (rand() * 100).toFixed(2) + '%', left: (rand() * 100).toFixed(2) + '%', size: (1 + rand() * 2).toFixed(1) + 'px', dur: (2.5 + rand() * 3).toFixed(1) + 's', delay: (rand() * 4).toFixed(1) + 's' });
+  }
+  return arr;
+}
+const STARS = seededStars(50);
+
+const TAG_STYLE = (tag) => {
+  const base = 'display:inline-block;font-family:\'IBM Plex Mono\',monospace;font-size:11px;padding:4px 10px;border-radius:3px;letter-spacing:0.05em;';
+  if (tag === 'dev') return base + 'background:rgba(94,201,224,0.14);color:#5ec9e0;border:1px solid #2d6b7a;';
+  return base + 'background:rgba(183,154,194,0.1);color:#75a3b8;border:1px solid #163242;';
+};
+
+class Component extends DCLogic {
+  state = { figureIdx: 1, phaseIdx: 0, deepdiveOpen: false };
+
+  renderVals() {
+    const { figureIdx, phaseIdx, deepdiveOpen } = this.state;
+    const active = FIGURES[figureIdx];
+    const phases = PHASES.map((p, i) => ({
+      ...p,
+      select: () => this.setState({ phaseIdx: i }),
+      btnStyle: `font-family:'IBM Plex Mono',monospace;font-size:12.5px;padding:9px 16px;border-radius:999px;border:1px solid ${i === phaseIdx ? '#5ec9e0' : '#163242'};background:${i === phaseIdx ? '#5ec9e0' : 'transparent'};color:${i === phaseIdx ? '#04070a' : '#75a3b8'};cursor:pointer;`,
+    }));
+    const activePhase = { ...PHASES[phaseIdx], tagStyle: TAG_STYLE(PHASES[phaseIdx].tag) };
+    return {
+      activeFigure: active,
+      figureCounter: `${figureIdx + 1} / ${FIGURES.length}`,
+      figures: FIGURES.map((f, i) => ({ ...f, borderColor: i === figureIdx ? '#5ec9e0' : '#163242', select: () => this.setState({ figureIdx: i }) })),
+      prevFigure: () => this.setState({ figureIdx: (figureIdx - 1 + FIGURES.length) % FIGURES.length }),
+      nextFigure: () => this.setState({ figureIdx: (figureIdx + 1) % FIGURES.length }),
+      phases,
+      activePhase,
+      deepdiveOpen,
+      deepdiveLabel: (deepdiveOpen ? '▴ ' : '▾ ') + 'Technical deep-dive: compute comparison and patent family',
+      toggleDeepdive: () => this.setState({ deepdiveOpen: !deepdiveOpen }),
+      stars: STARS,
+    };
+  }
+}
+</script>
 </body>
 </html>
