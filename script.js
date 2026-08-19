@@ -3,14 +3,25 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ---------- Starfield background (subtle, hero-only) ---------- */
+  /* ---------- Starfield background (layered, parallax, mouse-reactive, hero-only) ---------- */
   (function starfield() {
     const root = document.getElementById('starfield');
     if (!root) return;
+    const hero = root.parentElement;
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Soft nebula glow blobs (pure CSS animated, no JS needed beyond insertion)
+    const nebula1 = document.createElement('div');
+    nebula1.className = 'nebula nebula-1';
+    const nebula2 = document.createElement('div');
+    nebula2.className = 'nebula nebula-2';
+    root.appendChild(nebula1);
+    root.appendChild(nebula2);
+
     function makeLayer(count, sizeRange, className) {
       const layer = document.createElement('div');
       layer.className = 'layer ' + className;
-      const w = root.parentElement.offsetWidth + 100, h = root.parentElement.offsetHeight + 100;
+      const w = hero.offsetWidth + 100, h = hero.offsetHeight + 100;
       let shadows = [];
       for (let i = 0; i < count; i++) {
         const x = Math.floor(Math.random() * w);
@@ -23,9 +34,57 @@ document.addEventListener('DOMContentLoaded', () => {
       layer.style.boxShadow = shadows.join(',');
       layer.style.background = 'transparent';
       root.appendChild(layer);
+      return layer;
     }
-    makeLayer(36, [0, 0.5], 'layer-1');
-    makeLayer(20, [0, 0.35], 'layer-2');
+    const layer1 = makeLayer(36, [0, 0.5], 'layer-1');
+    const layer2 = makeLayer(20, [0, 0.35], 'layer-2');
+
+    // A small set of individually-twinkling foreground stars, also deepest parallax layer
+    const sparkles = [];
+    const sparkleCount = 22;
+    const w = hero.offsetWidth, h = hero.offsetHeight;
+    for (let i = 0; i < sparkleCount; i++) {
+      const dot = document.createElement('span');
+      dot.className = 'star-sparkle';
+      const size = (Math.random() * 1.6 + 1).toFixed(1);
+      dot.style.width = size + 'px';
+      dot.style.height = size + 'px';
+      dot.style.left = (Math.random() * w) + 'px';
+      dot.style.top = (Math.random() * h) + 'px';
+      dot.style.setProperty('--dur', (Math.random() * 3 + 2.5).toFixed(1) + 's');
+      dot.style.setProperty('--delay', (Math.random() * -6).toFixed(1) + 's');
+      dot.style.setProperty('--min-op', (Math.random() * 0.15 + 0.08).toFixed(2));
+      dot.style.setProperty('--max-op', (Math.random() * 0.3 + 0.7).toFixed(2));
+      root.appendChild(dot);
+      sparkles.push(dot);
+    }
+
+    // Subtle mouse-reactive parallax: layers/sparkles drift slightly toward the cursor.
+    if (!reduceMotion && window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      let raf = null;
+      hero.addEventListener('mousemove', (e) => {
+        if (raf) return;
+        raf = requestAnimationFrame(() => {
+          const rect = hero.getBoundingClientRect();
+          const nx = ((e.clientX - rect.left) / rect.width - 0.5);
+          const ny = ((e.clientY - rect.top) / rect.height - 0.5);
+          layer1.style.transform = `translate(${nx * 8}px, ${ny * 8}px)`;
+          layer2.style.transform = `translate(${nx * 16}px, ${ny * 16}px)`;
+          nebula1.style.transform = `translate(${nx * 10}px, ${ny * 10}px)`;
+          nebula2.style.transform = `translate(${nx * -10}px, ${ny * -10}px)`;
+          sparkles.forEach((s, i) => {
+            const depth = 22 + (i % 5) * 6;
+            s.style.transform = `translate(${nx * depth}px, ${ny * depth}px) scale(1)`;
+          });
+          raf = null;
+        });
+      }, { passive: true });
+      hero.addEventListener('mouseleave', () => {
+        layer1.style.transform = ''; layer2.style.transform = '';
+        nebula1.style.transform = ''; nebula2.style.transform = '';
+        sparkles.forEach(s => s.style.transform = '');
+      });
+    }
   })();
 
   /* ---------- Mobile nav toggle ---------- */
@@ -57,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (rect.top <= 120 && rect.bottom >= 120) current = sec.id;
     });
     navAnchors.forEach(a => {
-      a.style.color = a.getAttribute('href') === `#${current}` ? '#f4b731' : '';
+      a.style.color = a.getAttribute('href') === `#${current}` ? '#c76b3c' : '';
     });
   };
   document.addEventListener('scroll', setActive, { passive: true });
@@ -175,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const playBtn = document.createElement('button');
     playBtn.setAttribute('aria-label', 'Play ' + title);
     playBtn.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;background:rgba(10,14,20,0.15);cursor:pointer;display:flex;align-items:center;justify-content:center;';
-    playBtn.innerHTML = '<span style="width:56px;height:56px;border-radius:50%;background:rgba(244,183,49,0.92);display:flex;align-items:center;justify-content:center;font-size:20px;color:#14100a;transition:transform .15s ease;">▶</span>';
+    playBtn.innerHTML = '<span style="width:56px;height:56px;border-radius:50%;background:rgba(199,107,60,0.92);display:flex;align-items:center;justify-content:center;font-size:20px;color:#14100a;transition:transform .15s ease;">▶</span>';
     playBtn.addEventListener('mouseenter', () => { playBtn.querySelector('span').style.transform = 'scale(1.08)'; });
     playBtn.addEventListener('mouseleave', () => { playBtn.querySelector('span').style.transform = 'none'; });
     playBtn.addEventListener('click', () => {
