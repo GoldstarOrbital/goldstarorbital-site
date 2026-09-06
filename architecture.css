@@ -1,37 +1,5 @@
-/* Architecture extends the shared homepage identity without changing its runtime. */
-.architecture-page .skip:not(:focus) { clip-path: inset(50%); width: 1px; height: 1px; padding: 0; overflow: hidden; }
-.architecture-page .header { position: relative; background: #080a0b; }
-.architecture-page .header [aria-current="page"] { color: var(--gold); }
-.architecture-page .mission-section { position: relative; }
-.architecture-page .mission-section::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto;
-  height: 560px;
-  background: linear-gradient(90deg, #080a0b 15%, #080a0b40), linear-gradient(0deg, #080a0b, transparent 75%), url("assets/orbital-hero.jpg") center 38% / cover;
-  pointer-events: none;
-}
-.architecture-page .mission-section > div { position: relative; }
-.architecture-page .mission-title { font-size: clamp(64px, 7.5vw, 108px); letter-spacing: -5px; line-height: 1; margin: 0 0 32px; font-weight: 500; }
-.architecture-page p { line-height: 1.8; }
-.architecture-page .mission-title + p { max-width: 620px !important; }
-.architecture-page .schematic-viewer { margin-top: 64px; border-radius: 3px !important; }
-.architecture-page .schematic-viewer > div:first-child { background: #eee9dc !important; }
-.architecture-page .schematic-viewer > div:first-child img { max-height: 700px; object-fit: contain; }
-.architecture-page button { min-height: 44px; font: inherit; transition: border-color .2s, background .2s; }
-.architecture-page button:hover { outline: 1px solid var(--gold); }
-.architecture-page button:focus-visible, .architecture-page [tabindex]:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
-.architecture-page .comparison-scroll { max-width: 100%; overflow-x: auto; margin-bottom: 40px; }
-.architecture-page .comparison-scroll table { min-width: 650px; margin-bottom: 0 !important; }
-.architecture-page main > section:last-child { padding-inline: 7% !important; background: radial-gradient(ellipse at right bottom, #49361740, transparent 65%); }
-.architecture-page main > section:last-child h2 { font-weight: 500 !important; font-size: clamp(34px, 4.5vw, 60px) !important; }
-.architecture-page footer { border-top: 1px solid var(--line); }
-@media (max-width: 600px) {
-  .architecture-page .mission-section { padding-top: 64px !important; padding-bottom: 64px !important; }
-  .architecture-page .mission-title { letter-spacing: -3px; }
-  .architecture-page .mission-section > div > p:first-child { font-size: 9px !important; }
-  .architecture-page .schematic-viewer { padding: 10px !important; margin-top: 38px; }
-  .architecture-page .patent-row { grid-template-columns: 1fr !important; gap: 8px !important; }
-  .architecture-page main > section:last-child > div > div { padding: 24px 18px !important; }
-  .architecture-page a[href^="mailto:"] { overflow-wrap: anywhere; }
-}
+.architecture-page .header{position:relative;background:#080a0b}.architecture-page [aria-current=page]{color:var(--gold)}.architecture-page .skip:not(:focus){clip-path:inset(50%);width:1px;height:1px;padding:0;overflow:hidden}
+.arch-hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(90deg,#080a0bf2,#080a0b55),linear-gradient(0deg,#080a0b,transparent),url('assets/orbital-hero.jpg') center/cover}.arch-hero h1{font-size:clamp(48px,6.5vw,100px);letter-spacing:-4px;max-width:1000px}.arch-hero .intro{max-width:570px;font-size:17px;color:#c2c7c5;line-height:1.8}.hero-actions{display:flex;gap:30px;align-items:center;margin-top:32px;flex-wrap:wrap}.concept-label{font:10px 'Space Mono',monospace;color:var(--gold);margin:40px 0 0;letter-spacing:1px}.arch-hero>*:not(.space-scene){position:relative;z-index:2}
+.figure-buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:25px}.figure-buttons button,.gallery-controls button{background:#111a1e;border:1px solid var(--line);color:var(--text);padding:17px;text-align:left;cursor:pointer;font:13px 'DM Sans',sans-serif}.figure-buttons button span{color:var(--gold);margin-right:12px;font:11px 'Space Mono',monospace}.figure-buttons [aria-pressed=true]{background:#dac08a20;border-color:var(--gold)}.architecture-page button:focus-visible,.architecture-page summary:focus-visible{outline:2px solid var(--gold);outline-offset:4px}.drawing{margin:0 0 25px;border:1px solid var(--line);background:#0b1115}.drawing img{display:block;width:100%;height:auto}.drawing figcaption{padding:28px;display:flex;align-items:flex-start;justify-content:space-between;gap:35px;border-top:1px solid var(--line)}.drawing figcaption>div{max-width:750px}.drawing h3{font-size:23px;font-weight:500;margin:0 0 14px}.drawing p{font-size:14px;line-height:1.8;color:var(--muted);margin:0}.drawing .eyebrow{font-size:10px;color:var(--gold);margin-bottom:12px}.drawing .text-link{flex-shrink:0}.gallery-controls{display:flex;justify-content:space-between;align-items:center}.gallery-controls span{font:12px 'Space Mono',monospace;color:var(--gold)}[hidden]{display:none!important}.review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}.review-grid article{padding:35px;background:#0c1012}.review-grid h3,.checks h3,.roadmap h3,.terraform h3{font-weight:500;font-size:23px;letter-spacing:-.6px}.review-grid p,.checks p,.section-intro,.roadmap p,.sources p,.technical-details p,.technical-details li,.terraform p{font-size:15px;color:var(--muted);line-height:1.85}.review-tag,.roadmap li>span{font:10px 'Space Mono',monospace;letter-spacing:1px;color:var(--gold)}.review-grid a,.sources a,.technical-details a{color:var(--gold);font-size:13px}.technical-details{padding:25px 0;border-block:1px solid var(--line);margin-top:35px}.technical-details summary{font-size:17px;cursor:pointer;line-height:1.6;color:var(--text)}.checks{display:grid;grid-template-columns:1fr 1fr;gap:35px;margin-top:22px}.checks code{white-space:normal;font-size:13px;color:var(--gold)}.section-intro{max-width:650px;margin:25px 0 40px}.roadmap{display:grid;grid-template-columns:1fr 1fr;gap:35px;list-style:none;padding:0}.roadmap li{border-top:1px solid var(--line);padding-top:25px}.sources{display:grid;grid-template-columns:1fr 1fr;gap:25px 50px;padding-left:20px}.sources li{padding-left:8px;color:var(--gold);scroll-margin-top:30px}.sources p{font-size:13px;margin-top:10px}.originals{columns:2;padding-left:20px}.originals li{padding-bottom:12px}.patents li{margin-bottom:18px}.patents strong{display:block;color:var(--text)}.terraform{background:radial-gradient(ellipse at right,#45371a35,transparent 70%)}.terraform-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}.terraform .research-note{border-left:2px solid var(--gold);padding-left:22px}.architecture-page footer{border-top:1px solid var(--line)}
+@media(max-width:800px){.drawing figcaption{flex-direction:column;gap:22px}.figure-buttons{grid-template-columns:1fr 1fr}.sources{grid-template-columns:1fr}.arch-hero h1{letter-spacing:-2px}.review-grid article{padding:24px}.originals{columns:1}}
+@media(max-width:540px){.review-grid,.checks,.roadmap,.terraform-grid{grid-template-columns:1fr}.arch-hero h1{font-size:49px;letter-spacing:-2px}.arch-hero .intro{font-size:15px}.concept-label{font-size:8px;line-height:1.8}.figure-buttons button{padding:14px 10px;font-size:11px}.figure-buttons button span{margin-right:6px}.drawing figcaption{padding:20px}.drawing h3{font-size:20px}.gallery-controls button{padding:14px;font-size:12px}}

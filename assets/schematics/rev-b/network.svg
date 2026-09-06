@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+    <title id="title">A network that expects interruptions.</title><desc id="desc">Illustrative topology · contact windows, occultation, and distance drive the design. Lines show logical paths, not a solved orbital geometry or a guaranteed simultaneous link.</desc>
+    <defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0v40" fill="none" stroke="#ffffff" stroke-opacity=".025"/></pattern>
+    <marker id="gold" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4 0 8" fill="#dac08a"/></marker>
+    <marker id="blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4 0 8" fill="#8abac8"/></marker></defs>
+    <rect width="1200" height="760" fill="#0b1115"/><rect width="1200" height="760" fill="url(#grid)"/>
+    <g font-family="Arial, Helvetica, sans-serif"><text x="45" y="43" fill="#dac08a" font-size="14" font-weight="600">GOLDSTAR / ORBITAL</text><text x="870" y="43" fill="#a3acad" font-size="13" font-weight="400">CONCEPT STUDY  /  REV B  /  04</text>
+    <path d="M45 62H1155" stroke="#344044"/><text x="45" y="112" fill="#f3f1eb" font-size="34" font-weight="500">A network that expects interruptions.</text><text x="45" y="147" fill="#a3acad" font-size="17" font-weight="400">Illustrative topology · contact windows, occultation, and distance drive the design.</text>
+    <ellipse cx="600" cy="410" rx="350" ry="205" fill="none" stroke="#58615a" stroke-dasharray="7 9"/><circle cx="600" cy="410" r="100" fill="#342b24" stroke="#a58960"/><text x="560" y="417" fill="#dac08a" font-size="24" font-weight="400">MARS</text><g transform="translate(355 267) scale(0.31)">
+    <path d="M-95 -20h-100v80h100 M65 -20h100v80H65" fill="#142830" stroke="#8abac8"/>
+    <path d="M-170 -20v80m25 -80v80m25 -80v80m-75 -40h100m160 0h100m-75 -40v80m25 -80v80m25 -80v80" stroke="#36505a"/>
+    <path d="M-75 -55L25 -80 75 -45 -25 -20Z" fill="#293638" stroke="#dac08a"/>
+    <path d="M-75 -55v115l50 35V-20Z" fill="#182326" stroke="#dac08a"/>
+    <path d="M-25 -20L75 -45v115L-25 95Z" fill="#655536" stroke="#dac08a"/>
+    <path d="M-15 -3L60 -21v70L-15 67Z" fill="#111a1e" stroke="#dac08a"/>
+    <circle cx="24" cy="27" r="14" fill="#080d11" stroke="#8abac8" stroke-width="3"/>
+    <path d="M-45 -63v-32m-14 0h28" stroke="#f3f1eb" stroke-width="2"/>
+    </g><g transform="translate(855 277) scale(0.31)">
+    <path d="M-95 -20h-100v80h100 M65 -20h100v80H65" fill="#142830" stroke="#8abac8"/>
+    <path d="M-170 -20v80m25 -80v80m25 -80v80m-75 -40h100m160 0h100m-75 -40v80m25 -80v80m25 -80v80" stroke="#36505a"/>
+    <path d="M-75 -55L25 -80 75 -45 -25 -20Z" fill="#293638" stroke="#dac08a"/>
+    <path d="M-75 -55v115l50 35V-20Z" fill="#182326" stroke="#dac08a"/>
+    <path d="M-25 -20L75 -45v115L-25 95Z" fill="#655536" stroke="#dac08a"/>
+    <path d="M-15 -3L60 -21v70L-15 67Z" fill="#111a1e" stroke="#dac08a"/>
+    <circle cx="24" cy="27" r="14" fill="#080d11" stroke="#8abac8" stroke-width="3"/>
+    <path d="M-45 -63v-32m-14 0h28" stroke="#f3f1eb" stroke-width="2"/>
+    </g><g transform="translate(350 549) scale(0.31)">
+    <path d="M-95 -20h-100v80h100 M65 -20h100v80H65" fill="#142830" stroke="#8abac8"/>
+    <path d="M-170 -20v80m25 -80v80m25 -80v80m-75 -40h100m160 0h100m-75 -40v80m25 -80v80m25 -80v80" stroke="#36505a"/>
+    <path d="M-75 -55L25 -80 75 -45 -25 -20Z" fill="#293638" stroke="#dac08a"/>
+    <path d="M-75 -55v115l50 35V-20Z" fill="#182326" stroke="#dac08a"/>
+    <path d="M-25 -20L75 -45v115L-25 95Z" fill="#655536" stroke="#dac08a"/>
+    <path d="M-15 -3L60 -21v70L-15 67Z" fill="#111a1e" stroke="#dac08a"/>
+    <circle cx="24" cy="27" r="14" fill="#080d11" stroke="#8abac8" stroke-width="3"/>
+    <path d="M-45 -63v-32m-14 0h28" stroke="#f3f1eb" stroke-width="2"/>
+    </g><g transform="translate(856 550) scale(0.31)">
+    <path d="M-95 -20h-100v80h100 M65 -20h100v80H65" fill="#142830" stroke="#8abac8"/>
+    <path d="M-170 -20v80m25 -80v80m25 -80v80m-75 -40h100m160 0h100m-75 -40v80m25 -80v80m25 -80v80" stroke="#36505a"/>
+    <path d="M-75 -55L25 -80 75 -45 -25 -20Z" fill="#293638" stroke="#dac08a"/>
+    <path d="M-75 -55v115l50 35V-20Z" fill="#182326" stroke="#dac08a"/>
+    <path d="M-25 -20L75 -45v115L-25 95Z" fill="#655536" stroke="#dac08a"/>
+    <path d="M-15 -3L60 -21v70L-15 67Z" fill="#111a1e" stroke="#dac08a"/>
+    <circle cx="24" cy="27" r="14" fill="#080d11" stroke="#8abac8" stroke-width="3"/>
+    <path d="M-45 -63v-32m-14 0h28" stroke="#f3f1eb" stroke-width="2"/>
+    </g><path d="M422 267 L785 277" stroke="#dac08a" stroke-width="2" fill="none"  marker-end="url(#gold)"/><path d="M790 550 L415 549" stroke="#8abac8" stroke-width="2" fill="none"  marker-end="url(#blue)"/><path d="M364 306 L354 506" stroke="#8abac8" stroke-width="2" fill="none" stroke-dasharray="6 7" marker-end="url(#blue)"/><rect x="45" y="355" width="245" height="118" rx="10" fill="#111a1e" stroke="#344044"/><path d="M65 356h45" stroke="#8abac8" stroke-width="3"/><text x="67" y="392" fill="#8abac8" font-size="21" font-weight="500">Earth gateway</text><text x="67" y="427" fill="#a3acad" font-size="17" font-weight="400">Scheduled contacts</text><text x="67" y="454" fill="#a3acad" font-size="17" font-weight="400">Rate varies with range</text><path d="M290 407 L333 318" stroke="#8abac8" stroke-width="2" fill="none" stroke-dasharray="6 7" marker-end="url(#blue)"/><rect x="920" y="355" width="235" height="118" rx="10" fill="#111a1e" stroke="#344044"/><path d="M940 356h45" stroke="#dac08a" stroke-width="3"/><text x="942" y="392" fill="#dac08a" font-size="21" font-weight="500">Surface user</text><text x="942" y="427" fill="#a3acad" font-size="17" font-weight="400">Local data products</text><text x="942" y="454" fill="#a3acad" font-size="17" font-weight="400">Independent operations</text><path d="M889 316 L958 355" stroke="#dac08a" stroke-width="2" fill="none" stroke-dasharray="6 7" marker-end="url(#gold)"/><text x="350" y="640" fill="#dac08a" font-size="17" font-weight="400">STORE → WAIT FOR CONTACT → FORWARD → VERIFY</text><path d="M45 686H1155" stroke="#344044"/><text x="45" y="718" fill="#a3acad" font-size="15" font-weight="400">Lines show logical paths, not a solved orbital geometry or a guaranteed simultaneous link.</text><text x="45" y="745" fill="#dac08a" font-size="11" font-weight="400">NOT TO SCALE · PROPOSED SYSTEM · NO FLIGHT PERFORMANCE IMPLIED</text></g></svg>

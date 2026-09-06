@@ -1,0 +1,62 @@
+[
+  {
+    "src": "assets/schematics/rev-b/satellite.svg",
+    "title": "A spacecraft around the experiment.",
+    "desc": "A proposed solar-powered demonstrator with battery, thermal control, optical terminal, attitude control, flight computer, and a hybrid photonic payload. The drawing is a functional concept, not a mechanical design.",
+    "number": 1
+  },
+  {
+    "src": "assets/schematics/rev-b/photonic-core.svg",
+    "title": "Light does the matrix work.",
+    "desc": "An explicit electronic-to-optical-to-electronic pipeline replaces the zero-conversion assumption. System energy includes lasers, drivers, converters, memory, calibration, and thermal support. Optical component energy alone is not a GPU benchmark.",
+    "number": 2
+  },
+  {
+    "src": "assets/schematics/rev-b/storage-node.svg",
+    "title": "Separate computation from persistence.",
+    "desc": "The storage node now has the minimum local electronics needed for authentication, error correction, scrubbing, pointing, and survival. Long-lived optical or quantum storage remains a separate research payload, not the baseline archive.",
+    "number": 3
+  },
+  {
+    "src": "assets/schematics/rev-b/network.svg",
+    "title": "A network that expects interruptions.",
+    "desc": "A delay-tolerant relay network buffers authenticated data between scheduled contacts. Orbit altitude, coverage, collision risk, pointing, link budget, and station access must be simulated before choosing node counts. Deep-space and local optical links have separate budgets.",
+    "number": 4
+  },
+  {
+    "src": "assets/schematics/rev-b/power-thermal.svg",
+    "title": "Every watt needs a path.",
+    "desc": "Vacuum removes convection, not heat generation. A conductive path and radiator are required. The sample radiator equation is an idealized sizing check, not a flight thermal model; source decay does not certify service lifetime.",
+    "number": 5
+  },
+  {
+    "src": "assets/schematics/rev-b/encoding.svg",
+    "title": "Count states. Then measure information.",
+    "desc": "The original four counts sum to 26 ideal label bits, not 32. Correlated or noisy dimensions can reduce recoverable information. Capacity must be derived from tested storage density, retention, error correction, redundancy, and usable node count.",
+    "number": 6
+  },
+  {
+    "src": "assets/schematics/rev-b/security.svg",
+    "title": "Trust is designed into the protocol.",
+    "desc": "Authenticated, replay-resistant commands, verified boot, key lifecycle management, replicated storage, and independent recovery replace security-by-obscurity claims. Narrow beams do not guarantee non-interception or availability.",
+    "number": 7
+  },
+  {
+    "src": "assets/schematics/rev-b/research-boundary.svg",
+    "title": "Keep the frontier. Bound the claim.",
+    "desc": "Oxygen generation is retained as a research direction with its own reactor, energy, mass, efficiency, and logistics budgets. No kg/day or breathable-atmosphere schedule is inferred from an orbital node count.",
+    "number": 8
+  },
+  {
+    "src": "assets/schematics/rev-b/photosynthesis.svg",
+    "title": "From light to a living-world vision.",
+    "desc": "A proposed satellite coordinates a contained surface reactor and studies tuned optical delivery. Telemetry closes the experimental loop. Water oxidation can produce oxygen; catalyst chemistry, feedstock access, energy efficiency, and environmental conditions must be validated before any yield claim. Terraforming remains a long-term vision.",
+    "number": 9
+  },
+  {
+    "src": "assets/schematics/rev-b/interferometer.svg",
+    "title": "Inside the photonic building block.",
+    "desc": "Two optical inputs are split and recombined through couplers. A controlled relative phase changes interference at the outputs. Arrays of these cells, with additional phase controls and appropriate scaling, can implement supported linear transforms; calibration, finite precision, insertion loss, and drift limit useful performance.",
+    "number": 10
+  }
+]
