@@ -1,0 +1,37 @@
+/* Architecture extends the shared homepage identity without changing its runtime. */
+.architecture-page .skip:not(:focus) { clip-path: inset(50%); width: 1px; height: 1px; padding: 0; overflow: hidden; }
+.architecture-page .header { position: relative; background: #080a0b; }
+.architecture-page .header [aria-current="page"] { color: var(--gold); }
+.architecture-page .mission-section { position: relative; }
+.architecture-page .mission-section::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 560px;
+  background: linear-gradient(90deg, #080a0b 15%, #080a0b40), linear-gradient(0deg, #080a0b, transparent 75%), url("assets/orbital-hero.jpg") center 38% / cover;
+  pointer-events: none;
+}
+.architecture-page .mission-section > div { position: relative; }
+.architecture-page .mission-title { font-size: clamp(64px, 7.5vw, 108px); letter-spacing: -5px; line-height: 1; margin: 0 0 32px; font-weight: 500; }
+.architecture-page p { line-height: 1.8; }
+.architecture-page .mission-title + p { max-width: 620px !important; }
+.architecture-page .schematic-viewer { margin-top: 64px; border-radius: 3px !important; }
+.architecture-page .schematic-viewer > div:first-child { background: #eee9dc !important; }
+.architecture-page .schematic-viewer > div:first-child img { max-height: 700px; object-fit: contain; }
+.architecture-page button { min-height: 44px; font: inherit; transition: border-color .2s, background .2s; }
+.architecture-page button:hover { outline: 1px solid var(--gold); }
+.architecture-page button:focus-visible, .architecture-page [tabindex]:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+.architecture-page .comparison-scroll { max-width: 100%; overflow-x: auto; margin-bottom: 40px; }
+.architecture-page .comparison-scroll table { min-width: 650px; margin-bottom: 0 !important; }
+.architecture-page main > section:last-child { padding-inline: 7% !important; background: radial-gradient(ellipse at right bottom, #49361740, transparent 65%); }
+.architecture-page main > section:last-child h2 { font-weight: 500 !important; font-size: clamp(34px, 4.5vw, 60px) !important; }
+.architecture-page footer { border-top: 1px solid var(--line); }
+@media (max-width: 600px) {
+  .architecture-page .mission-section { padding-top: 64px !important; padding-bottom: 64px !important; }
+  .architecture-page .mission-title { letter-spacing: -3px; }
+  .architecture-page .mission-section > div > p:first-child { font-size: 9px !important; }
+  .architecture-page .schematic-viewer { padding: 10px !important; margin-top: 38px; }
+  .architecture-page .patent-row { grid-template-columns: 1fr !important; gap: 8px !important; }
+  .architecture-page main > section:last-child > div > div { padding: 24px 18px !important; }
+  .architecture-page a[href^="mailto:"] { overflow-wrap: anywhere; }
+}

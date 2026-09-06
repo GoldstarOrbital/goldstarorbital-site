@@ -1,15 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mission Architecture — Goldstar Orbital</title>
+<meta name="description" content="Explore Goldstar Orbital's mission architecture, satellite schematics, and orbital infrastructure roadmap.">
+<meta name="theme-color" content="#080a0b">
+<link rel="canonical" href="https://goldstarorbital.com/architecture.html">
+<link rel="icon" href="assets/favicon-32.png">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="architecture.css">
 <script src="./support.js"></script>
 </head>
-<body>
+<body class="architecture-page">
+<a class="skip" href="#mission">Skip to content</a>
 <x-dc>
 <helmet>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body { margin: 0; }
     @keyframes twinkle { 0%, 100% { opacity: 0.15; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.2); } }
@@ -17,61 +25,35 @@
   </style>
 </helmet>
 
-<div style="font-family: 'Familjen Grotesk', sans-serif; background: #05090c; color: #e4f4fb; min-height: 100vh; position: relative; overflow: hidden;">
+<div style="font-family: 'DM Sans', sans-serif; background: #080a0b; color: #f3f1eb; min-height: 100vh; position: relative; overflow: hidden;">
 
-  <div style="position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;">
-    <sc-for list="{{ stars }}" as="s" hint-placeholder-count="40">
-      <div style="position: absolute; top: {{ s.top }}; left: {{ s.left }}; width: {{ s.size }}; height: {{ s.size }}; border-radius: 50%; background: #e4f4fb; opacity: 0.5; animation: twinkle {{ s.dur }} ease-in-out infinite; animation-delay: {{ s.delay }};"></div>
-    </sc-for>
-    <div style="position: absolute; width: 520px; height: 520px; border-radius: 50%; filter: blur(100px); top: -160px; left: 10%; background: #5ec9e0; opacity: 0.16; animation: drift 18s ease-in-out infinite alternate;"></div>
-  </div>
 
-  <header style="position: sticky; top: 0; z-index: 50; background: linear-gradient(135deg, #f4f5f8 0%, #c9cdd6 30%, #eef0f4 50%, #aeb2bd 70%, #f0f1f4 100%); backdrop-filter: blur(10px); border-bottom: 1px solid #8a8e99;">
-    <div style="max-width: 1180px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
-      <a href="index.html#top" style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px; flex-shrink: 0; text-decoration: none;">
-        <img src="assets/logo-full-800.png" alt="Goldstar Orbital" style="height: 46px; width: auto; object-fit: contain; display: block;">
-        <span style="font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #4a4c53;">Goldstar Orbital</span>
-      </a>
-      <nav style="display: flex; gap: 28px; font-size: 14px; flex-wrap: wrap;">
-        <a href="index.html#about" style="text-decoration: none; color: #35373e; font-weight: 500;">About</a>
-        <a href="index.html#products" style="text-decoration: none; color: #35373e; font-weight: 500;">Products</a>
-        <a href="index.html#case-studies" style="text-decoration: none; color: #35373e; font-weight: 500;">Case Studies</a>
-        <a href="architecture.html" style="text-decoration: none; color: #0a0a0c; font-weight: 700;">Architecture</a>
-        <a href="index.html#contact" style="text-decoration: none; color: #35373e; font-weight: 500;">Contact</a>
-      </nav>
-      <a href="index.html#contact" style="text-decoration: none; background: #17181c; color: #eef0f4; padding: 9px 20px; font-weight: 600; font-size: 13px; border-radius: 3px; flex-shrink: 0;">Get in touch</a>
-    </div>
-    <div style="height: 2px; background: linear-gradient(90deg, transparent, #fff, transparent);"></div>
-  </header>
 
-  <main style="position: relative; z-index: 1;">
-    <div style="display: flex; justify-content: center; flex-wrap: wrap; background: #05090c; border-bottom: 1px solid #163242;">
-      <a href="index.html#products" style="text-decoration: none; color: #39ff88; padding: 13px 28px; border-right: 1px solid #163242; font-weight: 600; font-size: 13px; letter-spacing: 0.04em;">Fawn</a>
-      <a href="index.html#products" style="text-decoration: none; color: #e8b345; padding: 13px 28px; border-right: 1px solid #163242; font-weight: 600; font-size: 13px; letter-spacing: 0.04em;">Functioning Faith</a>
-      <a href="architecture.html" style="text-decoration: none; color: #5ec9e0; padding: 13px 28px; font-weight: 600; font-size: 13px; letter-spacing: 0.04em;">Photonic GPU Schematics</a>
-    </div>
-    <section style="padding: 96px 32px 90px; border-bottom: 1px solid #8a8e99;">
+<header class="header"><a class="brand" href="index.html#top" aria-label="Goldstar Orbital home"><span class="brand-star" aria-hidden="true">✦</span><span>GOLDSTAR<span class="brand-sub">O R B I T A L</span></span></a><nav aria-label="Main navigation"><a href="index.html#about">Our vision</a><a href="index.html#products">Ventures</a><a href="architecture.html" aria-current="page">Architecture</a></nav><a class="contact-link" href="index.html#contact">Let's talk <span aria-hidden="true">↗</span></a></header>
+
+  <main id="mission" style="position: relative; z-index: 1;">
+    <section class="mission-section" style="padding: 96px 7% 90px; border-bottom: 1px solid #ffffff20;">
       <div style="max-width: 1180px; margin: 0 auto;">
-        <p style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #5ec9e0; margin: 0 0 18px;">Mission Architecture</p>
-        <h2 style="font-size: clamp(28px, 4vw, 44px); font-weight: 700; margin: 0 0 22px; max-width: 800px;">Designed for Mars, not adapted for it.</h2>
-        <p style="font-size: 17px; color: #75a3b8; max-width: 720px; margin: 0 0 48px;">Mars gets less than half of Earth's sunlight, with dust storms that can cut it further for weeks. So the system runs on Pu-238 radioisotope power instead of solar, the same technology behind Cassini and Voyager — giving each node 50–100 years of operation regardless of eclipse or dust.</p>
+        <p style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #dac08a; margin: 0 0 18px;">THE NEXT FRONTIER / MISSION ARCHITECTURE</p>
+        <h1 class="mission-title">Designed for<br><em>Mars.</em></h1>
+        <p style="font-size: 17px; color: #a1a4a4; max-width: 720px; margin: 0 0 48px;">Mars gets less than half of Earth's sunlight, with dust storms that can cut it further for weeks. So the system runs on Pu-238 radioisotope power instead of solar, the same technology behind Cassini and Voyager — giving each node 50–100 years of operation regardless of eclipse or dust.</p>
 
-        <div style="background: #0a1620; border: 1px solid #163242; border-radius: 8px; padding: 20px; margin-bottom: 40px;">
+        <div class="schematic-viewer" style="background: #111415; border: 1px solid #ffffff20; border-radius: 8px; padding: 20px; margin-bottom: 40px;">
           <div style="background: #f4f1e8; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 200px;">
-            <img src="{{ activeFigure.src }}" alt="" style="width: 100%; height: auto; display: block;">
+            <img src="{{ activeFigure.src }}" alt="{{ activeFigure.title }}" style="width: 100%; height: auto; display: block;">
           </div>
           <div style="padding: 18px 4px 6px;">
-            <h4 style="margin: 0 0 6px; font-size: 15px; color: #5ec9e0;">{{ activeFigure.title }}</h4>
-            <p style="margin: 0; font-size: 13.5px; color: #75a3b8;">{{ activeFigure.desc }}</p>
+            <h4 style="margin: 0 0 6px; font-size: 15px; color: #dac08a;">{{ activeFigure.title }}</h4>
+            <p style="margin: 0; font-size: 13.5px; color: #a1a4a4;">{{ activeFigure.desc }}</p>
           </div>
           <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
-            <button onclick="{{ prevFigure }}" aria-label="Previous figure" style="background: #05090c; border: 1px solid #163242; color: #e4f4fb; width: 34px; height: 34px; border-radius: 50%; cursor: pointer;">←</button>
-            <span style="font-family: 'Space Mono', monospace; font-size: 12px; color: #75a3b8;">{{ figureCounter }}</span>
-            <button onclick="{{ nextFigure }}" aria-label="Next figure" style="background: #05090c; border: 1px solid #163242; color: #e4f4fb; width: 34px; height: 34px; border-radius: 50%; cursor: pointer;">→</button>
+            <button onclick="{{ prevFigure }}" aria-label="Previous figure" style="background: #080a0b; border: 1px solid #ffffff20; color: #f3f1eb; width: 34px; height: 34px; border-radius: 50%; cursor: pointer;">←</button>
+            <span style="font-family: 'Space Mono', monospace; font-size: 12px; color: #a1a4a4;">{{ figureCounter }}</span>
+            <button onclick="{{ nextFigure }}" aria-label="Next figure" style="background: #080a0b; border: 1px solid #ffffff20; color: #f3f1eb; width: 34px; height: 34px; border-radius: 50%; cursor: pointer;">→</button>
           </div>
           <div style="display: flex; gap: 10px; margin-top: 16px; overflow-x: auto; padding-bottom: 4px;">
             <sc-for list="{{ figures }}" as="fig" hint-placeholder-count="5">
-              <button onclick="{{ fig.select }}" style="flex-shrink: 0; width: 74px; height: 56px; overflow: hidden; border-radius: 6px; border: 2px solid {{ fig.borderColor }}; background: #f4f1e8; cursor: pointer; padding: 0;">
+              <button aria-label="{{ fig.title }}" aria-pressed="{{ fig.selected }}" onclick="{{ fig.select }}" style="flex-shrink: 0; width: 74px; height: 56px; overflow: hidden; border-radius: 6px; border: 2px solid {{ fig.borderColor }}; background: #f4f1e8; cursor: pointer; padding: 0;">
                 <img src="{{ fig.src }}" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;">
               </button>
             </sc-for>
@@ -80,63 +62,63 @@
 
         <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px;">
           <sc-for list="{{ phases }}" as="p" hint-placeholder-count="4">
-            <button onclick="{{ p.select }}" style="{{ p.btnStyle }}">{{ p.label }}</button>
+            <button aria-pressed="{{ p.selected }}" onclick="{{ p.select }}" style="{{ p.btnStyle }}">{{ p.label }}</button>
           </sc-for>
         </div>
-        <div style="background: #0a1620; border: 1px solid #163242; border-radius: 8px; padding: 28px 32px; margin-bottom: 40px;">
+        <div style="background: #111415; border: 1px solid #ffffff20; border-radius: 8px; padding: 28px 32px; margin-bottom: 40px;">
           <span style="{{ activePhase.tagStyle }}">{{ activePhase.status }}</span>
           <h3 style="margin: 14px 0 10px; font-size: 19px;">{{ activePhase.headline }}</h3>
-          <p style="color: #75a3b8; font-size: 15px; margin: 0; max-width: 640px;">{{ activePhase.body }}</p>
+          <p style="color: #a1a4a4; font-size: 15px; margin: 0; max-width: 640px;">{{ activePhase.body }}</p>
         </div>
 
-        <button onclick="{{ toggleDeepdive }}" style="display: inline-flex; align-items: center; gap: 10px; background: #0a1620; border: 1px solid #163242; color: #75a3b8; font-family: 'Space Mono', monospace; font-size: 13px; padding: 12px 20px; border-radius: 4px; cursor: pointer; margin-bottom: 32px;">{{ deepdiveLabel }}</button>
+        <button aria-expanded="{{ deepdiveOpen }}" onclick="{{ toggleDeepdive }}" style="display: inline-flex; align-items: center; gap: 10px; background: #111415; border: 1px solid #ffffff20; color: #a1a4a4; font-family: 'Space Mono', monospace; font-size: 13px; padding: 12px 20px; border-radius: 4px; cursor: pointer; margin-bottom: 32px;">{{ deepdiveLabel }}</button>
 
         <sc-if value="{{ deepdiveOpen }}" hint-placeholder-val="{{ false }}">
           <div>
-            <div style="background: #0a1620; border: 1px solid #163242; border-left: 3px solid #5ec9e0; border-radius: 0 8px 8px 0; padding: 24px 28px; margin-bottom: 40px;">
-              <p style="margin: 0; font-size: 14.5px; color: #75a3b8;"><strong style="color: #5ec9e0;">Why this is a compute story, not just storage:</strong> the controller satellites carry a photonic GPU — light-speed matrix operations at 1–10 femtojoules per operation, versus roughly 200,000 for an NVIDIA H100. H100-class silicon is still the peak of electronic compute; orbital vacuum is what lets photonic hardware finally use its physics advantage.</p>
+            <div style="background: #111415; border: 1px solid #ffffff20; border-left: 3px solid #dac08a; border-radius: 0 8px 8px 0; padding: 24px 28px; margin-bottom: 40px;">
+              <p style="margin: 0; font-size: 14.5px; color: #a1a4a4;"><strong style="color: #dac08a;">Why this is a compute story, not just storage:</strong> the controller satellites carry a photonic GPU — light-speed matrix operations at 1–10 femtojoules per operation, versus roughly 200,000 for an NVIDIA H100. H100-class silicon is still the peak of electronic compute; orbital vacuum is what lets photonic hardware finally use its physics advantage.</p>
             </div>
 
-            <table style="width: 100%; border-collapse: collapse; background: #0a1620; border: 1px solid #163242; border-radius: 8px; overflow: hidden; margin-bottom: 40px;">
+            <div class="comparison-scroll" role="region" aria-label="Compute comparison" tabindex="0"><table style="width: 100%; border-collapse: collapse; background: #111415; border: 1px solid #ffffff20; border-radius: 8px; overflow: hidden; margin-bottom: 40px;">
               <thead><tr>
-                <th style="padding: 14px 20px; text-align: left; font-size: 11.5px; font-family: 'Space Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; color: #75a3b8; background: #0a1620; border-bottom: 1px solid #163242;">Metric</th>
-                <th style="padding: 14px 20px; text-align: left; font-size: 11.5px; font-family: 'Space Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; color: #75a3b8; background: #0a1620; border-bottom: 1px solid #163242;">Photonic GPU (orbital)</th>
-                <th style="padding: 14px 20px; text-align: left; font-size: 11.5px; font-family: 'Space Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; color: #75a3b8; background: #0a1620; border-bottom: 1px solid #163242;">Electronic GPU (H100)</th>
+                <th style="padding: 14px 20px; text-align: left; font-size: 11.5px; font-family: 'Space Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; color: #a1a4a4; background: #111415; border-bottom: 1px solid #ffffff20;">Metric</th>
+                <th style="padding: 14px 20px; text-align: left; font-size: 11.5px; font-family: 'Space Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; color: #a1a4a4; background: #111415; border-bottom: 1px solid #ffffff20;">Photonic GPU (orbital)</th>
+                <th style="padding: 14px 20px; text-align: left; font-size: 11.5px; font-family: 'Space Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; color: #a1a4a4; background: #111415; border-bottom: 1px solid #ffffff20;">Electronic GPU (H100)</th>
               </tr></thead>
               <tbody>
-                <tr><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #163242; font-weight: 600;">Energy per MAC operation</td><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #163242; color: #2fcf8e; font-weight: 700;">1–10 femtojoules</td><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #163242; color: #75a3b8;">~200,000 femtojoules</td></tr>
-                <tr><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #163242; font-weight: 600;">Thermal constraints</td><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #163242; color: #2fcf8e; font-weight: 700;">Near zero (orbital vacuum)</td><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #163242; color: #75a3b8;">Severe — requires active cooling</td></tr>
-                <tr><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #163242; font-weight: 600;">Node / card lifetime</td><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #163242; color: #2fcf8e; font-weight: 700;">50–100 years (Pu-238 RTG)</td><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #163242; color: #75a3b8;">3–5 year refresh cycle</td></tr>
-                <tr><td style="padding: 14px 20px; font-size: 14px; font-weight: 600;">Phase stability</td><td style="padding: 14px 20px; font-size: 14px; color: #2fcf8e; font-weight: 700;">Millikelvin variation</td><td style="padding: 14px 20px; font-size: 14px; color: #75a3b8;">Requires active thermal management</td></tr>
+                <tr><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #ffffff20; font-weight: 600;">Energy per MAC operation</td><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #ffffff20; color: #2fcf8e; font-weight: 700;">1–10 femtojoules</td><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #ffffff20; color: #a1a4a4;">~200,000 femtojoules</td></tr>
+                <tr><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #ffffff20; font-weight: 600;">Thermal constraints</td><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #ffffff20; color: #2fcf8e; font-weight: 700;">Near zero (orbital vacuum)</td><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #ffffff20; color: #a1a4a4;">Severe — requires active cooling</td></tr>
+                <tr><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #ffffff20; font-weight: 600;">Node / card lifetime</td><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #ffffff20; color: #2fcf8e; font-weight: 700;">50–100 years (Pu-238 RTG)</td><td style="padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #ffffff20; color: #a1a4a4;">3–5 year refresh cycle</td></tr>
+                <tr><td style="padding: 14px 20px; font-size: 14px; font-weight: 600;">Phase stability</td><td style="padding: 14px 20px; font-size: 14px; color: #2fcf8e; font-weight: 700;">Millikelvin variation</td><td style="padding: 14px 20px; font-size: 14px; color: #a1a4a4;">Requires active thermal management</td></tr>
               </tbody>
-            </table>
+            </table></div>
 
             <h3 style="font-size: 19px; margin-bottom: 16px;">Patent family</h3>
             <div style="display: grid; gap: 12px; margin-bottom: 40px;">
-              <div style="display: grid; grid-template-columns: 90px 1fr auto; gap: 16px; align-items: baseline; padding: 14px 18px; background: #0a1620; border: 1px solid #163242; border-radius: 10px;">
-                <span style="font-family: 'Space Mono', monospace; color: #5ec9e0; font-size: 13px;">Patent 1</span>
+              <div class="patent-row" style="display: grid; grid-template-columns: 90px 1fr auto; gap: 16px; align-items: baseline; padding: 14px 18px; background: #111415; border: 1px solid #ffffff20; border-radius: 10px;">
+                <span style="font-family: 'Space Mono', monospace; color: #dac08a; font-size: 13px;">Patent 1</span>
                 <span style="font-size: 14px;">Photonic Orbital Data Storage, Non-Binary Encoding, and Multi-Symbol Energy-State Communication System</span>
-                <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #75a3b8; white-space: nowrap;">FILED · MAY 22, 2026</span>
+                <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #a1a4a4; white-space: nowrap;">FILED · MAY 22, 2026</span>
               </div>
-              <div style="display: grid; grid-template-columns: 90px 1fr auto; gap: 16px; align-items: baseline; padding: 14px 18px; background: #0a1620; border: 1px solid #163242; border-radius: 10px;">
-                <span style="font-family: 'Space Mono', monospace; color: #5ec9e0; font-size: 13px;">Patent 2</span>
+              <div class="patent-row" style="display: grid; grid-template-columns: 90px 1fr auto; gap: 16px; align-items: baseline; padding: 14px 18px; background: #111415; border: 1px solid #ffffff20; border-radius: 10px;">
+                <span style="font-family: 'Space Mono', monospace; color: #dac08a; font-size: 13px;">Patent 2</span>
                 <span style="font-size: 14px;">Orbital Photonic Compute-Memory System with Vacuum-Enabled Interferometric Performance &amp; Radioisotope-Sustained Storage</span>
-                <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #75a3b8; white-space: nowrap;">FILED</span>
+                <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #a1a4a4; white-space: nowrap;">FILED</span>
               </div>
-              <div style="display: grid; grid-template-columns: 90px 1fr auto; gap: 16px; align-items: baseline; padding: 14px 18px; background: #0a1620; border: 1px solid #163242; border-radius: 10px;">
-                <span style="font-family: 'Space Mono', monospace; color: #5ec9e0; font-size: 13px;">Patent 3A</span>
+              <div class="patent-row" style="display: grid; grid-template-columns: 90px 1fr auto; gap: 16px; align-items: baseline; padding: 14px 18px; background: #111415; border: 1px solid #ffffff20; border-radius: 10px;">
+                <span style="font-family: 'Space Mono', monospace; color: #dac08a; font-size: 13px;">Patent 3A</span>
                 <span style="font-size: 14px;">Photon-Driven Artificial Photosynthetic Process for Planetary Atmosphere Generation</span>
-                <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #75a3b8; white-space: nowrap;">PLANNED</span>
+                <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #a1a4a4; white-space: nowrap;">PLANNED</span>
               </div>
-              <div style="display: grid; grid-template-columns: 90px 1fr auto; gap: 16px; align-items: baseline; padding: 14px 18px; background: #0a1620; border: 1px solid #163242; border-radius: 10px;">
-                <span style="font-family: 'Space Mono', monospace; color: #5ec9e0; font-size: 13px;">Patent 3B</span>
+              <div class="patent-row" style="display: grid; grid-template-columns: 90px 1fr auto; gap: 16px; align-items: baseline; padding: 14px 18px; background: #111415; border: 1px solid #ffffff20; border-radius: 10px;">
+                <span style="font-family: 'Space Mono', monospace; color: #dac08a; font-size: 13px;">Patent 3B</span>
                 <span style="font-size: 14px;">Orbital Photonic GPU Real-Time Wavelength Optimization System for Photosynthetic Reaction Control</span>
-                <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #75a3b8; white-space: nowrap;">PLANNED, KEYSTONE</span>
+                <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #a1a4a4; white-space: nowrap;">PLANNED, KEYSTONE</span>
               </div>
-              <div style="display: grid; grid-template-columns: 90px 1fr auto; gap: 16px; align-items: baseline; padding: 14px 18px; background: #0a1620; border: 1px solid #163242; border-radius: 10px;">
-                <span style="font-family: 'Space Mono', monospace; color: #5ec9e0; font-size: 13px;">Patent 3C</span>
+              <div class="patent-row" style="display: grid; grid-template-columns: 90px 1fr auto; gap: 16px; align-items: baseline; padding: 14px 18px; background: #111415; border: 1px solid #ffffff20; border-radius: 10px;">
+                <span style="font-family: 'Space Mono', monospace; color: #dac08a; font-size: 13px;">Patent 3C</span>
                 <span style="font-size: 14px;">Integrated Orbital Photonic Data and Planetary Atmosphere Generation System</span>
-                <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #75a3b8; white-space: nowrap;">PLANNED</span>
+                <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #a1a4a4; white-space: nowrap;">PLANNED</span>
               </div>
             </div>
           </div>
@@ -146,27 +128,24 @@
 
     <section style="padding: 90px 32px;">
       <div style="max-width: 1180px; margin: 0 auto;">
-        <p style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #5ec9e0; margin: 0 0 18px;">Get in touch</p>
+        <p style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #dac08a; margin: 0 0 18px;">Get in touch</p>
         <h2 style="font-size: clamp(28px, 3.5vw, 38px); font-weight: 700; margin: 0 0 42px; max-width: 720px;">Building the compute layer for what comes after warehouses.</h2>
-        <div style="background: #0a1620; border: 1px solid #163242; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; padding: 28px 32px;">
-          <div style="font-size: 14px; color: #75a3b8;">
-            <strong style="display: block; color: #e4f4fb; font-size: 16px; margin-bottom: 2px;">Alexander Marcus Goldsmith</strong>
+        <div style="background: #111415; border: 1px solid #ffffff20; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; padding: 28px 32px;">
+          <div style="font-size: 14px; color: #a1a4a4;">
+            <strong style="display: block; color: #f3f1eb; font-size: 16px; margin-bottom: 2px;">Alexander Marcus Goldsmith</strong>
             Founder &amp; CEO, Goldstar Orbital, Inc.
           </div>
           <div style="display: flex; gap: 20px; flex-wrap: wrap; font-size: 14px;">
-            <!--email_off--><a href="mailto:alexgoldsmith@goldstarorbital.com" style="text-decoration: none; color: #75a3b8;">alexgoldsmith@goldstarorbital.com</a><!--/email_off-->
-            <a href="https://www.linkedin.com/in/alex-goldsmith-46a911302" target="_blank" rel="noopener" style="text-decoration: none; color: #75a3b8;">LinkedIn</a>
-            <a href="https://x.com/SrGoldy56" target="_blank" rel="noopener" style="text-decoration: none; color: #75a3b8;">X</a>
+            <!--email_off--><a href="mailto:alexgoldsmith@goldstarorbital.com" style="text-decoration: none; color: #a1a4a4;">alexgoldsmith@goldstarorbital.com</a><!--/email_off-->
+            <a href="https://www.linkedin.com/in/alex-goldsmith-46a911302" target="_blank" rel="noopener" style="text-decoration: none; color: #a1a4a4;">LinkedIn</a>
+            <a href="https://x.com/SrGoldy56" target="_blank" rel="noopener" style="text-decoration: none; color: #a1a4a4;">X</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer style="position: relative; z-index: 1; border-top: 1px solid #163242; padding: 40px 32px; text-align: center; color: #75a3b8; font-size: 13px;">
-    <div style="font-family: 'Space Mono', monospace; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; font-weight: 600; color: #5ec9e0;">Goldstar Orbital</div>
-    <div>Goldstar Orbital, Inc. · Patent Pending · Priority Date May 22, 2026</div>
-  </footer>
+<footer><a class="brand" href="index.html#top"><span class="brand-star" aria-hidden="true">✦</span><span>GOLDSTAR<span class="brand-sub">O R B I T A L</span></span></a><span>© 2026 Goldstar Orbital, Inc.</span><div><a href="https://www.linkedin.com/in/alex-goldsmith-46a911302" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://x.com/SrGoldy56" target="_blank" rel="noopener">X ↗</a><a href="https://github.com/goldstarorbital" target="_blank" rel="noopener">GitHub ↗</a></div><a href="index.html#top">Back to top ↑</a></footer>
 
 </div>
 </x-dc>
@@ -201,8 +180,8 @@ const STARS = seededStars(50);
 
 const TAG_STYLE = (tag) => {
   const base = 'display:inline-block;font-family:\'IBM Plex Mono\',monospace;font-size:11px;padding:4px 10px;border-radius:3px;letter-spacing:0.05em;';
-  if (tag === 'dev') return base + 'background:rgba(94,201,224,0.14);color:#5ec9e0;border:1px solid #2d6b7a;';
-  return base + 'background:rgba(183,154,194,0.1);color:#75a3b8;border:1px solid #163242;';
+  if (tag === 'dev') return base + 'background:rgba(218,192,138,0.12);color:#dac08a;border:1px solid #80704e;';
+  return base + 'background:rgba(183,154,194,0.1);color:#a1a4a4;border:1px solid #ffffff20;';
 };
 
 class Component extends DCLogic {
@@ -213,14 +192,15 @@ class Component extends DCLogic {
     const active = FIGURES[figureIdx];
     const phases = PHASES.map((p, i) => ({
       ...p,
+      selected: i === phaseIdx,
       select: () => this.setState({ phaseIdx: i }),
-      btnStyle: `font-family:'IBM Plex Mono',monospace;font-size:12.5px;padding:9px 16px;border-radius:999px;border:1px solid ${i === phaseIdx ? '#5ec9e0' : '#163242'};background:${i === phaseIdx ? '#5ec9e0' : 'transparent'};color:${i === phaseIdx ? '#04070a' : '#75a3b8'};cursor:pointer;`,
+      btnStyle: `font-family:'IBM Plex Mono',monospace;font-size:12.5px;padding:9px 16px;border-radius:999px;border:1px solid ${i === phaseIdx ? '#dac08a' : '#ffffff20'};background:${i === phaseIdx ? '#dac08a' : 'transparent'};color:${i === phaseIdx ? '#04070a' : '#a1a4a4'};cursor:pointer;`,
     }));
     const activePhase = { ...PHASES[phaseIdx], tagStyle: TAG_STYLE(PHASES[phaseIdx].tag) };
     return {
       activeFigure: active,
       figureCounter: `${figureIdx + 1} / ${FIGURES.length}`,
-      figures: FIGURES.map((f, i) => ({ ...f, borderColor: i === figureIdx ? '#5ec9e0' : '#163242', select: () => this.setState({ figureIdx: i }) })),
+      figures: FIGURES.map((f, i) => ({ ...f, selected: i === figureIdx, borderColor: i === figureIdx ? '#dac08a' : '#ffffff20', select: () => this.setState({ figureIdx: i }) })),
       prevFigure: () => this.setState({ figureIdx: (figureIdx - 1 + FIGURES.length) % FIGURES.length }),
       nextFigure: () => this.setState({ figureIdx: (figureIdx + 1) % FIGURES.length }),
       phases,
