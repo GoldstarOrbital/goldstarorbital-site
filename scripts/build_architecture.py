@@ -2,6 +2,7 @@
 from pathlib import Path
 import json,re
 from html import escape as e
+from seo_common import decorate
 ROOT=Path(__file__).resolve().parents[1]
 figs=json.loads((ROOT/'assets/schematics/rev-b/manifest.json').read_text())
 home=(ROOT/'index.html').read_text(encoding='utf-8')
@@ -52,5 +53,8 @@ terraform='''<section class="section terraform" id="photosynthesis"><p class="ey
 html=html.replace('<section class="section" id="roadmap">',terraform+'<section class="section" id="roadmap">')
 html=html.replace('href="architecture.css"','href="architecture.css"').replace('</head>','<link rel="stylesheet" href="space.css"><script src="space.js" defer></script></head>')
 html=html.replace('eight revised','ten revised').replace('Eight original','Ten original').replace('1 / 8','1 / 10')
-(ROOT/'architecture.html').write_text(html,encoding='utf-8')
+html=html.replace('Compute in light.<br><em>Engineer for space.</em>','Photonic computing.<br><em>Engineered for space.</em>')
+html=html.replace('From photon<br>to flight system.','Photonic spacecraft<br>schematics.')
+html=html.replace('<section class="section" id="engineering">','<aside class="architecture-reading"><h2>Understand the design choices</h2><p><a href="/photonic-computing">How photonic computing works</a> · <a href="/orbital-infrastructure">Power, cooling, and orbital networks</a> · <a href="/mars-photosynthesis">Photosynthesis and Mars research</a></p></aside><section class="section" id="engineering">')
+(ROOT/'architecture.html').write_text(decorate(html,'/architecture'),encoding='utf-8')
 print('Built architecture.html')

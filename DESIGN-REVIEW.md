@@ -28,7 +28,8 @@ Requires Python 3.12 or newer; standard library only.
 
 ```sh
 python scripts/build_schematics.py
-python scripts/build_architecture.py
+python scripts/build_site.py
+python scripts/verify_seo.py
 ```
 
 Edit the generators for diagram/page changes. `architecture.css`, `architecture.js`, `space.css`, and `space.js` are maintained directly. The architecture generator reuses homepage navigation and footer. The gallery progressively enhances static figures: all diagrams remain readable without JavaScript. Motion has a pause button and respects reduced-motion preferences.

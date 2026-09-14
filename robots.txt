@@ -1,0 +1,9 @@
+# Public pages and assets are crawlable by search and answer engines.
+User-agent: *
+Allow: /
+
+# Explicit search access; this is separate from model-training crawler settings.
+User-agent: OAI-SearchBot
+Allow: /
+
+Sitemap: https://goldstarorbital.com/sitemap.xml
