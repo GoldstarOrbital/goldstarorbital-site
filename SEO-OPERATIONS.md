@@ -21,6 +21,7 @@ The preview serves clean URLs at http://127.0.0.1:8766. It is a local content pr
 - Confirm `/robots.txt` is plain text and `/sitemap.xml` is XML. Previously these paths returned the homepage as HTML.
 - Confirm a nonexistent URL returns HTTP 404. The root `404.html` prevents Pages' default SPA fallback from creating soft 404s.
 - Confirm `.html` URLs redirect to the clean canonical path and alternate hostname redirects work.
+- `functions/_middleware.js` redirects only the public www and production pages.dev hostnames to the apex, preserving paths and query strings. All other requests continue to static assets; commit preview hostnames remain available for review. Hostname redirects are not supported by Pages `_redirects` files.
 - Confirm source content and internal build notes have `X-Robots-Tag: noindex`; they are not search landing pages.
 - Inspect live rendered content, fonts, images, metadata and mobile performance. Local timing is not field Core Web Vitals.
 
