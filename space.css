@@ -16,6 +16,6 @@
 @keyframes orbital-travel{0%{offset-distance:0%;opacity:.2}15%,70%{opacity:1}85%,100%{offset-distance:100%;opacity:.2}}
 @keyframes shoot{0%,85%,100%{opacity:0;transform:translate(0,0) rotate(-25deg)}87%{opacity:.8}94%{opacity:0;transform:translate(250px,-115px) rotate(-25deg)}}
 @keyframes star-breathe{from{opacity:.35}to{opacity:.9}}
-.venture-logo{display:block;width:120px;height:40px;object-fit:contain;object-position:left center;margin-bottom:22px}.faith-logo{width:44px;height:44px}
+.venture-logo{display:block;width:120px;height:40px;object-fit:contain;object-position:left center;margin-bottom:22px}.faith-logo{width:44px;height:44px}.venture-links{display:flex;gap:24px;flex-wrap:wrap;align-items:center}
 @media(max-width:540px){.space-orbit{width:100%;right:-40%;height:38%;top:22%}.arch-hero .space-orbit{right:-35%;width:95%}.orbiter,.arch-hero .orbiter{width:50px;height:30px}.motion-toggle{right:7%;bottom:57px}.shooting-star{width:75px}.space-scene{opacity:.7}}
 @media(prefers-reduced-motion:reduce){.space-scene *{animation:none!important}.shooting-star,.motion-toggle{display:none}.orbiter{offset-distance:20%}}
