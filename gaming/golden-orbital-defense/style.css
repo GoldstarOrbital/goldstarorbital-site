@@ -1020,4 +1020,19 @@ body[data-stage="ready"] .flight-hud, body[data-stage="ready"] .phase { display:
 .wheel-item.pick b { color: #e4c68c; }
 .wheel-item.off { opacity: 0.45; }
 
+/* ---- Menu, wordmark, threat markers: clean typographic system ---- */
+.mark { width: 18px; height: 18px; fill: #e4c68c; vertical-align: -3px; margin-right: 10px; }
+#menu h2 { font-weight: 200; letter-spacing: 0.01em; }
+#menu .operations summary { letter-spacing: 0.22em; text-transform: uppercase; font: 11px monospace; color: #e4c68c; }
+#menu .operations button { display: flex; justify-content: space-between; align-items: baseline; width: 100%; text-align: left; }
+#menu .operations button span { color: #7f95a3; font: 10px monospace; }
+#menu .row { display: flex; justify-content: space-between; font: 11px monospace; color: #9fb3c0; letter-spacing: 0.08em; }
+.controls-list { display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; margin: 8px 0 0; font: 11px/1.45 monospace; }
+.controls-list dt { color: #e4c68c; }
+.controls-list dd { margin: 0; color: #b9c7cf; }
+.threat-arrow i { width: 0; height: 0; border-left: 9px solid transparent; border-right: 9px solid transparent;
+  border-bottom: 16px solid currentColor; display: block; font-size: 0; }
+#rearWarning { letter-spacing: 0.14em; }
+body[data-menu="open"] .phase { display: none; }
+
 .website-return { display:block; margin:12px 0; padding:12px; color:#e4c68c; text-align:center; font:12px monospace; }

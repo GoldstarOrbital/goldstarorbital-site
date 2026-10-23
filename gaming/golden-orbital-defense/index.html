@@ -22,7 +22,7 @@
       ><canvas id="titleBG" hidden aria-hidden="true"></canvas>
       <header class="top">
         <div class="wordmark">
-          ✧ <span>GOLDEN ORBITAL <b>DEFENSE</b></span>
+          <svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1 L13.6 10.4 L23 12 L13.6 13.6 L12 23 L10.4 13.6 L1 12 L10.4 10.4 Z"/></svg> <span>GOLDEN ORBITAL <b>DEFENSE</b></span>
         </div>
         <div class="phase">
           <span class="live"></span><span id="phase">PRE-FLIGHT</span>
@@ -77,7 +77,7 @@
         <div>CROPS <strong id="colonyCrops">0%</strong></div>
         <div>HARVESTS <strong id="harvests">0</strong></div>
         <button id="warm">Warm the domes</button>
-        <button id="repairBots">E · Repair robots</button>
+        <button id="repairBots">Repair</button>
       </section>
       <section id="networkHUD" hidden aria-label="Orbital network">
         <div class="net-head">
@@ -120,131 +120,112 @@
         <strong id="dockStatus"></strong>
       </section>
       <div id="paused" hidden>
-        <h2>Flight paused</h2>
-        <p>Press P to resume, or open the menu.</p>
+        <h2>Holding.</h2>
+        <p>P to resume.</p>
       </div>
       <section id="ending" class="intro" hidden>
-        <div class="eyebrow">EXPEDITION REPORT</div>
+        <div class="eyebrow">MISSION LOG</div>
         <h1 id="endingTitle"></h1>
         <p id="endingText"></p>
-        <button class="primary" id="replay">New expedition ↗</button>
-        <button id="retryCheckpoint">Retry latest chapter</button>
+        <button class="primary" id="replay">New expedition</button>
+        <button id="retryCheckpoint">Back to last checkpoint</button>
       </section>
       <section id="error" hidden>
-        <h2>3D graphics unavailable</h2>
+        <h2>No 3D on this browser.</h2>
         <p>
-          This browser could not start WebGL. Try a browser with hardware
-          acceleration enabled. Your profile remains saved.
+          WebGL didn't start. Turn on hardware acceleration or try another
+          browser. Your saves are safe.
         </p>
       </section>
       <aside id="menu" hidden aria-label="Flight menu">
         <div class="eyebrow">FLIGHT COMPUTER</div>
-        <h2>Your expedition.</h2>
-        <label for="username">PILOT CALLSIGN</label
+        <h2>Holding.</h2>
+        <label for="username">CALLSIGN</label
         ><input id="username" maxlength="24" autocomplete="off" />
-        <div class="personal">PERSONAL BEST <strong id="best">0</strong></div>
+        <div class="personal">BEST <strong id="best">0</strong></div>
         <div class="skins">
           <label
-            >PILOT SUIT<select id="pilot">
+            >SUIT<select id="pilot">
               <option value="0">Voyager</option>
-              <option value="1">Neon ghost</option>
-              <option value="2">Mars ranger</option>
+              <option value="1">Nightwatch</option>
+              <option value="2">Ares</option>
             </select></label
           ><label
-            >SHIP FINISH<select id="ship">
-              <option value="0">Stardust gold</option>
-              <option value="1">Icebreaker blue</option>
-              <option value="2">Redshift copper</option>
+            >HULL FINISH<select id="ship">
+              <option value="0">Brushed gold</option>
+              <option value="1">Polar white</option>
+              <option value="2">Oxide red</option>
             </select></label
           >
         </div>
-        <button id="continue" class="primary">Return to flight ↗</button
-        ><button id="save">Save flight on this device</button
-        ><button id="resume">Load saved flight</button
+        <button id="continue" class="primary">Resume</button
+        ><button id="save">Save</button
+        ><button id="resume">Load save</button
         ><a class="website-return" href="/gaming/">← Back to Gaming</a>
-<button id="restart">Restart expedition</button>
-        <details class="operations"><summary>Backups &amp; recovery</summary>
-          <button id="exportSave">Download portable backup</button>
-          <button id="importSave">Import backup file</button>
-          <input type="file" id="saveFile" accept=".json,application/json" hidden>
-          <button id="checkpoint">Restore chapter checkpoint</button>
-          <small>Keep a downloaded backup outside your browser. Clearing browser data cannot erase that file. Import it on any device. A checkpoint restores the latest chapter with repaired defenses.</small>
+<button id="restart">New expedition</button>
+        <details class="operations">
+          <summary>Ship</summary>
+          <p class="row">Credit <strong id="credits">0</strong></p>
+          <button id="reinforce">Backup vehicle <span>1,500</span></button
+          ><button id="armory">Emitter upgrade <span>1,000</span></button
+          ><button id="solar">Solar wings <span>2,000</span></button
+          ><button id="autoToggle" hidden></button
+          ><button id="cancelService" hidden>Abort armory run</button>
         </details>
-        <details class="operations" id="frontierMenu"><summary>Colony &amp; research</summary>
-          <p id="researchResources"></p>
-          <button id="recruit">Recruit specialist · 1,000 pts + 3 material + 2 food</button>
-          <button id="buildAI">Build LUMEN photonic AI · 4,000 pts + 6 material</button>
-          <button id="toggleAI">Toggle LUMEN assistance</button>
-          <button id="radiator">Deploy radiator · 1,200 pts + 3 material</button>
-          <button id="relay">Deploy storage relay · 1,500 pts + 3 material</button>
-          <button id="engineer">Repair drone · 15 energy</button>
-          <button id="botanist">Greenhouse cycle · 15 energy</button>
-          <button id="physicist">Defense pulse · 15 energy</button>
+        <details class="operations" id="frontierMenu">
+          <summary>Colony</summary>
+          <p id="researchResources" class="row"></p>
+          <button id="recruit">Recruit a specialist <span>1,000 / 3 mat / 2 food</span></button>
+          <button id="buildAI">LUMEN photonic core <span>4,000 / 6 mat</span></button>
+          <button id="toggleAI">LUMEN on / off</button>
+          <button id="radiator">Radiator <span>1,200 / 3 mat</span></button>
+          <button id="relay">Data buffer <span>1,500 / 3 mat</span></button>
+          <button id="engineer">Engineer: hull patch <span>15 energy</span></button>
+          <button id="botanist">Botanist: grow cycle <span>15 energy</span></button>
+          <button id="physicist">Physicist: pulse <span>15 energy</span></button>
           <small id="crewManifest"></small>
-          <small>LUMEN is a local game AI inspired by hybrid photonic computing. Compute uses energy and generates heat; radiators reject it. Storage relays buffer science until optical contact. These are playable interpretations of Goldstar Orbital research, not validated hardware performance.</small>
         </details>
-        <button id="flightAssist">I · Flight assist: on</button>
-        <section class="operations">
-          <h3>FLIGHT SUPPORT</h3>
-          <p>SPENDABLE POINTS <strong id="credits">0</strong></p>
-          <button id="reinforce">Reserve rocket · 1,500 pts</button
-          ><button id="armory">Dock for photon upgrade · 1,000 pts</button
-          ><button id="solar">Solar array · 2,000 pts</button
-          ><button id="autoToggle" hidden>Toggle auto-fire</button
-          ><button id="cancelService" hidden>Cancel armory approach</button
-          ><small
-            >Reserve rockets replace a destroyed ship. Solar arrays generate
-            energy. G attracts nearby reactor cores; C + G navigates to
-            them.</small
-          >
-        </section>
-        <label for="sensitivity">CONTROL SENSITIVITY</label
-        ><input
-          id="sensitivity"
-          type="range"
-          min="0.2"
-          max="1"
-          step="0.05"
-          value="0.55"
-        /><button id="sound">Sound: on</button
-        ><button id="fullscreen">Toggle fullscreen</button>
-        <p id="saveStatus" role="status">
-          Auto-saved every 10 seconds. No account or cloud.
-        </p>
-        <p class="fine">
-          Browser saves are local. Download a portable backup to keep your
-          progress when clearing browser data or switching devices.
-        </p>
-        <details>
-          <summary>Flight controls</summary>
-          <p>
-            Ascent: WASD / arrows to dodge.<br />Dock: WASD / arrows to align,
-            Q/E to match roll, Shift for fine thrust/braking. Settle for 0.8
-            seconds, then fly the green docking rings; capture is automatic when you arrive centred and slow.<br />Space: arrows
-            aim (pitch/yaw); WASD moves (W faster, S slower, A/D strafe); Space
-            fires and latches when docking; Shift gives fine control. Let go of
-            the arrows and the ship steers itself back toward Mars. Hold B to
-            look back; red edge markers show where asteroids are coming from.
-            At Mars, WASD moves around the planet and E deploys repair robots.
-            Upgrades and crew tools are buttons in this menu. P pauses.
-          </p>
+        <details class="operations">
+          <summary>Settings</summary>
+          <label for="sensitivity">MOUSE / STICK SENSITIVITY</label
+          ><input id="sensitivity" type="range" min="0.2" max="1" step="0.05" value="0.55" />
+          <button id="flightAssist">Flight assist</button
+          ><button id="sound">Sound</button
+          ><button id="fullscreen">Fullscreen</button>
+        </details>
+        <details class="operations">
+          <summary>Saves</summary>
+          <button id="exportSave">Download backup</button>
+          <button id="importSave">Import backup</button>
+          <input type="file" id="saveFile" accept=".json,application/json" hidden />
+          <button id="checkpoint">Restore checkpoint</button>
+          <p id="saveStatus" role="status">Saves stay on this device. A backup file takes them anywhere.</p>
+        </details>
+        <details class="operations">
+          <summary>Controls</summary>
+          <dl class="controls-list">
+            <dt>WASD / Arrows</dt><dd>Steer. Translate when docking. Orbit at Mars.</dd>
+            <dt>Mouse</dt><dd>Aim. Click the view to take control, Esc to let go.</dd>
+            <dt>Space / Enter / Click</dt><dd>Fire</dd>
+            <dt>Shift</dt><dd>Boost. Brake when docking.</dd>
+            <dt>Right-click / B</dt><dd>Look back</dd>
+            <dt>Hold Tab</dt><dd>Build wheel at Mars</dd>
+            <dt>E</dt><dd>Repair robots</dd>
+            <dt>N</dt><dd>Warhead, once armed</dd>
+            <dt>P / Esc</dt><dd>Pause / this menu</dd>
+          </dl>
         </details>
       </aside>
       <div id="touch" aria-label="Touch flight controls">
         <div>
-          <button data-key="arrowleft" aria-label="Turn left">↶</button
-          ><button data-key="arrowup" aria-label="Pitch up">↑</button
-          ><button data-key="arrowright" aria-label="Turn right">↷</button
-          ><button data-key="a" aria-label="Strafe left">←</button
-          ><button data-key="arrowdown" aria-label="Pitch down">↓</button
-          ><button data-key="d" aria-label="Strafe right">→</button>
+          <span></span><button data-key="arrowup" aria-label="Up">▲</button
+          ><span></span><button data-key="arrowleft" aria-label="Left">◀</button
+          ><button data-key="arrowdown" aria-label="Down">▼</button
+          ><button data-key="arrowright" aria-label="Right">▶</button>
         </div>
         <div>
-          <button data-key="q">ROLL ↶</button
-          ><button data-key="e">ROLL ↷</button
-          ><button data-key="shift">FINE</button
-          ><button data-key="b">REAR</button><button data-key="c">MARS</button
-          ><button data-key="w">THRUST</button
+          <button data-key="shift">BOOST</button
+          ><button data-key="b">BACK</button
           ><button data-key=" ">FIRE</button>
         </div>
       </div>
@@ -257,7 +238,7 @@
         <div class="bottom">
           <span id="pilotName">VOYAGER</span
           ><span id="controls">WASD / ARROWS steer · ESC menu</span
-          ><span class="local">● LOCAL PROFILE</span>
+          >
         </div>
       </footer>
     </main>
