@@ -18,13 +18,10 @@ for name in required:
     destination.parent.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(source / name, destination)
 # NASA spacecraft models and the Draco decoder they need (loaded at runtime).
-for folder in ['assets/models', 'assets/draco']:
+for folder in ['assets/models', 'assets/draco', 'assets/fonts']:
     src = source / folder
     if src.is_dir():
-        dst = target / folder
-        if dst.exists():
-            shutil.rmtree(dst)
-        shutil.copytree(src, dst)
+        shutil.copytree(src, target / folder, dirs_exist_ok=True)
 html = (target / 'index.html').read_text(encoding='utf-8')
 html = html.replace('</head>', '<link rel="canonical" href="https://goldstarorbital.com/gaming/golden-orbital-defense/">\n<meta name="description" content="Launch from Earth, fight your way to Mars, and protect your colony in Golden Orbital Defense, a free browser space game.">\n</head>')
 html = html.replace('<button id="restart"', '<a class="website-return" href="/gaming/">← Back to Gaming</a>\n<button id="restart"')

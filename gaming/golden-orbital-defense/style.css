@@ -1075,3 +1075,5 @@ body, button, input, select, h1, h2, h3, p { font-family: "DM Sans", system-ui, 
 /* Docking: readout tucked bottom-right, away from the station and the level card. */
 #dockUI { top: auto; bottom: 64px; right: 24px; }
 body[data-stage="docking"] footer .route { visibility: hidden; }
+
+.website-return { display:block; margin:12px 0; padding:12px; color:#e4c68c; text-align:center; font:12px monospace; }
