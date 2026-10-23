@@ -55,6 +55,9 @@
       <div id="heading"></div>
       <div id="rearWarning" hidden role="alert"></div>
       <div id="threatArrows" aria-hidden="true"></div>
+      <div id="hitFlash"></div>
+      <div id="crosshair" hidden aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div id="aimHint" hidden>Click to aim with the mouse · Esc to release</div>
       <section id="combatHUD" hidden>
         <strong id="weaponStatus">MANUAL FIRE</strong
         ><span id="killCount">0 DESTROYED</span
@@ -64,7 +67,7 @@
       <section id="radarPanel" hidden aria-label="Surrounding asteroid radar">
         <canvas id="radar" width="180" height="180"></canvas
         ><span id="threat">SECTOR CLEAR</span
-        ><small>360° SCAN · HOLD B: REAR VIEW</small>
+        ><small>3D SCAN · STALKS SHOW HEIGHT</small>
       </section>
       <section id="colonyHUD" hidden>
         <div>COLONY <strong id="colonyHealth">100%</strong></div>
