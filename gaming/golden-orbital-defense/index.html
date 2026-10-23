@@ -18,7 +18,8 @@
         tabindex="0"
         aria-label="Pixel rocket ascent"
       ></canvas
-      ><canvas id="space" hidden aria-label="3D space flight"></canvas>
+      ><canvas id="space" hidden aria-label="3D space flight"></canvas
+      ><canvas id="titleBG" hidden aria-hidden="true"></canvas>
       <header class="top">
         <div class="wordmark">
           ✧ <span>GOLDEN ORBITAL <b>DEFENSE</b></span>
@@ -57,7 +58,7 @@
       <div id="threatArrows" aria-hidden="true"></div>
       <div id="hitFlash"></div>
       <div id="crosshair" hidden aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-      <div id="aimHint" hidden>Click to aim with the mouse · Esc to release</div>
+      <div id="aimHint" hidden>CLICK TO TAKE CONTROL</div>
       <section id="combatHUD" hidden>
         <strong id="weaponStatus">MANUAL FIRE</strong
         ><span id="killCount">0 DESTROYED</span
@@ -66,22 +67,24 @@
       </section>
       <section id="radarPanel" hidden aria-label="Surrounding asteroid radar">
         <canvas id="radar" width="180" height="180"></canvas
-        ><span id="threat">SECTOR CLEAR</span
-        ><small>3D SCAN · STALKS SHOW HEIGHT</small>
+        ><span id="threat">SECTOR CLEAR</span>
+
       </section>
       <section id="colonyHUD" hidden>
         <div>COLONY <strong id="colonyHealth">100%</strong></div>
         <div>WARMTH <strong id="colonyHeat">65%</strong></div>
         <div>CROPS <strong id="colonyCrops">0%</strong></div>
         <div>HARVESTS <strong id="harvests">0</strong></div>
-        <button id="warm">Send photons · 18 energy</button>
+        <button id="warm">Warm the domes</button>
         <button id="repairBots">E · Repair robots</button>
       </section>
       <section id="networkHUD" hidden aria-label="Orbital network">
         <div class="net-head">
           <strong id="waveLabel"></strong>
-          <button id="startWave">Launch wave now</button>
+          <button id="startWave">Send it</button>
         </div>
+        <button id="strike" class="strike"></button>
+        <div class="net-hint">TAB &nbsp;BUILD</div>
         <div id="satButtons"></div>
         <small id="netSummary"></small>
       </section>
@@ -92,17 +95,16 @@
         <strong id="raidAlert"></strong>
       </section>
       <section id="intro" class="intro">
-        <div class="eyebrow">GOLDSTAR ORBITAL / EXPEDITION 001</div>
-        <h1>Earth was<br />just the beginning.</h1>
+        <div class="eyebrow">GOLDSTAR ORBITAL &nbsp;—&nbsp; EXPEDITION 001</div>
+        <h1>The red planet<br />is waiting.</h1>
         <p>
-          Break through the atmosphere. Refuel at the ISS.<br />Fight your way
-          to the red planet.
+          Climb out of the atmosphere. Dock with the station.<br />Then cross
+          the dark to Mars.
         </p>
         <button class="primary" id="launch">
-          Board & launch <span>↗</span></button
-        ><small>10-second ascent · 4-minute Mars transfer</small>
-        <button id="quickColony" class="secondary">Quick colony · Start on Mars ↗</button>
-        <small>No unlock required. Jump back in even after losing a save.</small>
+          Launch</button
+        ><small>ASCENT 10 S &nbsp;/&nbsp; TRANSFER 4 MIN</small>
+        <button id="quickColony" class="secondary">Start in Mars orbit</button>
       </section>
       <section id="dockUI" hidden aria-label="Docking approach readout">
         <div class="dock-label" id="dockLabel">ISS / PRECISION DOCKING</div>
@@ -187,7 +189,7 @@
           <button id="reinforce">Reserve rocket · 1,500 pts</button
           ><button id="armory">Dock for photon upgrade · 1,000 pts</button
           ><button id="solar">Solar array · 2,000 pts</button
-          ><button id="autoToggle">Toggle auto-fire</button
+          ><button id="autoToggle" hidden>Toggle auto-fire</button
           ><button id="cancelService" hidden>Cancel armory approach</button
           ><small
             >Reserve rockets replace a destroyed ship. Solar arrays generate
