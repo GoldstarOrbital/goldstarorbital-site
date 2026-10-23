@@ -794,6 +794,11 @@ canvas#radar {
   float: right;
   color: #e3bf7d;
 }
+#frontierHUD { position:absolute; right:28px; bottom:115px; width:250px; padding:16px; background:#030a14e8; border:1px solid #b99a5b44; font:11px monospace; pointer-events:none; }
+#frontierHUD strong { color:#e4c68c; display:block; } #frontierHUD p { line-height:1.5; color:#b9cbd5; margin:8px 0; } #frontierHUD small { display:block; font-size:9px; line-height:1.8; color:#8fb6c4; } #raidAlert { margin-top:8px; color:#ff8e88!important; }
+.operations summary { cursor:pointer; color:#e4c68c; padding:10px 0; font:12px monospace; }
+#quickColony { display:block; margin-top:16px; padding:12px 18px; border:1px solid #9db4c555; background:#07131bd9; color:#c9d8e1; }
+@media(max-width:700px) { #frontierHUD { right:12px; bottom:110px; width:190px; padding:10px; font-size:9px; } #frontierHUD small { font-size:8px; } }
 #colonyHUD {
   position: absolute;
   left: 32px;
@@ -853,5 +858,45 @@ canvas#radar {
     font-size: 7px;
   }
 }
+
+#rearWarning {
+  position: fixed;
+  left: 50%;
+  bottom: 22%;
+  transform: translateX(-50%);
+  padding: 8px 16px;
+  border: 1px solid #ffa378;
+  border-radius: 4px;
+  background: #1a0d0acc;
+  color: #ffc4a3;
+  font: 600 13px/1.2 monospace;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+  z-index: 6;
+  max-width: calc(100vw - 32px);
+  text-align: center;
+}
+#rearWarning.close {
+  border-color: #ff5c69;
+  color: #ffd9dc;
+  box-shadow: 0 0 24px #ff5c6977, inset 0 -40px 40px -30px #ff5c6955;
+  animation: rearPulse 0.45s ease-in-out infinite alternate;
+}
+@keyframes rearPulse {
+  to { opacity: 0.55; }
+}
+
+#threatArrows { position: fixed; inset: 0; pointer-events: none; z-index: 6; }
+.threat-arrow {
+  position: absolute; left: 0; top: 0;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  color: #ff6b74; font: 700 11px/1 monospace; letter-spacing: 0.06em;
+  text-shadow: 0 0 8px #ff2d3b;
+}
+.threat-arrow i { font-style: normal; font-size: 26px; display: block; }
+.threat-arrow span { background: #2a070bcc; border: 1px solid #ff5c6988; padding: 2px 6px; border-radius: 3px; white-space: nowrap; }
+.threat-arrow.urgent { color: #fff; animation: rearPulse 0.3s ease-in-out infinite alternate; }
+.threat-arrow.urgent span { background: #b3121fdd; border-color: #ff8a92; }
+@media (max-width: 600px) { .threat-arrow span { font-size: 9px; } }
 
 .website-return { display:block; margin:12px 0; padding:12px; color:#e4c68c; text-align:center; font:12px monospace; }
