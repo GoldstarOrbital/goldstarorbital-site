@@ -945,4 +945,26 @@ canvas#radar {
 #dockUI { left: auto; right: 16px; transform: none; top: 120px; }
 @media (max-width: 600px) { #dockUI { right: 8px; top: 96px; } }
 
+#networkHUD { position: fixed; top: 116px; right: 16px; width: 290px; max-width: calc(100vw - 32px); z-index: 6;
+  padding: 10px 12px; border-radius: 6px; background: #050c14c4; border: 1px solid #e4c68c44; backdrop-filter: blur(4px);
+  font: 11px/1.35 monospace; color: #cfe0ea; }
+#networkHUD .net-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+#networkHUD .net-head strong { color: #e4c68c; letter-spacing: 0.08em; font-size: 11px; }
+#networkHUD .net-head button { font: 10px monospace; padding: 4px 8px; background: #e4c68c; color: #050912; border: 0; border-radius: 3px; cursor: pointer; }
+.sat-row { display: flex; gap: 4px; margin-bottom: 4px; }
+.sat-row button { font: 11px monospace; color: #e8eef2; background: #13222ecc; border: 1px solid #7993a544; border-radius: 3px; cursor: pointer; }
+.sat-row .sat-build { flex: 1; text-align: left; padding: 5px 7px; display: flex; flex-wrap: wrap; gap: 0 6px; align-items: baseline; }
+.sat-row .sat-build b { color: #e4c68c; }
+.sat-row .sat-build span { color: #8fb0c2; margin-left: auto; }
+.sat-row .sat-build em { flex-basis: 100%; font-style: normal; color: #63e6b8; font-size: 10px; }
+.sat-row .sat-up { width: 30px; }
+.sat-row button:disabled { opacity: 0.42; cursor: default; }
+.sat-row button:not(:disabled):hover { border-color: #e4c68c; }
+#netSummary { display: block; margin-top: 6px; color: #8fb0c2; font-size: 10px; letter-spacing: 0.04em; }
+@media (max-width: 700px) { #networkHUD { top: auto; bottom: 120px; right: 8px; width: 240px; } }
+/* Mars layout: chapter goals move to the left column so the network panel owns the right. */
+#frontierHUD { right: auto; left: 32px; bottom: auto; top: 280px; width: 220px; padding: 12px; }
+@media (max-height: 760px) { #frontierHUD { display: none; } }
+@media (max-width: 700px) { #frontierHUD { display: none; } }
+
 .website-return { display:block; margin:12px 0; padding:12px; color:#e4c68c; text-align:center; font:12px monospace; }
