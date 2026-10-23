@@ -13,13 +13,14 @@
     <main id="game">
       <canvas
         id="pixel"
+        hidden
         width="1200"
         height="650"
         tabindex="0"
         aria-label="Pixel rocket ascent"
       ></canvas
       ><canvas id="space" hidden aria-label="3D space flight"></canvas
-      ><canvas id="titleBG" hidden aria-hidden="true"></canvas>
+      ><canvas id="titleBG" aria-hidden="true"></canvas>
       <header class="top">
         <div class="wordmark">
           <svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1 L13.6 10.4 L23 12 L13.6 13.6 L12 23 L10.4 13.6 L1 12 L10.4 10.4 Z"/></svg> <span>GOLDEN ORBITAL <b>DEFENSE</b></span>
@@ -97,7 +98,7 @@
         <strong id="raidAlert"></strong>
       </section>
       <section id="intro" class="intro">
-        <div class="eyebrow">GOLDSTAR ORBITAL &nbsp;—&nbsp; EXPEDITION 001</div>
+        <div class="eyebrow">GOLDSTAR ORBITAL &nbsp;/&nbsp; EXPEDITION 001</div>
         <h1>The red planet<br />is waiting.</h1>
         <p>
           Climb out of the atmosphere. Dock with the station.<br />Then cross

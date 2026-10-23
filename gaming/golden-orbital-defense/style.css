@@ -1076,4 +1076,8 @@ body, button, input, select, h1, h2, h3, p { font-family: "DM Sans", system-ui, 
 #dockUI { top: auto; bottom: 64px; right: 24px; }
 body[data-stage="docking"] footer .route { visibility: hidden; }
 
+/* Before the game script runs, show only black and the title copy. */
+html, body { background: #000; }
+body:not([data-stage]) #pixel, body:not([data-stage]) .flight-hud, body:not([data-stage]) footer, body:not([data-stage]) .phase { display: none; }
+
 .website-return { display:block; margin:12px 0; padding:12px; color:#e4c68c; text-align:center; font:12px monospace; }
