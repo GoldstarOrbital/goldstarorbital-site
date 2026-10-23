@@ -11,12 +11,12 @@ ORG = ORIGIN + '/#organization'
 SITE = ORIGIN + '/#website'
 
 def header(route='/'):
-    links = [('/#products', 'Ventures', 'ventures'), ('/architecture', 'Architecture', 'architecture'), ('/guides', 'Guides', 'guides'), ('/about', 'About', 'about')]
+    links = [('/#products', 'Ventures', 'ventures'), ('/architecture', 'Architecture', 'architecture'), ('/gaming/', 'Gaming', 'gaming'), ('/guides', 'Guides', 'guides'), ('/about', 'About', 'about')]
     nav = ''.join(f'<a href="{url}" data-nav="{key}"'+(' aria-current="page"' if route == url else '')+f'>{label}</a>' for url,label,key in links)
     return '<header class="header"><a class="brand" href="/" aria-label="Goldstar Orbital home"><span class="brand-star" aria-hidden="true">✦</span><span>GOLDSTAR<span class="brand-sub">O R B I T A L</span></span></a><nav aria-label="Main navigation">'+nav+'</nav><a class="contact-link" href="/about#contact">Let’s talk <span aria-hidden="true">↗</span></a></header>'
 
 def footer():
-    return '''<footer><a class="brand" href="/" aria-label="Goldstar Orbital home"><span class="brand-star" aria-hidden="true">✦</span><span>GOLDSTAR<span class="brand-sub">O R B I T A L</span></span></a><span>© 2026 Goldstar Orbital, Inc.</span><nav aria-label="Footer navigation"><a href="/guides">Research guides</a><a href="/functioning-faith">Functioning Faith</a><a href="/fawn">Fawn</a><a href="/about">About &amp; contact</a><a href="https://github.com/goldstarorbital" target="_blank" rel="noopener">GitHub ↗</a><a href="https://www.linkedin.com/in/alex-goldsmith-46a911302" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://x.com/SrGoldy56" target="_blank" rel="noopener">X ↗</a></nav></footer>'''
+    return '''<footer><a class="brand" href="/" aria-label="Goldstar Orbital home"><span class="brand-star" aria-hidden="true">✦</span><span>GOLDSTAR<span class="brand-sub">O R B I T A L</span></span></a><span>© 2026 Goldstar Orbital, Inc.</span><nav aria-label="Footer navigation"><a href="/gaming/">Gaming</a><a href="/guides">Research guides</a><a href="/functioning-faith">Functioning Faith</a><a href="/fawn">Fawn</a><a href="/about">About &amp; contact</a><a href="https://github.com/goldstarorbital" target="_blank" rel="noopener">GitHub ↗</a><a href="https://www.linkedin.com/in/alex-goldsmith-46a911302" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://x.com/SrGoldy56" target="_blank" rel="noopener">X ↗</a></nav></footer>'''
 
 def graph(route):
     info=PAGES[route]

@@ -1,6 +1,7 @@
 """Build static guide/product pages, shared metadata, sitemap, and architecture."""
 from pathlib import Path
 from html import escape
+from datetime import date
 import re
 import runpy
 import xml.etree.ElementTree as ET
@@ -14,26 +15,30 @@ def faq(info):
     return '<section id="questions"><h2>Questions answered</h2>'+''.join(f'<article class="direct-answer"><h3>{escape(q)}</h3><p>{escape(a)}</p></article>' for q,a in info['faq'])+'</section>'
 
 def make_page(route,info):
-    content=(ROOT/'content'/f'{route[1:]}.html').read_text(encoding='utf-8')
+    slug=route.strip('/')
+    content=(ROOT/'content'/f'{slug}.html').read_text(encoding='utf-8')
     toc=''.join(f'<li><a href="#{id}">{text}</a></li>' for id,text in re.findall(r'<section id="([^"]+)"><h2>(.*?)</h2>',content))
     if info.get('faq'): toc+='<li><a href="#questions">Questions answered</a></li>'
     breadcrumbs='<a href="/">Home</a><span aria-hidden="true"> / </span>'
     if info['type']=='TechArticle': breadcrumbs+='<a href="/guides">Research guides</a><span aria-hidden="true"> / </span>'
     breadcrumbs+=f'<span aria-current="page">{escape(info["label"])}</span>'
-    byline=f'<p class="byline">Published by <a href="/about">Goldstar Orbital, Inc.</a> · Updated <time datetime="{info["updated"]}">September 14, 2026</time></p>'
+    display_date=date.fromisoformat(info['updated']).strftime('%B %d, %Y').replace(' 0',' ')
+    byline=f'<p class="byline">Published by <a href="/about">Goldstar Orbital, Inc.</a> · Updated <time datetime="{info["updated"]}">{display_date}</time></p>'
     actions=''
     match=re.search(r'<div class="page-actions">.*?</div>',content,re.S)
     if match:
         actions=match.group()
         content=content.replace(actions,'',1)
     image=''
-    if route not in ['/guides','/about']:
+    if route not in ['/guides','/about','/gaming/']:
         alt={'/functioning-faith':'Functioning Faith community and activity home screen','/fawn':'Fawn product sign-in screen'}.get(route,info['label']+' concept schematic; proposed design, not flight-qualified hardware')
         w,h={'/fawn':(440,716),'/functioning-faith':(1208,716)}.get(route,(1200,760))
         image=f'<figure class="guide-figure"><a href="{info["image"]}" target="_blank" rel="noopener"><img src="{info["image"]}" width="{w}" height="{h}" alt="{escape(alt)}" loading="lazy" decoding="async"></a><figcaption>{escape(alt)}. Open the image at full size.</figcaption></figure>'
     body=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080a0b"><link rel="icon" href="/assets/favicon-32.png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Space+Mono&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="/site.css"></head><body class="guide-page"><a class="skip" href="#main">Skip to content</a>{header(route)}<main id="main"><article class="guide-wrap"><nav class="breadcrumbs" aria-label="Breadcrumb">{breadcrumbs}</nav><p class="eyebrow">{ 'RESEARCH GUIDE' if info['type']=='TechArticle' else 'GOLDSTAR ORBITAL' }</p><h1>{escape(info['heading'])}</h1>{byline}<div class="answer-lead"><p>{escape(info['answer'])}</p></div><nav class="contents" aria-label="On this page"><h2>On this page</h2><ul>{toc}</ul></nav>{image}<div class="guide-body">{content}{faq(info)}</div><aside class="related" aria-label="Related pages"><h2>Continue exploring</h2>{links(info['related'])}</aside></article></main>{footer()}</body></html>'''
     body=body.replace('<nav class="contents"',actions+'<nav class="contents"',1)
-    (ROOT/f'{route[1:]}.html').write_text(decorate(body,route),encoding='utf-8')
+    output=ROOT/(route.strip('/')+'/index.html' if route.endswith('/') else route[1:]+'.html')
+    output.parent.mkdir(parents=True,exist_ok=True)
+    output.write_text(decorate(body,route),encoding='utf-8')
 
 def build():
     home=(ROOT/'index.html').read_text(encoding='utf-8')

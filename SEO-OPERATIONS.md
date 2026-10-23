@@ -14,10 +14,14 @@ python scripts/preview.py
 
 The preview serves clean URLs at http://127.0.0.1:8766. It is a local content preview, not a Cloudflare header emulator. The verifier checks the page inventory, canonical metadata, JSON-LD, visible FAQ parity, local links and fragments, image alt attributes, robots, and sitemap. Browser checks should also cover image decoding, mobile overflow, JavaScript-disabled content, video playback, and motion controls. Fonts are locally hosted under their included SIL Open Font Licenses; the DM Sans file is a variable font covering weights 400–700.
 
+## Gaming releases
+
+The Gaming section lives at `/gaming/`, with Golden Orbital Defense at `/gaming/golden-orbital-defense/`. To update it, build the game in its own repository, then run `python scripts/import_game.py PATH_TO_GAME_CHECKOUT` here. The importer copies only the browser bundle, stylesheet, HTML, and license credits, adds a return-to-Gaming link, and records the source commit in `release.json`. Run the site build and verifier before pushing. No game backend or database is deployed. Browser saves are scoped to the website origin and do not automatically transfer from localhost.
+
 ## Production checks
 
 - Check the commit-specific Cloudflare Pages result on GitHub.
-- Confirm all nine sitemap URLs return the expected page with HTTP 200.
+- Confirm all sitemap URLs return the expected page with HTTP 200.
 - Confirm `/robots.txt` is plain text and `/sitemap.xml` is XML. Previously these paths returned the homepage as HTML.
 - Confirm a nonexistent URL returns HTTP 404. The root `404.html` prevents Pages' default SPA fallback from creating soft 404s.
 - Confirm `.html` URLs redirect to the clean canonical path and alternate hostname redirects work.

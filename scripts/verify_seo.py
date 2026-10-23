@@ -17,7 +17,7 @@ class Page(HTMLParser):
     def handle_endtag(self,tag):
         if tag=='script' and self.schema: self.schemas.append(json.loads(self.buffer)); self.schema=False
 
-pages={r:Page((ROOT/('index.html' if r=='/' else r[1:]+'.html')).read_text(encoding='utf-8')) for r in PAGES}
+pages={r:Page((ROOT/('index.html' if r=='/' else r[1:]+'index.html' if r.endswith('/') else r[1:]+'.html')).read_text(encoding='utf-8')) for r in PAGES}
 titles=set()
 for route,p in pages.items():
     info=PAGES[route]
@@ -42,6 +42,7 @@ for route,p in pages.items():
                 if url.fragment: assert unquote(url.fragment) in pages[target].ids,(route,value)
             else:
                 file=ROOT/target.lstrip('/')
+                if file.is_dir(): file=file/'index.html'
                 assert file.is_file(),(route,value)
             if tag=='img': assert 'alt' in attrs,(route,value)
 locs=[n.text for n in ET.parse(ROOT/'sitemap.xml').findall('.//{*}loc')]

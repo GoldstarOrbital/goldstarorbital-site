@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#050912" />
+    <title>Golden Orbital Defense</title>
+    <link rel="stylesheet" href="style.css" />
+  <link rel="canonical" href="https://goldstarorbital.com/gaming/golden-orbital-defense/">
+<meta name="description" content="Launch from Earth, fight your way to Mars, and protect your colony in Golden Orbital Defense, a free browser space game.">
+</head>
+  <body>
+    <main id="game">
+      <canvas
+        id="pixel"
+        width="1200"
+        height="650"
+        tabindex="0"
+        aria-label="Pixel rocket ascent"
+      ></canvas
+      ><canvas id="space" hidden aria-label="3D space flight"></canvas>
+      <header class="top">
+        <div class="wordmark">
+          ✧ <span>GOLDEN ORBITAL <b>DEFENSE</b></span>
+        </div>
+        <div class="phase">
+          <span class="live"></span><span id="phase">PRE-FLIGHT</span>
+        </div>
+        <button
+          id="menuButton"
+          aria-label="Open flight menu"
+          aria-expanded="false"
+          aria-controls="menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </header>
+      <section class="flight-hud" aria-label="Flight instruments">
+        <div>
+          <label>HULL <span id="hullValue">100%</span></label>
+          <div class="track"><i id="hull"></i></div>
+        </div>
+        <div>
+          <label>FUEL <span id="fuelValue">24%</span></label>
+          <div class="track"><i id="fuel"></i></div>
+        </div>
+        <div>
+          <label>ENERGY <span id="energyValue">100%</span></label>
+          <div class="track"><i id="energy"></i></div>
+        </div>
+        <div class="score">
+          <label>SCORE</label><strong id="score">0</strong>
+        </div>
+      </section>
+      <div id="heading"></div>
+      <section id="combatHUD" hidden>
+        <strong id="weaponStatus">MANUAL FIRE</strong
+        ><span id="killCount">0 DESTROYED</span
+        ><span id="distancePoints">DISTANCE +0</span
+        ><span id="equipment"></span>
+      </section>
+      <section id="radarPanel" hidden aria-label="Surrounding asteroid radar">
+        <canvas id="radar" width="180" height="180"></canvas
+        ><span id="threat">SECTOR CLEAR</span
+        ><small>360° SCAN · HOLD B: REAR VIEW</small>
+      </section>
+      <section id="colonyHUD" hidden>
+        <div>COLONY <strong id="colonyHealth">100%</strong></div>
+        <div>WARMTH <strong id="colonyHeat">65%</strong></div>
+        <div>CROPS <strong id="colonyCrops">0%</strong></div>
+        <div>HARVESTS <strong id="harvests">0</strong></div>
+        <button id="warm">H · Send photons · 18 energy</button>
+      </section>
+      <p id="mission" role="status"></p>
+      <section id="intro" class="intro">
+        <div class="eyebrow">GOLDSTAR ORBITAL / EXPEDITION 001</div>
+        <h1>Earth was<br />just the beginning.</h1>
+        <p>
+          Break through the atmosphere. Refuel at the ISS.<br />Fight your way
+          to the red planet.
+        </p>
+        <button class="primary" id="launch">
+          Board & launch <span>↗</span></button
+        ><small>10-second ascent · 4-minute Mars transfer</small>
+      </section>
+      <section id="dockUI" hidden aria-label="ISS docking alignment">
+        <div class="dock-label" id="dockLabel">ISS / PRECISION DOCKING</div>
+        <div class="dock-grid" id="dockGrid">
+          <div class="cross horizontal"></div>
+          <div class="cross vertical"></div>
+          <div id="port"></div>
+          <div id="probe">+</div>
+        </div>
+        <strong id="dockStatus"></strong>
+        <div id="dockMetrics"></div>
+        <div class="dock-lock"><i id="dockHold"></i></div>
+        <p>
+          Match position & roll. Settle drift.<br />Hold alignment, then latch
+          on green.
+        </p>
+        <button class="primary" id="dockButton">Latch docking probe ↗</button>
+      </section>
+      <div id="paused" hidden>
+        <h2>Flight paused</h2>
+        <p>Press P to resume, or open the menu.</p>
+      </div>
+      <section id="ending" class="intro" hidden>
+        <div class="eyebrow">EXPEDITION REPORT</div>
+        <h1 id="endingTitle"></h1>
+        <p id="endingText"></p>
+        <button class="primary" id="replay">New expedition ↗</button>
+      </section>
+      <section id="error" hidden>
+        <h2>3D graphics unavailable</h2>
+        <p>
+          This browser could not start WebGL. Try a browser with hardware
+          acceleration enabled. Your profile remains saved.
+        </p>
+      </section>
+      <aside id="menu" hidden aria-label="Flight menu">
+        <div class="eyebrow">FLIGHT COMPUTER</div>
+        <h2>Your expedition.</h2>
+        <label for="username">PILOT CALLSIGN</label
+        ><input id="username" maxlength="24" autocomplete="off" />
+        <div class="personal">PERSONAL BEST <strong id="best">0</strong></div>
+        <div class="skins">
+          <label
+            >PILOT SUIT<select id="pilot">
+              <option value="0">Voyager</option>
+              <option value="1">Neon ghost</option>
+              <option value="2">Mars ranger</option>
+            </select></label
+          ><label
+            >SHIP FINISH<select id="ship">
+              <option value="0">Stardust gold</option>
+              <option value="1">Icebreaker blue</option>
+              <option value="2">Redshift copper</option>
+            </select></label
+          >
+        </div>
+        <button id="continue" class="primary">Return to flight ↗</button
+        ><button id="save">Save flight on this device</button
+        ><button id="resume">Load saved flight</button
+        ><a class="website-return" href="/gaming/">← Back to Gaming</a>
+<button id="restart">Restart expedition</button>
+        <section class="operations">
+          <h3>FLIGHT SUPPORT</h3>
+          <p>SPENDABLE POINTS <strong id="credits">0</strong></p>
+          <button id="reinforce">R · Reserve rocket · 1,500 pts</button
+          ><button id="armory">U · Dock for photon upgrade · 1,000 pts</button
+          ><button id="solar">O · Solar array · 2,000 pts</button
+          ><button id="autoToggle">F · Toggle auto-fire</button
+          ><button id="cancelService" hidden>Cancel armory approach</button
+          ><small
+            >Reserve rockets replace a destroyed ship. Solar arrays generate
+            energy. G attracts nearby reactor cores; C + G navigates to
+            them.</small
+          >
+        </section>
+        <label for="sensitivity">CONTROL SENSITIVITY</label
+        ><input
+          id="sensitivity"
+          type="range"
+          min="0.2"
+          max="1"
+          step="0.05"
+          value="0.55"
+        /><button id="sound">Sound: on</button
+        ><button id="fullscreen">Toggle fullscreen</button>
+        <p id="saveStatus" role="status">
+          Auto-saved every 10 seconds. No account or cloud.
+        </p>
+        <p class="fine">
+          Saves belong to this browser and location. Clearing browser data
+          removes them.
+        </p>
+        <details>
+          <summary>Flight controls</summary>
+          <p>
+            Ascent: WASD / arrows to dodge.<br />Dock: WASD / arrows to align,
+            Q/E to match roll, Shift for fine thrust/braking. Settle for 0.8
+            seconds, then Enter during green capture window.<br />Space: arrows
+            to pitch/yaw; WASD to thrust, slow and strafe; Q/E roll; Z/X
+            rise/fall; Space shoots. Auto-fire unlocks at 10 kills. C points
+            toward Mars. Hold B for rear view. Drag the scene to orbit the
+            third-person camera. F toggles auto-fire; G attracts reactor cores.
+            R buys a reserve rocket, U requests armory docking, O buys solar
+            panels. In Mars orbit, A/D move around the planet, W/S change
+            orbital height, C intercepts the nearest threat, and H sends photons
+            to warm crops. P pauses. Diagonal inputs work together.
+          </p>
+        </details>
+      </aside>
+      <div id="touch" aria-label="Touch flight controls">
+        <div>
+          <button data-key="arrowleft" aria-label="Turn left">↶</button
+          ><button data-key="arrowup" aria-label="Pitch up">↑</button
+          ><button data-key="arrowright" aria-label="Turn right">↷</button
+          ><button data-key="a" aria-label="Strafe left">←</button
+          ><button data-key="arrowdown" aria-label="Pitch down">↓</button
+          ><button data-key="d" aria-label="Strafe right">→</button>
+        </div>
+        <div>
+          <button data-key="q">ROLL ↶</button
+          ><button data-key="e">ROLL ↷</button
+          ><button data-key="shift">FINE</button
+          ><button data-key="b">REAR</button><button data-key="c">MARS</button
+          ><button data-key="w">THRUST</button
+          ><button data-key=" ">FIRE</button>
+        </div>
+      </div>
+      <footer>
+        <div class="route">
+          <span id="destination">EARTH → ORBIT</span>
+          <div class="route-track"><i id="progress"></i></div>
+          <span id="eta">FLIGHT 001</span>
+        </div>
+        <div class="bottom">
+          <span id="pilotName">VOYAGER</span
+          ><span id="controls">WASD / ARROWS steer · ESC menu</span
+          ><span class="local">● LOCAL PROFILE</span>
+        </div>
+      </footer>
+    </main>
+    <script defer src="game.js"></script>
+  </body>
+</html>
