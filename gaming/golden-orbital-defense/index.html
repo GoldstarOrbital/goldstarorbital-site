@@ -96,22 +96,17 @@
         <button id="quickColony" class="secondary">Quick colony · Start on Mars ↗</button>
         <small>No unlock required. Jump back in even after losing a save.</small>
       </section>
-      <section id="dockUI" hidden aria-label="ISS docking alignment">
+      <section id="dockUI" hidden aria-label="Docking approach readout">
         <div class="dock-label" id="dockLabel">ISS / PRECISION DOCKING</div>
-        <div class="dock-grid" id="dockGrid">
-          <div class="cross horizontal"></div>
-          <div class="cross vertical"></div>
-          <div id="port"></div>
-          <div id="probe">+</div>
+        <div class="dock-row">
+          <div class="dock-scope"><span class="dock-ring"></span><i id="probe"></i></div>
+          <dl>
+            <dt>RANGE</dt><dd id="dockRange"></dd>
+            <dt>CLOSING</dt><dd id="dockClosing"></dd>
+            <dt>OFFSET</dt><dd id="dockOffset"></dd>
+          </dl>
         </div>
         <strong id="dockStatus"></strong>
-        <div id="dockMetrics"></div>
-        <div class="dock-lock"><i id="dockHold"></i></div>
-        <p>
-          Match position & roll. Settle drift.<br />Hold alignment, then press
-          <b>SPACE</b> on green.
-        </p>
-        <button class="primary" id="dockButton">Latch (SPACE) ↗</button>
       </section>
       <div id="paused" hidden>
         <h2>Flight paused</h2>
@@ -214,7 +209,7 @@
           <p>
             Ascent: WASD / arrows to dodge.<br />Dock: WASD / arrows to align,
             Q/E to match roll, Shift for fine thrust/braking. Settle for 0.8
-            seconds, then Space (or Enter) during green capture window.<br />Space: arrows
+            seconds, then fly the green docking rings; capture is automatic when you arrive centred and slow.<br />Space: arrows
             aim (pitch/yaw); WASD moves (W faster, S slower, A/D strafe); Space
             fires and latches when docking; Shift gives fine control. Let go of
             the arrows and the ship steers itself back toward Mars. Hold B to

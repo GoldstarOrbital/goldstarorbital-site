@@ -915,4 +915,34 @@ canvas#radar {
 #hitFlash.on { animation: hitFlash 0.6s ease-out; }
 @keyframes hitFlash { 0% { opacity: 1; } 100% { opacity: 0; } }
 
+/* In-flight docking readout (replaces the old full-screen alignment panel). */
+#dockUI {
+  position: fixed; top: 92px; left: 50%; right: auto; bottom: auto;
+  transform: translateX(-50%); width: auto; max-width: calc(100vw - 32px);
+  padding: 10px 14px; margin: 0; border-radius: 6px;
+  background: #050c14b8; border: 1px solid #e4c68c55; backdrop-filter: blur(4px);
+  font: 11px/1.4 monospace; color: #cfe0ea; text-align: center; z-index: 6;
+}
+#dockUI.aligned { border-color: #63e6b8aa; }
+#dockUI .dock-label { font-size: 10px; letter-spacing: 0.14em; color: #e4c68c; margin-bottom: 6px; }
+#dockUI .dock-row { display: flex; align-items: center; gap: 14px; justify-content: center; }
+#dockUI dl { display: grid; grid-template-columns: auto auto; gap: 2px 10px; margin: 0; text-align: left; }
+#dockUI dt { color: #7f99ab; letter-spacing: 0.1em; }
+#dockUI dd { margin: 0; color: #fff; }
+#dockUI dd.good { color: #63e6b8; }
+#dockUI dd.bad { color: #ff7a82; }
+#dockUI strong { display: block; margin-top: 6px; letter-spacing: 0.12em; color: #e4c68c; }
+#dockUI.aligned strong { color: #63e6b8; }
+.dock-scope { position: relative; width: 76px; height: 76px; border-radius: 50%; border: 1px solid #7993a566;
+  background: radial-gradient(circle, #1a3342aa, #050c1488); }
+.dock-scope::before, .dock-scope::after { content: ""; position: absolute; background: #7993a544; }
+.dock-scope::before { left: 50%; top: 4px; bottom: 4px; width: 1px; }
+.dock-scope::after { top: 50%; left: 4px; right: 4px; height: 1px; }
+.dock-ring { position: absolute; left: 50%; top: 50%; width: 18px; height: 18px; margin: -9px; border-radius: 50%; border: 2px solid #63e6b8; }
+#dockUI #probe { position: absolute; left: 50%; top: 50%; width: 8px; height: 8px; margin: -4px; border-radius: 50%;
+  background: #e4c68c; box-shadow: 0 0 6px #e4c68c; font-size: 0; }
+@media (max-width: 600px) { #dockUI { top: 70px; } .dock-scope { width: 60px; height: 60px; } }
+#dockUI { left: auto; right: 16px; transform: none; top: 120px; }
+@media (max-width: 600px) { #dockUI { right: 8px; top: 96px; } }
+
 .website-return { display:block; margin:12px 0; padding:12px; color:#e4c68c; text-align:center; font:12px monospace; }
