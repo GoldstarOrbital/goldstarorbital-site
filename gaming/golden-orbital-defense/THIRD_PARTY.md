@@ -8,3 +8,18 @@
 - Mars map: NASA 3D Resources, `Images and Textures/Mars/Mars.jpg`, https://github.com/nasa/NASA-3D-Resources/tree/master/Images%20and%20Textures/Mars. Downloaded unchanged and embedded in the game.
 - Asteroid surface: NASA 3D Resources Phobos map, `Images and Textures/Mars - Phobos/Mars - Phobos.jpg`, https://github.com/nasa/NASA-3D-Resources/tree/master/Images%20and%20Textures/Mars%20-%20Phobos. Used as a color and relief reference on fictional asteroid meshes; this does not represent accurate Phobos geometry.
 - NASA's repository describes these resources as free and without copyright: https://github.com/nasa/NASA-3D-Resources. Usage guidelines: https://www.nasa.gov/nasa-brand-center/images-and-media/. No NASA endorsement is implied.
+
+## NASA 3D Resources
+
+Spacecraft and asteroid models in `assets/models/` come from NASA 3D Resources
+(https://github.com/nasa/NASA-3D-Resources), published by NASA as free and
+without copyright: International Space Station, Mars Reconnaissance Orbiter,
+TDRS, Landsat 8, CALIPSO, Deep Space 1, Aqua, CloudSat, and asteroid 101955
+Bennu (1999 RQ36). Use follows NASA's media usage guidelines
+(https://www.nasa.gov/nasa-brand-center/images-and-media). NASA does not
+endorse this game, and no NASA insignia or logos are used.
+
+## Draco decoder
+
+`assets/draco/` contains the Google Draco mesh decoder (Apache License 2.0) as
+distributed with three.js, used to decompress the NASA models.

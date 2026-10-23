@@ -72,12 +72,12 @@
 
       </section>
       <section id="colonyHUD" hidden>
-        <div>COLONY <strong id="colonyHealth">100%</strong></div>
-        <div>WARMTH <strong id="colonyHeat">65%</strong></div>
-        <div>CROPS <strong id="colonyCrops">0%</strong></div>
-        <div>HARVESTS <strong id="harvests">0</strong></div>
-        <button id="warm">Warm the domes</button>
-        <button id="repairBots">Repair</button>
+        <span>COLONY <strong id="colonyHealth">100%</strong></span>
+        <span>HEAT <strong id="colonyHeat">65%</strong></span>
+        <span>CROP <strong id="colonyCrops">0%</strong></span>
+        <span hidden><strong id="harvests">0</strong></span>
+        <button id="warm" hidden></button>
+        <button id="repairBots" hidden></button>
       </section>
       <section id="networkHUD" hidden aria-label="Orbital network">
         <div class="net-head">
@@ -236,7 +236,7 @@
           <span id="eta">FLIGHT 001</span>
         </div>
         <div class="bottom">
-          <span id="pilotName">VOYAGER</span
+          <span id="pilotName" hidden>VOYAGER</span
           ><span id="controls">WASD / ARROWS steer · ESC menu</span
           >
         </div>
