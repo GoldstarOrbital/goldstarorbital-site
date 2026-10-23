@@ -966,5 +966,6 @@ canvas#radar {
 #frontierHUD { right: auto; left: 32px; bottom: auto; top: 280px; width: 220px; padding: 12px; }
 @media (max-height: 760px) { #frontierHUD { display: none; } }
 @media (max-width: 700px) { #frontierHUD { display: none; } }
+#aimHint { top: auto; bottom: 26%; }
 
 .website-return { display:block; margin:12px 0; padding:12px; color:#e4c68c; text-align:center; font:12px monospace; }
