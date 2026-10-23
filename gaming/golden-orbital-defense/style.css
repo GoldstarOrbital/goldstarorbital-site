@@ -1,3 +1,5 @@
+@font-face { font-family: "DM Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(assets/fonts/dm-sans-400.woff2) format("woff2"); }
+@font-face { font-family: "Space Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url(assets/fonts/space-mono-400.woff2) format("woff2"); }
 * {
   box-sizing: border-box;
 }
@@ -88,7 +90,7 @@ canvas {
   display: flex;
   align-items: center;
   gap: 9px;
-  font: 10px monospace;
+  font: 10px "Space Mono", monospace;
   letter-spacing: 2px;
   color: #c2cbd2;
 }
@@ -133,7 +135,7 @@ canvas {
 .flight-hud label {
   display: flex;
   justify-content: space-between;
-  font: 9px monospace;
+  font: 9px "Space Mono", monospace;
   letter-spacing: 1px;
   color: #b3c5d2;
 }
@@ -157,7 +159,7 @@ canvas {
 }
 .score strong {
   display: block;
-  font: 18px monospace;
+  font: 18px "Space Mono", monospace;
   margin-top: 3px;
   color: #e4c68c;
 }
@@ -169,7 +171,7 @@ canvas {
   text-shadow: 0 2px 30px #0007;
 }
 .eyebrow {
-  font: 10px monospace;
+  font: 10px "Space Mono", monospace;
   letter-spacing: 3px;
   color: #edc88c;
 }
@@ -203,7 +205,7 @@ p {
 .intro small {
   display: block;
   margin-top: 17px;
-  font: 10px monospace;
+  font: 10px "Space Mono", monospace;
   color: #b9d0d7;
 }
 .intro .primary {
@@ -231,7 +233,7 @@ footer {
   align-items: center;
   gap: 16px;
   margin-bottom: 22px;
-  font: 9px monospace;
+  font: 9px "Space Mono", monospace;
   letter-spacing: 2px;
   color: #d2dbe1;
 }
@@ -250,7 +252,7 @@ footer {
   display: flex;
   justify-content: space-between;
   gap: 18px;
-  font: 9px monospace;
+  font: 9px "Space Mono", monospace;
   color: #99adbb;
   letter-spacing: 1px;
 }
@@ -262,7 +264,7 @@ footer {
   top: 100px;
   left: 50%;
   transform: translateX(-50%);
-  font: 10px monospace;
+  font: 10px "Space Mono", monospace;
   color: #e8c78a;
   letter-spacing: 2px;
 }
@@ -272,7 +274,7 @@ footer {
   left: 15%;
   right: 15%;
   text-align: center;
-  font: 12px monospace;
+  font: 12px "Space Mono", monospace;
   color: #e5d0a5;
   pointer-events: none;
 }
@@ -297,7 +299,7 @@ footer {
 }
 #menu > label,
 .skins label {
-  font: 9px monospace;
+  font: 9px "Space Mono", monospace;
   letter-spacing: 2px;
   color: #98acbc;
 }
@@ -316,7 +318,7 @@ select {
 .personal {
   display: flex;
   justify-content: space-between;
-  font: 10px monospace;
+  font: 10px "Space Mono", monospace;
   color: #94a8bb;
   margin-bottom: 24px;
 }
@@ -396,7 +398,7 @@ button:disabled {
   border-radius: 5px;
 }
 .dock-label {
-  font: 10px monospace;
+  font: 10px "Space Mono", monospace;
   letter-spacing: 2px;
   color: #adc2cf;
 }
@@ -442,11 +444,11 @@ button:disabled {
   top: calc(50% - 15px);
   width: 18px;
   height: 30px;
-  font: 28px monospace;
+  font: 28px "Space Mono", monospace;
   color: #e8c787;
 }
 #dockStatus {
-  font: 9px monospace;
+  font: 9px "Space Mono", monospace;
   color: #e8c787;
 }
 .aligned #dockStatus {
@@ -484,7 +486,7 @@ button:disabled {
   background: #0a192a99;
   color: #d1dce4;
   border-radius: 5px;
-  font: 10px monospace;
+  font: 10px "Space Mono", monospace;
   touch-action: none;
   pointer-events: auto;
 }
@@ -602,7 +604,7 @@ button:disabled {
   display: flex;
   flex-direction: column;
   gap: 7px;
-  font: 9px monospace;
+  font: 9px "Space Mono", monospace;
   letter-spacing: 1px;
   color: #94aab9;
   pointer-events: none;
@@ -623,7 +625,7 @@ button:disabled {
   width: 150px;
   text-align: center;
   pointer-events: none;
-  font: 9px monospace;
+  font: 9px "Space Mono", monospace;
   letter-spacing: 1px;
   color: #9db4c5;
   background: #030a14d9;
@@ -649,7 +651,7 @@ canvas#radar {
   color: #ffb18a;
 }
 #dockMetrics {
-  font: 8px monospace;
+  font: 8px "Space Mono", monospace;
   color: #b3c3ce;
   line-height: 1.6;
   margin: 9px 0;
@@ -768,7 +770,7 @@ canvas#radar {
   padding-top: 12px;
 }
 .operations h3 {
-  font: 10px monospace;
+  font: 10px "Space Mono", monospace;
   letter-spacing: 2px;
   color: #b7c6d2;
 }
@@ -794,9 +796,9 @@ canvas#radar {
   float: right;
   color: #e3bf7d;
 }
-#frontierHUD { position:absolute; right:28px; bottom:115px; width:250px; padding:16px; background:#030a14e8; border:1px solid #b99a5b44; font:11px monospace; pointer-events:none; }
+#frontierHUD { position:absolute; right:28px; bottom:115px; width:250px; padding:16px; background:#030a14e8; border:1px solid #b99a5b44; font:11px "Space Mono", monospace; pointer-events:none; }
 #frontierHUD strong { color:#e4c68c; display:block; } #frontierHUD p { line-height:1.5; color:#b9cbd5; margin:8px 0; } #frontierHUD small { display:block; font-size:9px; line-height:1.8; color:#8fb6c4; } #raidAlert { margin-top:8px; color:#ff8e88!important; }
-.operations summary { cursor:pointer; color:#e4c68c; padding:10px 0; font:12px monospace; }
+.operations summary { cursor:pointer; color:#e4c68c; padding:10px 0; font:12px "Space Mono", monospace; }
 #quickColony { display:block; margin-top:16px; padding:12px 18px; border:1px solid #9db4c555; background:#07131bd9; color:#c9d8e1; }
 @media(max-width:700px) { #frontierHUD { right:12px; bottom:110px; width:190px; padding:10px; font-size:9px; } #frontierHUD small { font-size:8px; } }
 #colonyHUD {
@@ -808,7 +810,7 @@ canvas#radar {
   background: #081321aa;
   border: 1px solid #9db4bb30;
   backdrop-filter: blur(8px);
-  font: 9px monospace;
+  font: 9px "Space Mono", monospace;
   color: #a6bac6;
   letter-spacing: 1px;
 }
@@ -828,7 +830,7 @@ canvas#radar {
   color: #142029;
   border: 0;
   border-radius: 3px;
-  font: 9px monospace;
+  font: 9px "Space Mono", monospace;
 }
 #sensitivity {
   padding: 0;
@@ -869,7 +871,7 @@ canvas#radar {
   border-radius: 4px;
   background: #1a0d0acc;
   color: #ffc4a3;
-  font: 600 13px/1.2 monospace;
+  font: 600 13px/1.2 "Space Mono", monospace;
   letter-spacing: 0.08em;
   pointer-events: none;
   z-index: 6;
@@ -890,7 +892,7 @@ canvas#radar {
 .threat-arrow {
   position: absolute; left: 0; top: 0;
   display: flex; flex-direction: column; align-items: center; gap: 2px;
-  color: #ff6b74; font: 700 11px/1 monospace; letter-spacing: 0.06em;
+  color: #ff6b74; font: 700 11px/1 "Space Mono", monospace; letter-spacing: 0.06em;
   text-shadow: 0 0 8px #ff2d3b;
 }
 .threat-arrow i { font-style: normal; font-size: 26px; display: block; }
@@ -908,7 +910,7 @@ canvas#radar {
 #crosshair i:nth-child(3), #crosshair i:nth-child(4) { width: 7px; height: 2px; top: 12px; }
 #crosshair i:nth-child(3) { left: 0; }
 #crosshair i:nth-child(4) { right: 0; }
-#aimHint { position: fixed; left: 50%; top: calc(50% + 34px); transform: translateX(-50%); padding: 6px 12px; border-radius: 4px; background: #050912cc; color: #e4c68c; font: 12px monospace; letter-spacing: 0.06em; pointer-events: none; z-index: 5; }
+#aimHint { position: fixed; left: 50%; top: calc(50% + 34px); transform: translateX(-50%); padding: 6px 12px; border-radius: 4px; background: #050912cc; color: #e4c68c; font: 12px "Space Mono", monospace; letter-spacing: 0.06em; pointer-events: none; z-index: 5; }
 
 #hitFlash { position: fixed; inset: 0; pointer-events: none; z-index: 7; opacity: 0;
   background: radial-gradient(ellipse at center, transparent 45%, #ff1e2e88 100%); }
@@ -921,7 +923,7 @@ canvas#radar {
   transform: translateX(-50%); width: auto; max-width: calc(100vw - 32px);
   padding: 10px 14px; margin: 0; border-radius: 6px;
   background: #050c14b8; border: 1px solid #e4c68c55; backdrop-filter: blur(4px);
-  font: 11px/1.4 monospace; color: #cfe0ea; text-align: center; z-index: 6;
+  font: 11px/1.4 "Space Mono", monospace; color: #cfe0ea; text-align: center; z-index: 6;
 }
 #dockUI.aligned { border-color: #63e6b8aa; }
 #dockUI .dock-label { font-size: 10px; letter-spacing: 0.14em; color: #e4c68c; margin-bottom: 6px; }
@@ -947,12 +949,12 @@ canvas#radar {
 
 #networkHUD { position: fixed; top: 116px; right: 16px; width: 290px; max-width: calc(100vw - 32px); z-index: 6;
   padding: 10px 12px; border-radius: 6px; background: #050c14c4; border: 1px solid #e4c68c44; backdrop-filter: blur(4px);
-  font: 11px/1.35 monospace; color: #cfe0ea; }
+  font: 11px/1.35 "Space Mono", monospace; color: #cfe0ea; }
 #networkHUD .net-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
 #networkHUD .net-head strong { color: #e4c68c; letter-spacing: 0.08em; font-size: 11px; }
-#networkHUD .net-head button { font: 10px monospace; padding: 4px 8px; background: #e4c68c; color: #050912; border: 0; border-radius: 3px; cursor: pointer; }
+#networkHUD .net-head button { font: 10px "Space Mono", monospace; padding: 4px 8px; background: #e4c68c; color: #050912; border: 0; border-radius: 3px; cursor: pointer; }
 .sat-row { display: flex; gap: 4px; margin-bottom: 4px; }
-.sat-row button { font: 11px monospace; color: #e8eef2; background: #13222ecc; border: 1px solid #7993a544; border-radius: 3px; cursor: pointer; }
+.sat-row button { font: 11px "Space Mono", monospace; color: #e8eef2; background: #13222ecc; border: 1px solid #7993a544; border-radius: 3px; cursor: pointer; }
 .sat-row .sat-build { flex: 1; text-align: left; padding: 5px 7px; display: flex; flex-wrap: wrap; gap: 0 6px; align-items: baseline; }
 .sat-row .sat-build b { color: #e4c68c; }
 .sat-row .sat-build span { color: #8fb0c2; margin-left: auto; }
@@ -977,9 +979,9 @@ canvas#radar {
 #networkHUD.open .net-hint { display: none; }
 #networkHUD .net-head { margin-bottom: 0; }
 #networkHUD.open .net-head { margin-bottom: 8px; }
-.net-hint { margin-top: 6px; color: #6f8899; font: 10px monospace; letter-spacing: 0.18em; }
+.net-hint { margin-top: 6px; color: #6f8899; font: 10px "Space Mono", monospace; letter-spacing: 0.18em; }
 .sat-row .sat-build em.dim { color: #6f8899; }
-.strike { display: block; width: 100%; margin-top: 8px; padding: 6px 8px; font: 10px monospace; letter-spacing: 0.12em;
+.strike { display: block; width: 100%; margin-top: 8px; padding: 6px 8px; font: 10px "Space Mono", monospace; letter-spacing: 0.12em;
   color: #9fb3c0; background: transparent; border: 1px solid #ffffff22; border-radius: 3px; text-align: left; }
 .strike.armed { color: #fff; border-color: #ff9a5a; background: linear-gradient(90deg, #ff6a2a33, transparent); cursor: pointer;
   animation: armed 1.4s ease-in-out infinite; }
@@ -1000,7 +1002,7 @@ canvas#radar {
   letter-spacing: 0.4em; font-weight: 400; text-transform: uppercase; transition: background .3s, color .3s; }
 .intro .primary:hover { background: #f2efe8; color: #05070a; }
 .intro .secondary { background: transparent; border: 0; color: #9aa8b0; padding: 10px 0; letter-spacing: 0.25em;
-  font: 10px monospace; text-transform: uppercase; }
+  font: 10px "Space Mono", monospace; text-transform: uppercase; }
 .intro .secondary:hover { color: #f2efe8; }
 
 body[data-stage="ready"] .flight-hud, body[data-stage="ready"] .phase { display: none; }
@@ -1009,13 +1011,13 @@ body[data-stage="ready"] .flight-hud, body[data-stage="ready"] .phase { display:
 #buildWheel { position: fixed; left: 50%; top: 50%; width: 0; height: 0; z-index: 9; pointer-events: none; }
 #buildWheel::before { content: ""; position: absolute; left: -210px; top: -210px; width: 420px; height: 420px; border-radius: 50%;
   background: radial-gradient(circle, #02060bdd 30%, #02060b99 62%, transparent 72%); }
-.wheel-core { position: absolute; left: -80px; top: -34px; width: 160px; text-align: center; font: 11px monospace; color: #9fb3c0; }
+.wheel-core { position: absolute; left: -80px; top: -34px; width: 160px; text-align: center; font: 11px "Space Mono", monospace; color: #9fb3c0; }
 .wheel-core strong { display: block; color: #f2efe8; letter-spacing: 0.18em; font-size: 11px; margin-bottom: 4px; text-transform: uppercase; }
 .wheel-item { position: absolute; left: -62px; top: -26px; width: 124px; padding: 7px 6px; text-align: center; border-radius: 4px;
-  border: 1px solid #ffffff1c; background: #07111acc; font: 10px monospace; color: #cfe0ea; transition: transform .12s, border-color .12s, background .12s; }
+  border: 1px solid #ffffff1c; background: #07111acc; font: 10px "Space Mono", monospace; color: #cfe0ea; transition: transform .12s, border-color .12s, background .12s; }
 .wheel-item b { display: block; font-weight: 400; color: #f2efe8; letter-spacing: 0.04em; }
 .wheel-item span { display: block; margin-top: 3px; color: #8fa6b4; font-size: 9px; }
-.wheel-item em { position: absolute; top: -7px; right: -7px; min-width: 16px; padding: 1px 4px; border-radius: 9px; background: #e4c68c; color: #05070a; font: 9px monospace; font-style: normal; }
+.wheel-item em { position: absolute; top: -7px; right: -7px; min-width: 16px; padding: 1px 4px; border-radius: 9px; background: #e4c68c; color: #05070a; font: 9px "Space Mono", monospace; font-style: normal; }
 .wheel-item.pick { border-color: #e4c68c; background: #1b1810ee; }
 .wheel-item.pick b { color: #e4c68c; }
 .wheel-item.off { opacity: 0.45; }
@@ -1023,11 +1025,11 @@ body[data-stage="ready"] .flight-hud, body[data-stage="ready"] .phase { display:
 /* ---- Menu, wordmark, threat markers: clean typographic system ---- */
 .mark { width: 18px; height: 18px; fill: #e4c68c; vertical-align: -3px; margin-right: 10px; }
 #menu h2 { font-weight: 200; letter-spacing: 0.01em; }
-#menu .operations summary { letter-spacing: 0.22em; text-transform: uppercase; font: 11px monospace; color: #e4c68c; }
+#menu .operations summary { letter-spacing: 0.22em; text-transform: uppercase; font: 11px "Space Mono", monospace; color: #e4c68c; }
 #menu .operations button { display: flex; justify-content: space-between; align-items: baseline; width: 100%; text-align: left; }
-#menu .operations button span { color: #7f95a3; font: 10px monospace; }
-#menu .row { display: flex; justify-content: space-between; font: 11px monospace; color: #9fb3c0; letter-spacing: 0.08em; }
-.controls-list { display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; margin: 8px 0 0; font: 11px/1.45 monospace; }
+#menu .operations button span { color: #7f95a3; font: 10px "Space Mono", monospace; }
+#menu .row { display: flex; justify-content: space-between; font: 11px "Space Mono", monospace; color: #9fb3c0; letter-spacing: 0.08em; }
+.controls-list { display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; margin: 8px 0 0; font: 11px/1.45 "Space Mono", monospace; }
 .controls-list dt { color: #e4c68c; }
 .controls-list dd { margin: 0; color: #b9c7cf; }
 .threat-arrow i { width: 0; height: 0; border-left: 9px solid transparent; border-right: 9px solid transparent;
@@ -1037,7 +1039,7 @@ body[data-menu="open"] .phase { display: none; }
 
 /* ---- Quiet HUD: thin lines at the edges, nothing boxed in the middle ---- */
 #colonyHUD { left: 24px; bottom: 74px; width: auto; padding: 0; background: none; border: 0; display: flex; gap: 18px;
-  font: 10px monospace; letter-spacing: 0.14em; color: #8fa6b4; }
+  font: 10px "Space Mono", monospace; letter-spacing: 0.14em; color: #8fa6b4; }
 #colonyHUD[hidden] { display: none; }
 #colonyHUD strong { color: #e8eef2; font-weight: 400; margin-left: 6px; }
 #colonyHUD span { display: inline; }
@@ -1057,4 +1059,19 @@ body[data-hints="off"] #controls { opacity: 0; transition: opacity 1.2s; }
 .phase { opacity: 0.7; }
 body[data-stage="defense"] footer .route { visibility: hidden; }
 
-.website-return { display:block; margin:12px 0; padding:12px; color:#e4c68c; text-align:center; font:12px monospace; }
+/* ---- Type system: DM Sans for words, Space Mono for instruments ---- */
+body, button, input, select, h1, h2, h3, p { font-family: "DM Sans", system-ui, sans-serif; }
+.intro h1 { font-family: "DM Sans", system-ui, sans-serif; font-weight: 400; letter-spacing: -0.02em; }
+#menu h2, #paused h2, #ending h1 { font-family: "DM Sans", system-ui, sans-serif; font-weight: 400; letter-spacing: -0.01em; }
+
+/* ---- Level card ---- */
+#levelCard { position: fixed; left: 50%; top: 30%; transform: translate(-50%, -50%); text-align: center; pointer-events: none;
+  z-index: 8; opacity: 0; transition: opacity 0.9s ease; }
+#levelCard.on { opacity: 1; }
+#levelCard small { display: block; font: 11px "Space Mono", monospace; letter-spacing: 0.5em; color: #e4c68c; margin-bottom: 10px; }
+#levelCard strong { display: block; font: 400 clamp(28px, 4vw, 46px) "DM Sans", sans-serif; letter-spacing: -0.01em; color: #f2efe8;
+  text-shadow: 0 2px 24px #000c; }
+
+/* Docking: readout tucked bottom-right, away from the station and the level card. */
+#dockUI { top: auto; bottom: 64px; right: 24px; }
+body[data-stage="docking"] footer .route { visibility: hidden; }

@@ -6,9 +6,7 @@
     <meta name="theme-color" content="#050912" />
     <title>Golden Orbital Defense</title>
     <link rel="stylesheet" href="style.css" />
-  <link rel="canonical" href="https://goldstarorbital.com/gaming/golden-orbital-defense/">
-<meta name="description" content="Launch from Earth, fight your way to Mars, and protect your colony in Golden Orbital Defense, a free browser space game.">
-</head>
+  </head>
   <body>
     <main id="game">
       <canvas
@@ -57,6 +55,7 @@
       <div id="rearWarning" hidden role="alert"></div>
       <div id="threatArrows" aria-hidden="true"></div>
       <div id="hitFlash"></div>
+      <div id="levelCard" aria-live="polite"><small id="levelNo"></small><strong id="levelName"></strong></div>
       <div id="buildWheel" hidden aria-label="Build wheel"><div class="wheel-core"><strong id="wheelTitle"></strong><span id="wheelInfo"></span></div></div>
       <div id="crosshair" hidden aria-hidden="true"><i></i><i></i><i></i><i></i></div>
       <div id="aimHint" hidden>CLICK TO TAKE CONTROL</div>
@@ -161,8 +160,7 @@
         <button id="continue" class="primary">Resume</button
         ><button id="save">Save</button
         ><button id="resume">Load save</button
-        ><a class="website-return" href="/gaming/">← Back to Gaming</a>
-<button id="restart">New expedition</button>
+        ><button id="restart">New expedition</button>
         <details class="operations">
           <summary>Ship</summary>
           <p class="row">Credit <strong id="credits">0</strong></p>

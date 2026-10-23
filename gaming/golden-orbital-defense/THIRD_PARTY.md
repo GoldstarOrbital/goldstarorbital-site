@@ -23,3 +23,8 @@ endorse this game, and no NASA insignia or logos are used.
 
 `assets/draco/` contains the Google Draco mesh decoder (Apache License 2.0) as
 distributed with three.js, used to decompress the NASA models.
+
+## Fonts
+
+DM Sans and Space Mono, SIL Open Font License 1.1 (licence texts in
+`assets/fonts/`).
