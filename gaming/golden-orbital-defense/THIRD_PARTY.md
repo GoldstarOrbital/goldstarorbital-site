@@ -28,3 +28,5 @@ distributed with three.js, used to decompress the NASA models.
 
 DM Sans and Space Mono, SIL Open Font License 1.1 (licence texts in
 `assets/fonts/`).
+
+The Aegis orbital interceptor is original project geometry and materials. NASA spacecraft models continue to be used for the station and support network. Mars surface detail beyond the source colour map is a stylized rendering treatment, not an elevation dataset.
